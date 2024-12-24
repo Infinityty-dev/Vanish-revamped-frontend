@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-// import { FaInstagram } from "react-icons/fa";
-// import { FaXTwitter } from "react-icons/fa6";
-// import { TbWorldWww } from "react-icons/tb";
-// import { IoLogoGithub } from "react-icons/io";
+import { FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { TbWorldWww } from "react-icons/tb";
+import { IoLogoGithub } from "react-icons/io";
 const TeamCard = (props) => {
   return (
     <Container>
@@ -21,10 +21,10 @@ const TeamCard = (props) => {
                 <p>{props.about3}</p>
                 <p>{props.about4}</p>
                 <div>
-                    {/* <a href={props.insta}><FaInstagram /></a>
+                    <a href={props.insta}><FaInstagram /></a>
                     <a href={props.x}><FaXTwitter /></a>
                     <a href={props.www}><TbWorldWww /></a>
-                    <a href={props.git}><IoLogoGithub /></a> */}
+                    <a href={props.git}><IoLogoGithub /></a>
                 </div>
         </div>
        </div>
