@@ -1,5 +1,5 @@
 import React from 'react'
-import TeamCard from '../Component/TeamCard'
+import TeamCard from '../Component/TeamCard.jsx'
 import styled from 'styled-components'
 
 

@@ -2,19 +2,21 @@
 
 import styled from 'styled-components';
 // import Button from '../Component/Button.jsx'
-// import ServiceCard from '/src/Component/ServicesCard.jsx'
-// import { IoTimeSharp } from "react-icons/io5";
-// import { GiPadlock } from "react-icons/gi";
-// import { PiFolderOpen } from "react-icons/pi";
-// import { FaLocationDot } from "react-icons/fa6";
-// import { IoIosSpeedometer } from "react-icons/io";
-// import { FaShippingFast } from "react-icons/fa";
-import Button from '../../Component/Button';
+import ServiceCard from '../../Component/ServicesCard.jsx'
+import { IoTimeSharp } from "react-icons/io5";
+import { GiPadlock } from "react-icons/gi";
+import { PiFolderOpen } from "react-icons/pi";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoIosSpeedometer } from "react-icons/io";
+import { FaShippingFast } from "react-icons/fa";
+import Button from '../../Component/Button.jsx';
 
 
 
 
 const Home = ()=>{
+
+
   return(
     <Container>
      <div class='hero'>
@@ -54,7 +56,7 @@ const Home = ()=>{
                          </div>
                        
                          <div className='form-cards'>
-                             {/* <div>
+                             <div>
                              <IoIosSpeedometer size={25} color='#126A10 '/>
                                  <p color='black'>Schedule</p>
                              </div>
@@ -62,7 +64,7 @@ const Home = ()=>{
                              <FaShippingFast size={25} color='#126A10 '/>
                                  <p>Instant</p>
                              </div>
-                              */}
+                             
                          </div>
 
                          <label for='services'>Services</label> <br/>
@@ -96,9 +98,9 @@ const Home = ()=>{
              </p>
          </div>
              <div className='serviceCards'>
-                 {/* <ServiceCard img ={<IoTimeSharp  size={30}/>} title='Track Every Van In Real Time' text1='Stay updated on your van exact' text2='location with instant tracking' text3='notification'/>
+                 <ServiceCard img ={<IoTimeSharp  size={30}/>} title='Track Every Van In Real Time' text1='Stay updated on your van exact' text2='location with instant tracking' text3='notification'/>
                  <ServiceCard img ={<GiPadlock   size={30}/>} title='Items Security' text1='item security is our top priority' text2='' text3=''/>
-                 <ServiceCard img ={<PiFolderOpen  size={30}/>} title='Clear & No Hidden Fees' text1='Pay exactly what is stated' text2='without unexpected or additional' text3='charges.'/> */}
+                 <ServiceCard img ={<PiFolderOpen  size={30}/>} title='Clear & No Hidden Fees' text1='Pay exactly what is stated' text2='without unexpected or additional' text3='charges.'/>
              </div>
 
              <div className='fleet-safety-outer-box'>
@@ -347,7 +349,7 @@ section{
       position: absolute;
       top: -100px;
       right: -110px;
-      width: 70%;
+      width: 65%;
     
     }
 
