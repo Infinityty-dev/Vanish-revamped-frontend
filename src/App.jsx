@@ -1,12 +1,12 @@
 
 import './App.css'
-// import Home from './Pages/Home/Home'
+import Home from './pages/Home/Home'
 // import Services from './Pages/Services'
-// import Header from './Component/Header'
-// import Footer from './Pages/Footer.jsx'
+import Header from '../src/components/Header.jsx'
+import Footer from './pages/Footer.jsx'
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 // import SignUp from './Pages/Signup/Signup'
-// import Team from './Pages/Team.jsx'
+import Team from '../src/pages/Team.jsx'
 
 function App() {
 
@@ -15,7 +15,7 @@ function App() {
      <BrowserRouter>
          <Header/>
          <Routes>
-            {/* <Home/> */}
+            <Home/>
             {/* <Route path="/" element={<Home />} /> */}
             {/* <Route path="#services" element={<Services/>}/> */}
             {/* <Route path="/SignUp" element={<SignUp />} /> */}
