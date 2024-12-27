@@ -88,11 +88,11 @@ const Home = ()=>{
   const [endLocation, setEndLocation] = useState("");
   const [filteredLocations, setFilteredLocations] = useState(locations);
   const [quote, setQuote] = useState(null);
-  const [isQuoteVisible, setQuoteVisible] = useState(true);
+  const [isQuoteVisible, setQuoteVisible] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
-    // console.log("Form submitted:", formData);
+    
   };
 
   // Handlers
@@ -228,8 +228,8 @@ const Home = ()=>{
                                                 borderRadius: "5px",
                                                 backgroundColor: "#f9f9f9",
                                                 position: "absolute",
-                                                top: "30%",
-                                                left: "30%",
+                                                top: "10%",
+                                                left: "-120%",
                                                 transform: "translate(-30%, -30%)",
                                                 width: "200px",
                                                 height:"200px",
@@ -238,15 +238,27 @@ const Home = ()=>{
                                             >
                                               <h3>Quote</h3>
                                               <p>{quote}</p>
-                                              <button onClick={() => setQuoteVisible(false)}>Close</button>
+                                              <a href="/about-us"><button onClick={() => setQuoteVisible(false)} >Close</button></a>
                                             </div>
                                           )}
 
                          <div className='form-button'>
-                          <button onClick={calculateQuote} >
-                            get a quote
-                          </button>
-                          <Button onClick={{calculateQuote}}  name='Get A Quote' width= {160} height={48} bgcolor='rgb(18, 106, 16)' color='white'/>
+                          <button onClick={calculateQuote}   style={{
+                                                                      width: "160",
+                                                                      height: "48",
+                                                                      borderRadius: '15px',
+                                                                      backgroundColor: '#126a10',
+                                                                      color: 'white',
+                                                                      border: '2px solid #126A10',
+                                                                      cursor: 'pointer',
+                                                                      marginRight: '20px',
+                                                                      marginTop:"20px",
+                                                                      padding:"10px 25px",
+                                                                      boxShadow:'1px 1px 12px lightgrey '
+                                                                    }}>
+                                                                      Get A Quote
+                                                                    </button>
+                          {/* <Button onClick={calculateQuote} name='Get A Quote' width= {160} height={48} bgcolor='#126a10' color='white'/> */}
                           </div>
                  </form>
 
@@ -517,14 +529,14 @@ section{
 
     .fleetCar{
       position: absolute;
-      top: -100px;
-      right: -110px;
+      top: -50px;
+      right: -56px;
       width: 65%;
     
     }
 
     h3{
-      padding-top: 140px;
+      padding-top: 155px;
       margin-bottom: 10px;
     }
     h1{
