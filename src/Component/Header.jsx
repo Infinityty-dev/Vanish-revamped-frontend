@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <Container>
         <div class='logo'>
-            <img src="/logo.png" alt="vanish logo" />
+            <a href="/"><img  src="/logo.png" alt="vanish logo" /></a>
         </div>
         <div class='nav'>
             <ul id="nav">
@@ -52,6 +52,7 @@ const Container = styled.div`
   .logo{
     img{
       width:150px;
+      cursor: pointer;
     }
   }
 
