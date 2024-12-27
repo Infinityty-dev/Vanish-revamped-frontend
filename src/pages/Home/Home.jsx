@@ -158,7 +158,7 @@ const Home = ()=>{
                  <h2>Move from A to Z</h2>
                  <p>Track your van every step of the way</p>
                  <hr/>
-                 <form onSubmit={handleSubmit} >
+                 <form onSubmit={handleSubmit}style={{position:"relative"}} >
                          <label>Pick Up Location</label> <br/>
                          <div className='input1 dropdown-container'>
                            <div>
@@ -228,12 +228,13 @@ const Home = ()=>{
                                                 borderRadius: "5px",
                                                 backgroundColor: "#f9f9f9",
                                                 position: "absolute",
-                                                top: "10%",
-                                                left: "-120%",
+                                                top: "60%",
+                                                left: "60%",
                                                 transform: "translate(-30%, -30%)",
                                                 width: "200px",
                                                 height:"200px",
                                                 textAlign: "center",
+                                                color:"black",
                                               }}
                                             >
                                               <h3>Quote</h3>
@@ -287,7 +288,7 @@ const Home = ()=>{
 
              <div className='fleet-safety-outer-box'>
              <div className='fleet-safety-text-box fleet-safety-inner-box'>
-                 <img className='fleetCar' src="/fleet-car.png" alt="" />
+                 <img className='fleetCar fleetCarMobile ' src="/fleet-car.png" alt="" />
                  <h3>Your Fleet's Safety, Our Top Priority</h3>
                  <p>Regular safety checks and maintenance are <br />part of our commitment to keeping your fleet <br /> in top condition. Our app schedule and <br />track inspections, ensuring that every <br /> vehicle meets stringent safety standards</p>
 
@@ -689,13 +690,12 @@ section{
     border: none;
     background-color: #fff;
   }
-    .fleetCar{
+  .fleetCarMobile{
       position: absolute;
       top: 300px;
       right: 110px;
-      width: 350px;
+      width: 50px;
     }
-
     .fleet-safety-inner-box h3{
       padding-top: 100px;
       margin-bottom: 10px;
@@ -708,7 +708,7 @@ section{
       /* position: relative; */
     }
     .doubleQuote{
-      width: 40px;
+      width: 30px;
     }
 
     .sbutton{
