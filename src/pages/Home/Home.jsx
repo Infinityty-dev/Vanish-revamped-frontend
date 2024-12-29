@@ -75,10 +75,7 @@ const Home = ()=>{
     { id: 52, name: "Ikosi-Isheri",r_dist:10 },
     { id: 53, name: "Agboyi-Ketu",r_dist:10 },
     { id: 54, name: "Yaba" ,r_dist:10},
-    
-
   
-    
   ];
 
   const ratePerKm = 1.5; // Fixed rate per kilometer
@@ -90,8 +87,11 @@ const Home = ()=>{
   const [quote, setQuote] = useState(null);
   const [isQuoteVisible, setQuoteVisible] = useState(false);
 
+
+
+    // Prevent the default form submission behavior
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
+    e.preventDefault(); 
     
   };
 
@@ -158,6 +158,7 @@ const Home = ()=>{
                  <h2>Move from A to Z</h2>
                  <p>Track your van every step of the way</p>
                  <hr/>
+                 {/* **************************************************FORM************************* */}
                  <form onSubmit={handleSubmit}style={{position:"relative"}} >
                          <label>Pick Up Location</label> <br/>
                          <div className='input1 dropdown-container'>
@@ -194,8 +195,8 @@ const Home = ()=>{
                             </datalist>
                                 
                          </div>
-                       
-                         {/* <div className='form-cards'>
+                       {/* ***************** */}
+                         <div className='form-cards'>
                              <div>
                              <IoIosSpeedometer size={25} color='#126A10 '/>
                                  <p color='black'>Schedule</p>
@@ -205,7 +206,8 @@ const Home = ()=>{
                                  <p>Instant</p>
                              </div>
                             
-                         </div> */}
+                         </div>
+                         {/* ************************ */}
 
                          <label for='services'>Services</label> <br/>
                          <div className='input1'>
