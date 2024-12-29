@@ -1,5 +1,4 @@
-// import Location from "../../Component/Locaton"
-
+import Location from "../../Component/Location.jsx"
 import styled from 'styled-components';
 // import Button from '../Component/Button.jsx'
 import ServiceCard from '../../Component/ServicesCard.jsx'
@@ -18,6 +17,7 @@ const Home = ()=>{
 
 
   return(
+   <>
     <Container>
      <div class='hero'>
              <div className='hero-text'>
@@ -148,7 +148,9 @@ const Home = ()=>{
     
 
     </Container>
+    <Location/>
 
+    </>
  )
 }
 
