@@ -1,13 +1,25 @@
 import styled from 'styled-components'
 import { GiHamburgerMenu } from "react-icons/gi"
 import Button from '/src/Component/Button.jsx'
-import React from 'react'
+import { useState } from 'react'
 
 const Header = () => {
+
+
+  // State to track if the pane is open or closed
+  const [isOpen, setIsOpen] = useState(false);
+
+    // Toggle the state
+    const toggleMenu = () => {
+      setIsOpen(!isOpen);
+    };
+
+
+
   return (
     <Container>
         <div class='logo'>
-            <img src="/logo.png" alt="vanish logo" />
+            <a href="/"><img  src="/logo.png" alt="vanish logo" /></a>
         </div>
         <div class='nav'>
             <ul id="nav">
@@ -15,12 +27,18 @@ const Header = () => {
                 <a href="/services"><li>Services</li></a>
                 <a href="/about-us"><li>About Us</li></a>
             </ul>
-            <ul id="nav2">
-                <a href="/"><li>Home</li></a>
-                <a href="/services"><li>Services</li></a>
-                <a href="/about-us"><li>About Us</li></a>
-            </ul>
-            <GiHamburgerMenu className="hamburger" onClick={() => {document.getElementById('#nav2').classList.toggle('show')}} />
+           
+            <GiHamburgerMenu className="hamburger" onClick={toggleMenu} />
+             {/* Side Pane */}
+              <div className={`side-pane ${isOpen ? "open" : ""}`} id='sidePane'>
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/services">Servicest</a></li>
+                  <li><a href="/about-us">About-Us</a></li>
+                  <li><a href="/sign-in">Sign In</a></li>
+                  <li><a href="/log-in">Log In</a></li>
+                </ul>
+              </div>
         </div>
         <div class='btn'>
         <a href="/SignUp"><Button name='Sign Up' bgcolor='#126A10' color='white ' width= {160} height={48}/></a>
@@ -48,10 +66,14 @@ const Container = styled.div`
   .hamburger{
     display: none;
   }
+  #sidePane{
+    display: none;
+  }
 
   .logo{
     img{
       width:150px;
+      cursor: pointer;
     }
   }
 
@@ -116,14 +138,54 @@ const Container = styled.div`
     #nav{
       display:none; 
     } 
-    /* #nav2 ul li{
-      display:none; 
-    }  */
+   
     .btn{
       display:none;
     }
     .hamburger{
     display: flex;
   }
+
+  /* Side pane */
+  #sidePane{
+    display: flex;
+  }
+.side-pane {
+  position: fixed;
+  top: 40px;
+  right: -250px; /* Initially hidden */
+  width: 150px;
+  height: fit;
+  padding-bottom: 50px;
+  background: #383737a3;
+  /* color: red; */
+  transition: 0.3s ease-in-out;
+  padding: 10px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  
+}
+
+.side-pane.open {
+  right: 0; /* Slide in when open */
+}
+
+.side-pane ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-pane li {
+  /* margin-right: 10px ; */
+  /* text-align: right; */
+}
+
+.side-pane a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
   }
   `

@@ -1,4 +1,7 @@
+
 import Location from "../../Component/Location.jsx"
+
+import { useState } from 'react'; 
 import styled from 'styled-components';
 // import Button from '../Component/Button.jsx'
 import ServiceCard from '../../Component/ServicesCard.jsx'
@@ -14,6 +17,129 @@ import Button from '../../Component/Button.jsx';
 
 
 const Home = ()=>{
+
+
+  const locations = [
+
+    { id: 1, name: "Ajeromi-Ifelodun",r_dist:100 },
+    { id: 2, name: "Alimosho",r_dist:10 },
+    { id: 3, name: "Amuwo-Odofin" ,r_dist:10},
+    { id: 4, name: "Apapa",r_dist:10 },
+    { id: 5, name: "Badagry" ,r_dist:10},
+    { id: 6, name: "Agege" ,r_dist:10},
+    { id: 7, name: "Epe" ,r_dist:10},
+    { id: 8, name: "Eti-Osa",r_dist:10 },
+    { id: 9, name: "Ibeju-Lekki" ,r_dist:10},
+    { id: 10, name: "Ifako-Ijaiye" ,r_dist:10},
+    { id: 11, name: "Ikeja" ,r_dist:10},
+    { id: 12, name: "Ikorodu" ,r_dist:10},
+    { id: 13, name: "Kosofe",r_dist:10 },
+    { id: 14, name: "Lagos Island",r_dist:10 },
+    { id: 15, name: "Lagos Mainland" ,r_dist:10},
+    { id: 16, name: "Mushin" ,r_dist:10},
+    { id: 17, name: "Ojo" ,r_dist:10},
+    { id: 18, name: "Oshodi-Isolo" ,r_dist:10},
+    { id: 19, name: "Shomolu" ,r_dist:10},
+    { id: 20, name: "Surulere" ,r_dist:10},
+    { id: 21, name: "Agbado/Oke-Odo" ,r_dist:10},
+    { id: 22, name: "Agboyi-Ketu",r_dist:10 },
+    { id: 23, name: "Ayobo-Ipaja",r_dist:10 },
+    { id: 24, name: "Bariga",r_dist:10 },
+    { id: 25, name: "Eredo",r_dist:10 },
+    { id: 26, name: "Egbe-Idimu",r_dist:10 },
+    { id: 27, name: "Ejigbo" ,r_dist:10},
+    { id: 28, name: "Igando-Ikotun" ,r_dist:10},
+    { id: 29, name: "Ikosi-Isheri",r_dist:10 },
+    { id: 30, name: "Isolo" ,r_dist:10},
+    { id: 31, name: "Mosan-Okunola",r_dist:10 },
+    { id: 32, name: "Odi Olowo-Ojuwoye",r_dist:10 },
+    { id: 33, name: "Ojodu",r_dist:10 },
+    { id: 34, name: "Ojokoro",r_dist:10 },
+    { id: 35, name: "Onigbongbo",r_dist:10 },
+    { id: 36, name: "Orile Agege",r_dist:10 },
+    { id: 37, name: "Ikorodu North" ,r_dist:10},
+    { id: 38, name: "Ikorodu West" ,r_dist:10},
+    { id: 39, name: "Igbogbo-Baiyeku",r_dist:10 },
+    { id: 40, name: "Ijede" ,r_dist:10},
+    { id: 41, name: "Imota",r_dist:10 },
+    { id: 42, name: "Agbowa-Ikosi" ,r_dist:10},
+    { id: 43, name: "Ikosi-Ejinrin",r_dist:10 },
+    { id: 44, name: "Badagry West",r_dist:10 },
+    { id: 45, name: "Olorunda" ,r_dist:10},
+    { id: 46, name: "Apapa-Iganmu",r_dist:10 },
+    { id: 47, name: "Itire-Ikate",r_dist:10 },
+    { id: 48, name: "Coker-Aguda",r_dist:10 },
+    { id: 49, name: "Igando-Ikotun",r_dist:10 },
+    { id: 50, name: "Ejigbo",r_dist:10 },
+    { id: 51, name: "Isolo",r_dist:10 },
+    { id: 52, name: "Ikosi-Isheri",r_dist:10 },
+    { id: 53, name: "Agboyi-Ketu",r_dist:10 },
+    { id: 54, name: "Yaba" ,r_dist:10},
+    
+
+  
+    
+  ];
+
+  const ratePerKm = 1.5; // Fixed rate per kilometer
+
+  // States
+  const [startLocation, setStartLocation] = useState("");
+  const [endLocation, setEndLocation] = useState("");
+  const [filteredLocations, setFilteredLocations] = useState(locations);
+  const [quote, setQuote] = useState(null);
+  const [isQuoteVisible, setQuoteVisible] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+    
+  };
+
+  // Handlers
+  const handleStartChange = (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    setStartLocation(value);
+    setFilteredLocations(
+      locations.filter((location) =>
+        location.name.toLowerCase().includes(value.toLowerCase())
+      )
+    );
+  };
+
+  const handleEndChange = (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    setEndLocation(value);
+    setFilteredLocations(
+      locations.filter((location) =>
+        location.name.toLowerCase().includes(value.toLowerCase())
+      )
+    );
+  };
+  
+
+  const calculateQuote = () => {
+    
+    if (!startLocation || !endLocation) {
+      alert("Please select both locations.");
+      return;
+    }
+
+    const distance = Math.abs(
+      locations.find((loc) => loc.name === startLocation).r_dist - locations.find((loc) => loc.name === endLocation).r_dist
+    );
+    console.log('dist:',distance);
+    
+    const cost = distance * ratePerKm;
+    setQuote(`The estimated cost is $${cost.toFixed(2)}`);
+    setQuoteVisible(true);
+  };
+
+
+// ***************************************************************
+
+
 
 
   return(
@@ -33,17 +159,25 @@ const Home = ()=>{
                  <h2>Move from A to Z</h2>
                  <p>Track your van every step of the way</p>
                  <hr/>
-                 <form >
+                 <form onSubmit={handleSubmit}style={{position:"relative"}} >
                          <label>Pick Up Location</label> <br/>
                          <div className='input1 dropdown-container'>
                            <div>
                            <FaLocationDot size={25} /> 
                            </div>
-                           <input id='input1'className='input' type='text' placeholder='pick up location'/>
+                           <input id='input1'className='input' type='text' value={startLocation} list='locations' onChange={handleStartChange} placeholder='pick up location'/>
+
+                           <datalist id="locations">
+                              {filteredLocations.map((location) => (
+                                <option key={location.id} value={location.name} />
+                              ))}
+                            </datalist>
+
+                          
                            
-                         </div>
-                         <br/>
-                         <br/>
+                          </div>
+                          <br/>
+                          <br/>
 
 
                          <label>Drop Off Location</label> <br/>
@@ -51,11 +185,18 @@ const Home = ()=>{
                            <div>
                            <FaLocationDot size={25} /> 
                            </div>
-                           <input id='input2' className='input' type='text' placeholder='drop off location'/>
+                           <input id='input2' className='input' type='text' value={endLocation} onChange={handleEndChange} list="locations" placeholder='drop off location'/>
+                          
+
+                           <datalist id="locations">
+                              {filteredLocations.map((location) => (
+                                <option key={location.id} value={location.name} />
+                              ))}
+                            </datalist>
                                 
                          </div>
                        
-                         <div className='form-cards'>
+                         {/* <div className='form-cards'>
                              <div>
                              <IoIosSpeedometer size={25} color='#126A10 '/>
                                  <p color='black'>Schedule</p>
@@ -64,8 +205,8 @@ const Home = ()=>{
                              <FaShippingFast size={25} color='#126A10 '/>
                                  <p>Instant</p>
                              </div>
-                             
-                         </div>
+                            
+                         </div> */}
 
                          <label for='services'>Services</label> <br/>
                          <div className='input1'>
@@ -77,7 +218,50 @@ const Home = ()=>{
                          </div>
                         <div id='output'></div>
 
-                         <div className='form-button'><Button name='Get A Quote' width= {160} height={48} bgcolor='rgb(18, 106, 16)' color='white'/></div>
+                        {isQuoteVisible && (
+                                            <div
+                                              style={{
+                                                marginTop: "20px",
+                                                margin:"auto",
+                                                alignContent:"center",
+                                                padding: "10px",
+                                                border: "1px solid #ccc",
+                                                borderRadius: "5px",
+                                                backgroundColor: "#f9f9f9",
+                                                position: "absolute",
+                                                top: "60%",
+                                                left: "60%",
+                                                transform: "translate(-30%, -30%)",
+                                                width: "200px",
+                                                height:"200px",
+                                                textAlign: "center",
+                                                color:"black",
+                                              }}
+                                            >
+                                              <h3>Quote</h3>
+                                              <p>{quote}</p>
+                                              <a href="/about-us"><button onClick={() => setQuoteVisible(false)} >Close</button></a>
+                                            </div>
+                                          )}
+
+                         <div className='form-button'>
+                          <button onClick={calculateQuote}   style={{
+                                                                      width: "160",
+                                                                      height: "48",
+                                                                      borderRadius: '15px',
+                                                                      backgroundColor: '#126a10',
+                                                                      color: 'white',
+                                                                      border: '2px solid #126A10',
+                                                                      cursor: 'pointer',
+                                                                      marginRight: '20px',
+                                                                      marginTop:"20px",
+                                                                      padding:"10px 25px",
+                                                                      boxShadow:'1px 1px 12px lightgrey '
+                                                                    }}>
+                                                                      Get A Quote
+                                                                    </button>
+                          {/* <Button onClick={calculateQuote} name='Get A Quote' width= {160} height={48} bgcolor='#126a10' color='white'/> */}
+                          </div>
                  </form>
 
                  <img className='heroImage' src="/hero-image.png" alt="" />
@@ -105,7 +289,7 @@ const Home = ()=>{
 
              <div className='fleet-safety-outer-box'>
              <div className='fleet-safety-text-box fleet-safety-inner-box'>
-                 <img className='fleetCar' src="/fleet-car.png" alt="" />
+                 <img className='fleetCar fleetCarMobile ' src="/fleet-car.png" alt="" />
                  <h3>Your Fleet's Safety, Our Top Priority</h3>
                  <p>Regular safety checks and maintenance are <br />part of our commitment to keeping your fleet <br /> in top condition. Our app schedule and <br />track inspections, ensuring that every <br /> vehicle meets stringent safety standards</p>
 
@@ -349,14 +533,14 @@ section{
 
     .fleetCar{
       position: absolute;
-      top: -100px;
-      right: -110px;
+      top: -50px;
+      right: -56px;
       width: 65%;
     
     }
 
     h3{
-      padding-top: 140px;
+      padding-top: 155px;
       margin-bottom: 10px;
     }
     h1{
@@ -509,13 +693,12 @@ section{
     border: none;
     background-color: #fff;
   }
-    .fleetCar{
+  .fleetCarMobile{
       position: absolute;
       top: 300px;
       right: 110px;
-      width: 350px;
+      width: 50px;
     }
-
     .fleet-safety-inner-box h3{
       padding-top: 100px;
       margin-bottom: 10px;
@@ -528,7 +711,7 @@ section{
       /* position: relative; */
     }
     .doubleQuote{
-      width: 40px;
+      width: 30px;
     }
 
     .sbutton{
