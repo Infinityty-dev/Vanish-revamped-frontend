@@ -1,5 +1,7 @@
-// import Location from "../../Component/Locaton"
-import { useState } from 'react';
+
+import Location from "../../Component/Location.jsx"
+
+import { useState } from 'react'; 
 import styled from 'styled-components';
 // import Button from '../Component/Button.jsx'
 import ServiceCard from '../../Component/ServicesCard.jsx'
@@ -15,8 +17,6 @@ import Button from '../../Component/Button.jsx';
 
 
 const Home = ()=>{
-
-// // *************************************************************
 
 
   const locations = [
@@ -143,6 +143,7 @@ const Home = ()=>{
 
 
   return(
+   <>
     <Container>
      <div class='hero'>
              <div className='hero-text'>
@@ -331,7 +332,9 @@ const Home = ()=>{
     
 
     </Container>
+    <Location/>
 
+    </>
  )
 }
 
