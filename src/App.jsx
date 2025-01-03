@@ -13,6 +13,7 @@ import SignUp from './Component/SignUp.jsx'
 import SignIn from './Component/SignIn.jsx'
 import DriversSignUp from './Component/DriversSignUp.jsx'
 import DriversSignIn from './Component/DriversSignIn.jsx'
+import DriversDashboard from './Component/DriversDashboard.jsx'
 
 function App() {
 
@@ -29,6 +30,9 @@ function App() {
             <Route path="/SignIn" element={<SignIn/>} />
             <Route path="/DriversSignUp" element={<DriversSignUp/>} />
             <Route path="/DriversSignIn" element={<DriversSignIn/>} />
+            <Route path="/DriversDashboard" element={<DriversDashboard/>} />
+          
+            
 
 
        </Routes>
