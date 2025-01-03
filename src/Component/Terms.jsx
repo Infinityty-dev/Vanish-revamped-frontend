@@ -6,51 +6,133 @@ const Terms = () => {
 
         <Content>
                <h2>Terms and Conditions</h2>
-               <h4>Your Agreement </h4>
-             <p>Last Revised: December 16, 2013 <br />
-             Welcome to www.lorem-ipsum.info. This site is provided as a service to our visitors and may be used for informational purposes only. Because the Terms and Conditions contain legal obligations, please read them carefully.</p>
-                1. YOUR AGREEMENT
-                <p>By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.
-                PLEASE NOTE: We reserve the right, at our sole discretion, to change, modify or otherwise alter these Terms and Conditions at any time. Unless otherwise indicated, amendments will become effective immediately. Please review these Terms and Conditions periodically. Your continued use of the Site following the posting of changes and/or modifications will constitute your acceptance of the revised Terms and Conditions and the reasonableness of these standards for notice of changes. For your information, this page was last updated as of the date at the top of these terms and conditions.</p>
-                2. PRIVACY
-                <p>Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.
-                </p>
-                3. LINKED SITES
-                <p>This Site may contain links to other independent third-party Web sites ("Linked Sites”). These Linked Sites are provided solely as a convenience to our visitors. Such Linked Sites are not under our control, and we are not responsible for and does not endorse the content of such Linked Sites, including any information or materials contained on such Linked Sites. You will need to make your own independent judgment regarding your interaction with these Linked Sites.
-                </p>
-                4. FORWARD LOOKING STATEMENTS 
-                <p>All materials reproduced on this site speak as of the original date of publication or filing. The fact that a document is available on this site does not mean that the information contained in such document has not been modified or superseded by events or by a subsequent document or filing. We have no duty or policy to update any information or statements contained on this site and, therefore, such information or statements should not be relied upon as being current as of the date you access this site.
-                </p>
-                5. DISCLAIMER OF WARRANTIES AND LIMITATION OF LIABILITY
-                <p>A. THIS SITE MAY CONTAIN INACCURACIES AND TYPOGRAPHICAL ERRORS. WE DOES NOT WARRANT THE ACCURACY OR COMPLETENESS OF THE MATERIALS OR THE RELIABILITY OF ANY ADVICE, OPINION, STATEMENT OR OTHER INFORMATION DISPLAYED OR DISTRIBUTED THROUGH THE SITE. YOU EXPRESSLY UNDERSTAND AND AGREE THAT: (i) YOUR USE OF THE SITE, INCLUDING ANY RELIANCE ON ANY SUCH OPINION, ADVICE, STATEMENT, MEMORANDUM, OR INFORMATION CONTAINED HEREIN, SHALL BE AT YOUR SOLE RISK; (ii) THE SITE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS; (iii) EXCEPT AS EXPRESSLY PROVIDED HEREIN WE DISCLAIM ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, WORKMANLIKE EFFORT, TITLE AND NON-INFRINGEMENT; (iv) WE MAKE NO WARRANTY WITH RESPECT TO THE RESULTS THAT MAY BE OBTAINED FROM THIS SITE, THE PRODUCTS OR SERVICES ADVERTISED OR OFFERED OR MERCHANTS INVOLVED; (v) ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SITE IS DONE AT YOUR OWN DISCRETION AND RISK; and (vi) YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR FOR ANY LOSS OF DATA THAT RESULTS FROM THE DOWNLOAD OF ANY SUCH MATERIAL.
-                </p>
-                <p>B. YOU UNDERSTAND AND AGREE THAT UNDER NO CIRCUMSTANCES, INCLUDING, BUT NOT LIMITED TO, NEGLIGENCE, SHALL WE BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, PUNITIVE OR CONSEQUENTIAL DAMAGES THAT RESULT FROM THE USE OF, OR THE INABILITY TO USE, ANY OF OUR SITES OR MATERIALS OR FUNCTIONS ON ANY SUCH SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THE FOREGOING LIMITATIONS SHALL APPLY NOTWITHSTANDING ANY FAILURE OF ESSENTIAL PURPOSE OF ANY LIMITED REMEDY.</p>
-                6. EXCLUSIONS AND LIMITATIONS
-                <p>SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES. ACCORDINGLY, OUR LIABILITY IN SUCH JURISDICTION SHALL BE LIMITED TO THE MAXIMUM EXTENT PERMITTED BY LAW.
-                </p>
-                7. OUR PROPRIETARY RIGHTS
-                <p>This Site and all its Contents are intended solely for personal, non-commercial use. Except as expressly provided, nothing within the Site shall be construed as conferring any license under our or any third party's intellectual property rights, whether by estoppel, implication, waiver, or otherwise. Without limiting the generality of the foregoing, you acknowledge and agree that all content available through and used to operate the Site and its services is protected by copyright, trademark, patent, or other proprietary rights. You agree not to: (a) modify, alter, or deface any of the trademarks, service marks, trade dress (collectively "Trademarks") or other intellectual property made available by us in connection with the Site; (b) hold yourself out as in any way sponsored by, affiliated with, or endorsed by us, or any of our affiliates or service providers; (c) use any of the Trademarks or other content accessible through the Site for any purpose other than the purpose for which we have made it available to you; (d) defame or disparage us, our Trademarks, or any aspect of the Site; and (e) adapt, translate, modify, decompile, disassemble, or reverse engineer the Site or any software or programs used in connection with it or its products and services.  The framing, mirroring, scraping or data mining of the Site or any of its content in any form and by any method is expressly prohibited. </p>
-                8. INDEMNITY
-                <p>By using the Site web sites you agree to indemnify us and affiliated entities (collectively "Indemnities") and hold them harmless from any and all claims and expenses, including (without limitation) attorney's fees, arising from your use of the Site web sites, your use of the Products and Services, or your submission of ideas and/or related materials to us or from any person's use of any ID, membership or password you maintain with any portion of the Site, regardless of whether such use is authorized by you.
-                </p>
-                9. COPYRIGHT AND TRADEMARK NOTICE 
-                <p>Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted. generator.lorem-ipsum.info ©️ 2013, all rights reserved
-                </p>
-                10. INTELLECTUAL PROPERTY INFRINGEMENT CLAIMS 
-                <p>It is our policy to respond expeditiously to claims of intellectual property infringement. We will promptly process and investigate notices of alleged infringement and will take appropriate actions under the Digital Millennium Copyright Act ("DMCA") and other applicable intellectual property laws. Notices of claimed infringement should be directed to:
-                generator.lorem-ipsum.info
-                 126 Electricov St.
-                 Kiev, Kiev 04176
-                 Ukraine
-                 contact@lorem-ipsum.info
-                </p>
-                11. PLACE OF PERFORMANCE
-                <p>This Site is controlled, operated and administered by us from our office in Kiev, Ukraine. We make no representation that materials at this site are appropriate or available for use at other locations outside of the Ukraine and access to them from territories where their contents are illegal is prohibited. If you access this Site from a location outside of the Ukraine, you are responsible for compliance with all local laws.
-                </p>
-                12. GENERAL 
-                <p>A. If any provision of these Terms and Conditions is held to be invalid or unenforceable, the provision shall be removed (or interpreted, if possible, in a manner as to be enforceable), and the remaining provisions shall be enforced. Headings are for reference purposes only and in no way define, limit, construe or describe the scope or extent of such section. Our failure to act with respect to a breach by you or others does not waive our right to act with respect to subsequent or similar breaches. These Terms and Conditions set forth the entire understanding and agreement between us with respect to the subject matter contained herein and supersede any other agreement, proposals and communications, written or oral, between our representatives and you with respect to the subject matter hereof, including any terms and conditions on any of customer's documents or purchase orders.
-                <p>B. No Joint Venture, No Derogation of Rights. You agree that no joint venture, partnership, employment, or agency relationship exists between you and us as a result of these Terms and Conditions or your use of the Site. Our performance of these Terms and Conditions is subject to existing laws and legal process, and nothing contained herein is in derogation of our right to comply with governmental, court and law enforcement requests or requirements relating to your use of the Site or information provided to or gathered by us with respect to such use.</p>
-                </p>
+              <h5> 1. DEFINITIONS </h5>
+<p>For the purposes of these Terms and Conditions, the following definitions apply: <br />
+
+- Service Provider: vanISH, its affiliates, agents, and subcontractors. <br />
+- Customer: The person or entity requesting the Services. <br />
+- Services: The load moving transportation services provided by the Service Provider. <br />
+- Van: The truck or other equipment used to provide the Services. <br />
+- Goods: The cargo or load being transported. </p>
+
+<h5>2. ACCEPTANCE OF TERMS </h5>
+<p>- By requesting the Services, the Customer acknowledges that they have read, understood, and agreed to be bound by these Terms and Conditions. <br />
+- These Terms and Conditions supersede all prior negotiations, understandings, and agreements between the parties. </p>
+
+<h5>3. SERVICES </h5>
+<p>- The Service Provider agrees to provide the Services in a professional and workmanlike manner. <br />
+- The Services include loading, transporting, and unloading of loads, which may include but are not limited to: <br />
+- Household goods <br />
+- Movable properties <br />
+- Commercial goods <br />
+- Office equipment <br />
+- Bulky gift items <br />
+- Other similar items <br />
+- The Service Provider reserves the right to subcontract the Services to a third-party carrier. </p>
+
+<h5>4. CUSTOMER RESPONSIBILITIES </h5>
+<p>- The Customer is responsible for: <br />
+    - Providing accurate and complete information about the loads, including weight, dimensions, and any special handling requirements. <br />
+    - Ensuring that the loads are properly packaged and prepared for transport. <br />
+    - Providing access to the pickup and delivery locations. <br />
+    - Paying all applicable fees and charges. </p>
+
+  <h5>  5.1 Collection of Personal Data </h5>
+<p>We collect personal data from customers when they request our Services, including: <br />
+- Name and contact information <br />
+- Address and location information <br />
+- Payment information </p>
+
+
+<h5>5.2 Use of Personal Data </h5>
+<p>We use personal data for the following purposes: <br />
+- To provide our Services and fulfill customer requests <br />
+- To communicate with customers and provide updates on our Services <br />
+- To improve our Services and customer experience <br />
+- To comply with applicable laws and regulations </p>
+
+
+<h5>5.3 Protection of Personal Data </h5>
+<p>We take reasonable measures to protect personal data from unauthorized access, disclosure, alteration, or destruction. These measures include: 
+- Secure storage of personal data in our databases <br />
+- Use of encryption and secure communication protocols <br />
+- Access controls and authentication procedures <br />
+- Regular security audits and testing </p>
+
+<h5>5.4 Disclosure of Personal Data </h5>
+<p>We may disclose personal data to third-party service providers who assist us in providing our Services. We may also disclose personal data to comply with applicable laws and regulations, or to respond to a lawful request from a government agency or court. </p>
+<h5>5.5 Customer Rights </h5>
+<p>Customers have the right to: <br />
+- Access their personal data and request corrections or updates <br />
+- Request deletion of their personal data <br />
+- Object to the processing of their personal data <br />
+- Lodge a complaint with a supervisory authority  </p>
+
+
+<h5>5.6 Data Retention </h5>
+<p>We retain personal data for as long as necessary to provide our Services and fulfill our legal obligations. We may also retain personal data for a longer period if required by law or for legitimate business purposes.
+By requesting our Services, customers acknowledge that they have read, understood, and agreed to our data protection and privacy policies </p>
+
+<h5>6. PAYMENT TERMS AND FEES </h5>
+<h5>6.1 Definitions </h5>
+<p>For the purposes of these Terms and Conditions, the following definitions apply:
+- Payment Terms: The terms and conditions governing payment for the Services, including the amount, method, and timing of payment. <br />
+- Fees and Charges: The amounts payable by the Customer for the Services, including any applicable taxes, surcharges, or other expenses. <br />
+- Invoice: A document issued by the Service Provider to the Customer, setting out the Fees and Charges payable for the Services. <br />
+- Payment Method: The method by which the Customer pays for the Services, such as credit card, bank transfer, or cash. </p>
+
+<h5>6.2 Payment Terms </h5>
+<p>- The Customer shall pay the Fees and Charges in accordance with the Payment Terms specified in the Invoice. <br />
+- Payment is due upon delivery of the Goods, unless otherwise specified in the Invoice. <br />
+- The Service Provider reserves the right to charge interest on overdue payments at a rate of #20,000. <br />
+- The Customer shall be responsible for any bank charges, credit card fees, or other expenses incurred in making payment.</p>
+
+<h5>6.3 Fees and Charges </h5>
+<p>- The Fees and Charges for the Services shall be as specified in the Invoice. <br />
+- The Service Provider reserves the right to vary the Fees and Charges from time to time, with notice to the Customer. <br />
+- The Customer shall be liable for any additional Fees and Charges incurred as a result of any changes to the Services or the Customer's requirements. </p>
+
+<h5>6.4 Payment Methods </h5>
+<p>- The Customer may pay for the Services using the following Payment Methods: [insert payment methods, e.g. credit card, bank transfer, cash]. <br />
+- The Service Provider reserves the right to refuse any Payment Method. </p>
+
+<h5>6.5 Taxes and Surcharges </h5>
+<p>- The Customer shall be liable for any applicable taxes, surcharges, or other expenses incurred in connection with the Services. <br />
+- The Service Provider shall be entitled to add any such taxes, surcharges, or expenses to the Invoice.</p>
+<h5>7. LIABILITY AND INSURANCE </h5>
+<p>- The Service Provider shall be liable for any loss or damage to the loads caused by its negligence or willful misconduct. <br />
+- The Service Provider maintains liability insurance to cover loss or damage to the loads. <br />
+- The Customer may purchase additional insurance coverage for the loads at their own expense. <br />
+- Notwithstanding the foregoing, the Service Provider shall not be liable for any loss or damage to the Goods caused by: <br />
+- Acts of God, including natural disasters such as earthquakes, hurricanes, floods, etc. <br />
+- Acts of terrorism or war <br />
+- Civil unrest or riots <br />
+- Government actions or regulations <br />
+- Other events beyond the Service Provider's reasonable control. </p>
+
+<h5>8. CLAIMS AND DISPUTES </h5>
+<p>- Any claims for loss or damage to the load must be made in writing to the Service Provider within timeframe of 3 days after delivery. <br />
+- The Service Provider shall investigate and respond to all claims in a timely and fair manner. <br />
+- Any disputes arising out of or related to the Services shall be resolved through dispute resolution process, such as, arbitration and litigation. </p>
+
+<h5>9. CANCELLATION AND TERMINATION </h5>
+<p>- The Customer may cancel the Services at any time prior to pickup, subject to payment of any applicable cancellation fees. <br />
+- The Service Provider may terminate the Services at any time if the Customer fails to pay any applicable fees or charges, or if the Customer breaches any of these Terms and Conditions. </p>
+<h5>10. GOVERNING LAW </h5>
+<p>- These Terms and Conditions shall be governed by and construed in accordance with the laws of the Country and State, Nigeria as well as Lagos State. <br />
+- Any disputes arising out of or related to the Services shall be resolved in accordance with the laws of Country and State, Nigeria as well as Lagos State. </p>
+
+<h5>11. ENTIRE AGREEMENT </h5>
+<p>- These Terms and Conditions constitute the entire agreement between the parties and supersede all prior negotiations, understandings, and agreements. </p>
+
+<h5>12. AMENDMENTS </h5>
+<p>The Service Provider reserves the right to modify or amend these Terms and Conditions at any time. Any changes will be communicated to Customers through: <br />
+- Notification on our website <br />
+- Email updates <br />
+- Other reasonable means </p>
+<p>Changes will take effect from the date of notification, and Customers will be deemed to have accepted the changes by continuing to use our Services. </p>
+
+<p>By requesting the Services, the Customer acknowledges that they have read, understood, and agreed to be bound by these Terms and Conditions. </p>
                <button className="btn">Cancel</button>
                <button id="btn2">Agree</button>
 
@@ -101,4 +183,90 @@ const Content = styled.div`
 
 
   }
+
+  @media (max-width: 429px) {
+    font-family: "Poppins", sans-serif;
+    line-height: 150%;
+    padding: 30px;
+    text-align: justify;
+
+    h2{
+        color: #126A10;
+        font-size: 24px;
+
+    }
+    p{
+        font-size: 13px;
+
+    }
+ 
+  #btn2{
+        margin-left: 0px;
+        width: 80px;
+        height: 40px;
+        background-color:#126A10;
+        color: white;
+        border-radius: 10px;
+        border: none;
+  }
+
+  .btn{
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #126A10 ;
+    color: #126A10 ;
+    background-color: transparent;
+    margin-left: 0px;
+
+
+
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  font-family: "Poppins", sans-serif;
+    line-height: 150%;
+    padding: 30px;
+    text-align: justify;
+
+    h2{
+        color: #126A10;
+        font-size: 24px;
+
+    }
+    p{
+        font-size: 13px;
+
+    }
+ 
+  #btn2{
+        margin-left: 0px;
+        width: 80px;
+        height: 40px;
+        background-color:#126A10;
+        color: white;
+        border-radius: 10px;
+        border: none;
+  }
+
+  .btn{
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #126A10 ;
+    color: #126A10 ;
+    background-color: transparent;
+    margin-left: 0px;
+
+
+
+  }
+
+}
+
+
+
 `
