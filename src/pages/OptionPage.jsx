@@ -1,14 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const OptionPage = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (path) => {
+    navigate(path);
+  };
+
   return (
     <PageContainer>
       <HeaderContainer>
         <h1>Choose Your Options</h1>
       </HeaderContainer>
       <OptionsContainer>
-        <OptionCard>
+        <OptionCard onClick={() => handleNavigate('/ownvan')}>
           <OptionTitleContainer>
             <h2>I Own a Van</h2>
           </OptionTitleContainer>
@@ -19,7 +26,7 @@ const OptionPage = () => {
             />
           </OptionIconContainer>
         </OptionCard>
-        <OptionCard>
+        <OptionCard onClick={() => handleNavigate('/needvan')}>
           <OptionTitleContainer>
             <h2>I Need a Van</h2>
           </OptionTitleContainer>
@@ -85,6 +92,7 @@ const OptionCard = styled.div`
   justify-content: center;
   padding: 20px;
   text-align: center;
+  cursor: pointer;
 
   @media (max-width: 768px) {
     width: 90%;
