@@ -8,7 +8,11 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 // // import SignUp from './Pages/Signup/Signup'
 import Team from './pages/Team.jsx'
 import Home from './pages/Home/Home.jsx'
-import OrderAssessment from './pages/orderAssessment.jsx'
+import OrderAssessment from './pages/OrderAssessment.jsx'
+import Options from './pages/OptionPage.jsx'
+import EstimateCard from './Component/EstimateCard.jsx'
+import OwnVan from './pages/ownVan.jsx'
+import NeedVan from './pages/NeedVan.jsx'
 
 function App() {
 
@@ -20,7 +24,11 @@ function App() {
           
             <Route path="/" element={<Home/>} />
             <Route path="/about-us" element={<Team />} />
-            <Route path="/order-assessment" element={<OrderAssessment/>} />
+            <Route path="/orderAssessment" element={<OrderAssessment/>} />
+            <Route path="options" element ={<Options />}/>
+            <Route path="OwnVan" element ={<OwnVan/>}/>
+            <Route path="NeedVan" element ={<NeedVan/>}/>
+            <Route path="estimatecard" element={<EstimateCard/>}/>
        </Routes>
        <Footer/>
        </BrowserRouter>
