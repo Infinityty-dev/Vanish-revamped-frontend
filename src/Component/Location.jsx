@@ -6,8 +6,8 @@ const Location = () => {
       <Service>
         <Geo>
         <PickUp>
-            <p>Pickup : 1 Muba Abiru Street Ikorodu Lagos</p>
-            <p>Drop-Off : 388 Herbert Macaulay Wy. Lagos</p>
+            <p>Pickup : 1 Muba Abiru Street Ikorodu Lagos</p> <br />
+            <p>Drop-Off : 388 Herbert Macaulay Wy. Lagos</p> <br />
             <p>Distance: 8km</p>
 
         </PickUp>
@@ -15,11 +15,11 @@ const Location = () => {
          <Form1>
          <p>Other Required Services:</p>
          <input type="checkbox" /> <label>Packaging & Loading</label> 
-         <input type="checkbox" /> <label>Cleaning Service</label> <br />
+         <input type="checkbox" /> <label>Cleaning Service</label> <br /> <br />
          <input type="checkbox" /> <label>Packaging & Loading</label>
-         <input type="checkbox" /> <label>Packaging & Loading</label> <br />
+         <input type="checkbox" /> <label>Packaging & Loading</label> <br /> <br />
          <input type="checkbox" /> <label>Packaging & Loading</label>
-         <input type="checkbox" /> <label>Packaging & Loading</label><br />
+         <input type="checkbox" /> <label>Packaging & Loading</label><br /> <br />
          <input type="checkbox" /> <label>Packaging & Loading</label>
          <input type="checkbox" /> <label>Packaging & Loading</label>
          </Form1>
@@ -61,7 +61,7 @@ const Service = styled.div`
       
    }
    @media (max-width: 429px) {
-    width: 100%;
+    width: 90%;
     height: 507px;
     margin: auto;
     font-size: 13px;
@@ -78,8 +78,32 @@ const Service = styled.div`
       border-radius: 10px;
       color: white;
       border:none;
-      margin-left: 130px;
-      margin-top: 40px;
+      margin-left: 120px;
+      margin-top: 95px;
+    
+      
+   }
+
+
+   }
+
+   @media (max-width: 900px) {
+    width: 90%;
+    height: 507px;
+    margin: auto;
+    font-size: 13px;
+          /* border:1px solid; */
+
+
+    button{
+      background-color: #126A10;
+      width:126px;
+      height:40px;
+      border-radius: 10px;
+      color: white;
+      border:none;
+      /* margin-left: 350px; */
+      /* margin-top: 55px; */
     
       
    }
@@ -105,6 +129,8 @@ const Geo = styled.div`
     height: 350px;
 
     }
+
+    
   
 `
 
@@ -122,6 +148,15 @@ const PickUp = styled.div`
       }
 
      }
+
+     @media (max-width: 900px) {
+        p{
+        padding-left: 15px; 
+        margin-top: 20px;
+        /* font-size: 20px; */
+        /* border:1px solid; */
+      }
+     }
 `
 const Form = styled.div`
     
@@ -130,6 +165,7 @@ const Form = styled.div`
     background-color:#f1efef;
     /* border:1px solid; */
     padding-left: 15px;
+    
     
 
     #disclaimer{
@@ -154,8 +190,9 @@ const Form = styled.div`
     }
     
     @media (max-width: 429px) {
-        width: 395px;
+        width: 350px;
         height: 310px;
+        margin-top: 20px;
     }
 
     label{
@@ -174,6 +211,32 @@ const Form = styled.div`
         text-align: center;
 
     }
+
+    @media (max-width: 900px) {
+
+        width: 350px;
+        height: 310px;
+        margin-top: 20px;
+    }
+
+    label{
+        margin-right:20px;
+        margin-top: 20px;
+        color:#2e2c2c;
+        font-size:12px;
+        font-family: "Poppins";
+
+    }
+
+    p{
+        color: #126A10;
+        font-size:14px;
+        margin-top: 30px;
+        text-align: center;
+
+    }
+    
+
 
 `
 const Form1 = styled.div`
