@@ -2,36 +2,41 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Button from '../Component/Button';
+import "@fontsource/poppins";
+import { IoMdArrowRoundBack} from 'react-icons/io'
+import { TiArrowForward } from "react-icons/ti";
+
 
 const OrderAssessment = () => {
   return (
     <Container>
       
       <BackArrow>
+     
         <Link to="/" className="back-link">
-          <img
-            src="https://res.cloudinary.com/dxldk0ytk/image/upload/v1733402389/Vector_1_oaoxv2.png"
-            alt="Back"
-          />
+        <IoMdArrowRoundBack size={26} color='lightgrey' />
+         
         </Link>
       </BackArrow>
 
       <ContainerText>Based on your order assessement</ContainerText>
-      <TruckImage
-        src="https://res.cloudinary.com/dxldk0ytk/image/upload/v1733402497/van-removebg-preview_1_by98oi.png"
-        alt="Truck"
-      />
+      <TruckImage>
+        <img src="https://res.cloudinary.com/dxldk0ytk/image/upload/v1733402497/van-removebg-preview_1_by98oi.png"
+        alt="Truck" />
+      </TruckImage>
+       
+      
 
       <Note>
         Note: If you require a larger van or truck, please select a larger option from the catalog.
       </Note>
 
-      <ForwardButton>
-        <img
-          src="https://res.cloudinary.com/dxldk0ytk/image/upload/v1733402456/Vector_gkrofo.svg"
-          alt="Forward"
-        />
-      </ForwardButton>
+      
+      <ForwardArrow>
+      <Link to="/" className="forward-link"></Link>
+        <TiArrowForward size={25} color="white" />
+      </ForwardArrow>
+      
 
       <SummaryContainer>
         <SummaryBox>
@@ -95,7 +100,8 @@ const OrderAssessment = () => {
       </SummaryContainer>
 
       <Footer>
-      <Button name= 'Book Now' bgcolor='#126A10' color='white' />
+      
+      <Button name= 'Book Now' bgcolor='#126A10' color='white' width= {160} height={48} />
       </Footer>
     </Container>
   );
@@ -106,7 +112,6 @@ export default OrderAssessment;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 20px;
   background-color: white;
   border-radius: 10px;
@@ -114,6 +119,7 @@ const Container = styled.div`
   max-width: 800px;
   margin: auto;
   box-sizing: border-box;
+  
 
 
   @media (max-width: 350px) {
@@ -125,19 +131,23 @@ const Container = styled.div`
 `;
 
 const BackArrow = styled.div`
+IoMdArrowRoundBack{
   position: absolute;
   top: 20px;
   left: 600px;
+  font-weight:300;
   .back-link {
     border: none;
     cursor: pointer;
   }
+}
+  
 `;
 
 const ContainerText = styled.div`
   color: #126a10;
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 15px;
+  margin-bottom: 0px;
   margin-left: 0px;
   text-align: left;
   font-weight: 100;
@@ -147,12 +157,15 @@ const ContainerText = styled.div`
   }
 `;
 
-const TruckImage = styled.img`
+const TruckImage = styled.div`
+img{
   width: 100%;
   max-width: 400px;
   height: auto;
-  margin-bottom: 20px;
-
+  margin: auto;
+  margin-left:170px;
+}
+ 
   @media (max-width: 350px) {
     max-width: 300px;  
   }
@@ -160,7 +173,7 @@ const TruckImage = styled.img`
 
 const Note = styled.p`
   font-size: 10px;
-  font-family:poppins;
+  font-family: poppins;
   margin-bottom: 20px;
   color: #d91616;
   text-align: center;
@@ -170,14 +183,24 @@ const Note = styled.p`
   }
 `;
 
-const ForwardButton = styled.div`
+const ForwardArrow = styled.div`
   position: absolute;
   top: 30%;
-  right: 600px;
+  right: 400px;
   background-color: #77bc76;
   border-radius: 45%;
-  width: 30px;
-  padding: 3px;
+  width: 40px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 350px) {
+    width: 30px;
+    height: 30px;
+    right: 10px;
+  }  
+  
 `;
 
 const SummaryContainer = styled.div`

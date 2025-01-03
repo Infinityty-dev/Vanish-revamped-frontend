@@ -1,5 +1,7 @@
 
-import Location from "../../Component/Location.jsx"
+// import Location from "../../Component/Location.jsx"
+// import Movement from "../../Component/Movement.jsx";
+// import Terms from "../../Component/Terms.jsx";
 
 import { useState } from 'react'; 
 import styled from 'styled-components';
@@ -332,7 +334,9 @@ const Home = ()=>{
     
 
     </Container>
-    <Location/>
+    {/* <Location/>
+    <Movement/>
+    <Terms/> */}
 
     </>
  )
