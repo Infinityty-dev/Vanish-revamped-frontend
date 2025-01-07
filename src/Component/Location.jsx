@@ -1,8 +1,10 @@
 import styled from "styled-components"
+import bg from "../assets/bg.jpg"
 const Location = () => {
 
     return (
-
+      <Background>
+        <img src="" alt="" />
       <Service>
         <Geo>
         <PickUp>
@@ -32,16 +34,24 @@ const Location = () => {
         <button>Proceed</button>
 
         </Service>
+        </Background>
     )
 }
 
 export default Location
 
+const Background = styled.div`
+height: 100vh;
+background-repeat: no-repeat;
+background-size: cover;
+background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0,0,0,0.5)), url(${bg});
+`
+
 const Service = styled.div`
-   width: 880px;
-   height: 428px;
+   width: 800px;
+   height: 420px;
    margin: auto;
-      /* border:1px solid; */
+   margin-top: 70px;
    background-color: #F8F8F8;
    border-radius:18px;
    font-size: 13px;

@@ -1,7 +1,4 @@
 
-// import Location from "../../Component/Location.jsx"
-// import Movement from "../../Component/Movement.jsx";
-// import Terms from "../../Component/Terms.jsx";
 
 import { useState } from 'react'; 
 import styled from 'styled-components';
@@ -14,6 +11,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoIosSpeedometer } from "react-icons/io";
 import { FaShippingFast } from "react-icons/fa";
 import Button from '../../Component/Button.jsx';
+
 
 
 
@@ -334,9 +332,8 @@ const Home = ()=>{
     
 
     </Container>
-    {/* <Location/>
-    <Movement/>
-    <Terms/> */}
+      {/* <Location/>  */}
+    {/* <Movement/>  */}
 
     </>
  )
