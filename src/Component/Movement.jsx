@@ -1,7 +1,20 @@
 import styled from "styled-components"
+import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+
+
+
 
 const Movement = () => {
-
+        const [serviceType, setServiceType] = useState('');
+        const [pickUpDate, setpickUpDate] = useState('');
+        const [pickUpLocation, setpickUpLocation] = useState('');
+        const [pickUpZone, setpickUpZone] = useState ('')
+        const [dropOffLocation, setdropOffLocation] = useState ('')
+        const [dropOffZone, setdropOffZone] = useState ('')
+        
+        
+    
 return(
 
     <Main>
@@ -27,10 +40,10 @@ return(
             <input className="move-input" type="text" placeholder="Shagamu"/> <br /> <br />
             <label className="move-label" htmlFor="">Drop-Off Zone</label> <br /> <br />
             <input className="move-input" type="text" placeholder="Shagamu..."/> <br /> <br />
-            <label className="move-label" htmlFor="">Drop-Off Location</label> <br /> <br />
-            <input className="move-input" type="text"placeholder="Shagamu..." /><br /> <br />
-
-            <button>Submit</button>
+            {/* <label className="move-label" htmlFor="">Drop-Off Location</label> <br /> <br />
+            <input className="move-input" type="text"placeholder="Shagamu..." /><br /> <br /> */}
+             <Link to="/Location">
+            <button>Submit</button> </Link>
             </Contain>
         </Form>
 
@@ -44,7 +57,7 @@ return(
 export default Movement
 
 const Main = styled.div`
-    height: 1000px;
+    height: 900px;
     background-color: #FAFAFA;
     #move{
         text-align:center;
@@ -53,7 +66,7 @@ const Main = styled.div`
     }
 
     @media (max-width: 429px) {
-        height: 1000px;
+        height: 900px;
     background-color: #FAFAFA;
     #move{
         text-align:center;
@@ -65,7 +78,7 @@ const Main = styled.div`
     }
 
     @media (max-width: 900px) {
-        height: 1000px;
+        height: 900px;
     background-color: #FAFAFA;
     #move{
         text-align:center;
@@ -121,7 +134,7 @@ const Head = styled.div`
 
 const Form = styled.div`
     
-      height: 850px;
+      height: 750px;
       width: 350px;
       /* border: 1px solid; */
       margin: auto;
@@ -141,7 +154,7 @@ const Form = styled.div`
      }
 
      @media (max-width: 429px) {
-        height: 850px;
+        height: 750px;
       width: 350px;
       /* border: 1px solid; */
       margin: auto;
@@ -164,7 +177,7 @@ const Form = styled.div`
 
      @media (max-width: 900px) {
 
-        height: 850px;
+        height: 750px;
       width: 350px;
       /* border: 1px solid; */
       margin: auto;

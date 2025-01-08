@@ -20,7 +20,7 @@ const DriversSignUp = ()=> {
     if (!email || !password) {
       setError('Please fill in all fields');
       return;
-    }
+    }  
 
     
     if (email === 'husseinashehu@gmail.com' && password === '123456' && phonenumber === '08121116319') {
@@ -133,7 +133,8 @@ const DriversSignUp = ()=> {
                 <Box>
                     <input type="checkbox" id="checkbox"/> 
                     <span>I have read and agreed with the 
-                        <span className="red"> Terms of Service </span> and 
+                        <Link to ="/DriverTerms" >
+                        <span className="red"> Terms of Service </span> </Link> and 
                         <br/> our <span className="red">Privacy Policy</span>.</span>
                     
                    

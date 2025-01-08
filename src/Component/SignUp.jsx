@@ -1,5 +1,9 @@
 import styled from "styled-components"
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+
+
+
 
 
 const SignUpPage = ()=> {
@@ -25,6 +29,8 @@ const SignUpPage = ()=> {
       setError('Invalid email or password');
     }
   };
+
+
 
    
    
@@ -88,23 +94,24 @@ const SignUpPage = ()=> {
                 <Box>
                     <input type="checkbox" id="checkbox"/> 
                     <span>I have read and agreed with the 
-                        <span className="red"> Terms of Service </span> and 
+                    <Link to="/Terms">
+                        <span className="red"> Terms of Service </span> </Link> and 
                         <br/> our <span className="red">Privacy Policy</span>.</span>
                     
                    
                 </Box>
-
+               <Link to="/Movement">
                 <Button>
                     Continue
 
                 </Button>
+                </Link>
 
                 <p>
                     Already have an account? <span>Sign In</span>
                 </p>
             </Signwrapper>
         </Carrier>
-
     )
 
 }   

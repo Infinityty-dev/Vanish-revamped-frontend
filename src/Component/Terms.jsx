@@ -4,7 +4,7 @@ const Terms = () => {
 
     return(
 
-        <Content>
+        <Content id="terms">
                <h2>Terms and Conditions</h2>
               <h5> 1. DEFINITIONS </h5>
 <p>For the purposes of these Terms and Conditions, the following definitions apply: <br />
