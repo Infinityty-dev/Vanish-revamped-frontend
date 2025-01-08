@@ -92,7 +92,7 @@ const SignUpPage = ()=> {
                 {error && <ErrorText>{error}</ErrorText>}
                
                 <Box>
-                    <checkbox>  </checkbox>
+                    <input type="checkbox" id="checkbox"/> 
                     <span>I have read and agreed with the 
                     <Link to="/Terms">
                         <span className="red"> Terms of Service </span> </Link> and 
@@ -234,15 +234,16 @@ margin-left: 17px;
 
 
 checkbox{
-    width: 14px;
-height: 14px;
+    width: 12px;
+height: 12px;
 color: white;
 background-color: white;
 border-radius:3px;
 border: 2px solid #126A10;
 }
 span{
-    font-size: 11px;
+    margin-top: 2px;
+    font-size: 14px;
     text-align: center;
     color: black;
 
