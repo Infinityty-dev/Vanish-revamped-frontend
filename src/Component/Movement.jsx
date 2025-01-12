@@ -40,8 +40,6 @@ return(
             <input className="move-input" type="text" placeholder="Shagamu"/> <br /> <br />
             <label className="move-label" htmlFor="">Drop-Off Zone</label> <br /> <br />
             <input className="move-input" type="text" placeholder="Shagamu..."/> <br /> <br />
-            {/* <label className="move-label" htmlFor="">Drop-Off Location</label> <br /> <br />
-            <input className="move-input" type="text"placeholder="Shagamu..." /><br /> <br /> */}
              <Link to="/Location">
             <button>Submit</button> </Link>
             </Contain>
