@@ -4,6 +4,7 @@ import { BsEmojiLaughingFill } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai"; 
 import Button from "./Button"; 
 import { Link } from "react-router-dom";
+import {onClose} from "react";
 
 
 const EstimateCard = ({ estimate = 0 }) => {
@@ -21,7 +22,7 @@ const EstimateCard = ({ estimate = 0 }) => {
         </Emoji>
         <p>Your vanISH estimate is</p>
         <p className="amount">${estimate.toFixed(2)}</p>
-        <Link to="#">
+        <Link to="/Payment">
           <Button name="Pay Now" bgcolor="#126a10" color="white" width={160} height={48} />
         </Link>
       </Cardcontainer>

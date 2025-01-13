@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 
 const DriversSignUp = ()=> {
@@ -140,10 +141,10 @@ const DriversSignUp = ()=> {
                    
                 </Box>
 
-                <Button>
+               <Link to="/DriversDashboard"> <Button>
                     Continue
 
-                </Button>
+                </Button> </Link>
 
                 <p>
                     Already have an account? <span>Sign In</span>
