@@ -32,12 +32,12 @@ return(
             <input className="move-input" type="text" placeholder="House Hold, Office......"/><br /> <br />
             <label className="move-label" htmlFor="">Pick-Up Date</label><br /> <br />
             <input className="move-input" type="date" placeholder="29/10/2024"/><br /> <br />
-            <label className="move-label" htmlFor="">Pick-Up Location</label> <br /> <br />
-            <input className="move-input" type="text" placeholder="Ikorodu" /> <br /> <br />
+            <label className="move-label" htmlFor="">Pick-Up Address</label> <br /> <br />
+            <input className="move-input" type="text" placeholder="1, Muba Abiru street, Ikorodu" /> <br /> <br />
             <label className="move-label" htmlFor="">Pick-Up Zone</label><br /> <br />
             <input className="move-input" type="text" placeholder="Lagos"/> <br /> <br />
-            <label className="move-label" htmlFor="">Drop-Off Location</label><br /> <br />
-            <input className="move-input" type="text" placeholder="Shagamu"/> <br /> <br />
+            <label className="move-label" htmlFor="">Drop-Off Address</label><br /> <br />
+            <input className="move-input" type="text" placeholder="10,Shagamu street, Igando"/> <br /> <br />
             <label className="move-label" htmlFor="">Drop-Off Zone</label> <br /> <br />
             <input className="move-input" type="text" placeholder="Shagamu..."/> <br /> <br />
              <Link to="/Location">
