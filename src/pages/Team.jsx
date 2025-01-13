@@ -1,6 +1,7 @@
 import React from 'react'
 import TeamCard from '../Component/TeamCard.jsx'
 import styled from 'styled-components'
+// import Becca from "../assets/Becca.jpeg"
 
 
 
@@ -28,21 +29,21 @@ const Team = () => {
          insta='https://google.com'
          x='https://google.com'
          www='https://google.com'
-         git='https://google.com'/>
+         git= 'https://google.com'/>
 
 
 
-<TeamCard image='/headshotAvatar.jpeg' 
-        name='Funmi' 
-        jobDescription='FullStack Developer'
+<TeamCard image='/Becca.jpeg' 
+         name='Olufunmi Oyewole' 
+         jobDescription='FullStack Developer'
          about1='An objective driven passionate developer with' 
          about2='proficiency in the MERN stack' 
-         about3='' 
-         about4=''
-         insta='https://google.com'
+         about3='Excellent team player with a commitment' 
+         about4='to continuous learning and personal growth.'
+         insta= 'https://www.instagram.com/becca_dah_diva/profilecard/?igsh=bmhhZHprN3Jsd242 target= "_blank"'
          x='https://google.com'
-         www='https://google.com'
-         git='https://google.com'/>
+         www='https://www.linkedin.com/in/oyewole-olufunmi' 
+         git='https://github.com/Becca-Hamzy/Becca-Hamzy' />
 
 
 
@@ -91,8 +92,8 @@ const Team = () => {
 
 
 
-<TeamCard image='/headshotAvatar.jpeg' 
-        name='Ahmed' 
+<TeamCard image='/Ezytech.jpeg' 
+        name='Ahmed Adebayo' 
         jobDescription='FullStack Developer'
          about1='An objective driven passionate developer with' 
          about2='proficiency in the MERN stack' 
