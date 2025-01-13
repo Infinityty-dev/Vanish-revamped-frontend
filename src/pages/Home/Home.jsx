@@ -11,6 +11,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoIosSpeedometer } from "react-icons/io";
 import { FaShippingFast } from "react-icons/fa";
 import Button from '../../Component/Button.jsx';
+import Driver from '../../Component/Driver.jsx';
 
 
 
@@ -332,8 +333,6 @@ const Home = ()=>{
     
 
     </Container>
-      {/* <Location/>  */}
-    {/* <Movement/>  */}
 
     </>
  )

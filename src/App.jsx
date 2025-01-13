@@ -24,6 +24,7 @@ import DriversDashboard from './Component/DriversDashboard.jsx'
 import OrderAssessment from './pages/orderAssessment.jsx'
 import EstimateCard from './Component/EstimateCard.jsx'
 import EstimateQoute from './Component/EstimateQoute.jsx'
+import Driver from './Component/Driver.jsx'
 
 
 function App() {
@@ -51,6 +52,8 @@ function App() {
             <Route path="/DriversDashboard" element={<DriversDashboard/>} />
             <Route path="/EstimateCard" element={<EstimateCard/>} />
             <Route path="/EstimateQuote" element={<EstimateQoute/>} />
+            <Route path ="/Driver" element={<Driver/>}/>
+"
        </Routes>
        <Footer/>
        </BrowserRouter>
