@@ -24,6 +24,7 @@ import OrderAssessment from './pages/orderAssessment.jsx'
 import PaymentPage from './pages/Payment/Payment.jsx'
 import EstimateCard from './Component/EstimateCard.jsx'
 import EstimateQoute from './Component/EstimateQoute.jsx'
+import Driver from "./Component/Driver.jsx"
 
 
 function App() {
