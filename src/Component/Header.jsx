@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { GiHamburgerMenu } from "react-icons/gi"
 import Button from '/src/Component/Button.jsx'
 import { useState } from 'react'
+import { Link } from "react-router-dom"
 
 const Header = () => {
 
@@ -42,7 +43,7 @@ const Header = () => {
         </div>
         <div className='btn'>
         <a href="/SignUp"><Button name='Sign Up' bgcolor='#126A10' color='white ' width= {160} height={48}/></a>
-        <Button name='Log In' bgcolor='white' color='#126A10' width= {160} height={48}/>
+         <Link to ="/SignIn"> <Button name='Log In' bgcolor='white' color='#126A10' width= {160} height={48}/> </Link>
             
             
         </div>
