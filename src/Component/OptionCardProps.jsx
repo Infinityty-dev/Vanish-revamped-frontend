@@ -16,9 +16,9 @@ const OptionCardProps = ({ title, icon, }) => {
             <Link to= "/SignUp">
               <Button name= "Sign Up" bgcolor='#126A10' color='white' width= {160} height={48} />
             </Link>
-            <Link to= "/SignIn">
+            {/* <Link to= "/SignIn"> 
               <Button name= "Login" bgcolor='white' color='#126A10' width= {160} height={48} />
-            </Link>            
+            </Link>             */}
           </ButtonContainer>
           </CardContainer>
         </Container>
