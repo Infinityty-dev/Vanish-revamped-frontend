@@ -1,43 +1,72 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useEffect, useRef } from "react";
+import styled from "styled-components";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 
 const ServicesCard = (props) => {
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+
+    // Slow appear animation
+    gsap.fromTo(
+      card,
+      { opacity: 0, y: 50 }, // Initial state: hidden and slightly below
+      {
+        opacity: 1,
+        y: 0, // Move to original position
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%", // Animation starts when 85% of the card is in the viewport
+          toggleActions: "restart none none none", // Reanimate on scroll
+        },
+      }
+    );
+  }, []);
+
   return (
-    <Container>
-<div className='before'>
-      <div className='Container'>
-      <div> {props.img }</div>
-        <h2>{props.title}</h2>
-        <p>{props.text1}</p>
-        <p>{props.text2}</p>
-        <p>{props.text3}</p>
-        <p>{props.text4}</p>
+    <Container ref={cardRef}>
+      <div className="before">
+        <div className="Container">
+          <div>{props.img}</div>
+          <h2>{props.title}</h2>
+          <p>{props.text1}</p>
+          <p>{props.text2}</p>
+          <p>{props.text3}</p>
+          <p>{props.text4}</p>
+        </div>
       </div>
-  </div>
     </Container>
-    
-  )
-}
 
-export default ServicesCard
+  );
+};
+
+
+export default ServicesCard;
 const Container = styled.div`
-padding: 5px;
-background:linear-gradient(90deg,#126A10,#a3a516);
-border-radius: 10px;
-
+padding: 2px;
+background:linear-gradient(90deg,#D7C525,#126A10);
+border-radius: 24px;
+ 
+,
 
 
  .Container{position: relative;
   /* border: 5px solid transparent;  */
-  border-radius: ${({ borderRadius }) => borderRadius || '10px'}; 
+  border-radius: ${({ borderRadius }) => borderRadius || '24px'}; 
   background: white; 
   background-clip: border-box;
   box-sizing: border-box;
   padding: ${({ padding }) => padding || '30px'};
   width:350px;
   height: 250px;
-  border-color:linear-gradient(90deg, #126A10,#a3a516); ;
+   
+  border-color:linear-gradient(90deg,#D7C525,#126A10); ;
   /* padding: 30px; */
 }
   
@@ -49,7 +78,7 @@ border-radius: 10px;
     right: 1px;
     bottom: 1px;
     z-index: -1;
-    border-radius: ${({ borderRadius }) => borderRadius || '10px'};
+    border-radius: ${({ borderRadius }) => borderRadius || '111px'};
     background: white;
 
 
@@ -63,7 +92,7 @@ border-radius: 10px;
 
   .Container {
     /* border: 2px solid transparent; 
-    border-image: linear-gradient(90deg, #126A10,#a3a516);
+    border-image: linear-gradient(90deg,#D7C525,#126A10);
     border-image-slice: 1; */
     /* width:350px;
     height: 250px;
@@ -84,7 +113,7 @@ border-radius: 10px;
   }
 
   div{
-    background-color: #8080803b;
+    background-color:#E7F0E7;
     border-radius: 10px;
     color:#126A10;
     display: inline-block;

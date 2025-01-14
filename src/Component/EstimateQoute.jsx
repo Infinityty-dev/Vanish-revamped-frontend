@@ -1,35 +1,34 @@
 import React from "react";
 import styled from "styled-components";
 import { BsEmojiLaughingFill } from "react-icons/bs";
-import { AiOutlineClose } from "react-icons/ai"; 
-import Button from "./Button"; 
+import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import Button from "./Button"; 
 
-
-const EstimateCard = ({ estimate = 0 }) => {
+const EstimateQuote = ({ estimate = 0 }) => {
   return (
     <Container>
       <Cardcontainer>
-        <CloseButton onClick={onClose}>
-
-          <AiOutlineClose/> 
-
-        </CloseButton>
+        <Link to="/">
+          <CloseButton>
+            <AiOutlineClose />
+          </CloseButton>
+        </Link>
         <h2>Your vanISH estimate!</h2>
         <Emoji>
           <BsEmojiLaughingFill />
         </Emoji>
         <p>Your vanISH estimate is</p>
         <p className="amount">${estimate.toFixed(2)}</p>
-        <Link to="#">
-          <Button name="Pay Now" bgcolor="#126a10" color="white" width={160} height={48} />
+        <Link to="/signup">
+          <Button name="Next" bgcolor="#126a10" color="white" width={160} height={48} />
         </Link>
       </Cardcontainer>
     </Container>
   );
 };
 
-export default EstimateCard;
+export default EstimateQuote;
 
 const Container = styled.div`
   display: flex;

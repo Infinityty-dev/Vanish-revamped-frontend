@@ -96,7 +96,9 @@ const SignUpPage = ()=> {
                     <span>I have read and agreed with the 
                     <Link to="/Terms">
                         <span className="red"> Terms of Service </span> </Link> and 
-                        <br/> our <span className="red">Privacy Policy</span>.</span>
+
+                        <br/> our Privacy Policy</span>.
+
                     
                    
                 </Box>
@@ -108,7 +110,10 @@ const SignUpPage = ()=> {
                 </Link>
 
                 <p>
-                    Already have an account? <span>Sign In</span>
+
+
+                    Already have an account? <Link to = "/SignIn"> <span>Sign In</span> </Link>
+
                 </p>
             </Signwrapper>
         </Carrier>
@@ -140,6 +145,9 @@ const Signwrapper = styled.div`
     }
     span{
         color:  #126A10;
+
+        text-decoration: none;
+
     }
     
     

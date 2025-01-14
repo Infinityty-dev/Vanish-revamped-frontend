@@ -1,13 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+
+import { Link } from 'react-router-dom'; 
+import styled from 'styled-components'; 
 
 const OptionPage = () => {
-  const navigate = useNavigate();
-
-  const handleNavigate = (path) => {
-    navigate(path);
-  };
 
   return (
     <PageContainer>
@@ -15,34 +11,45 @@ const OptionPage = () => {
         <h1>Choose Your Options</h1>
       </HeaderContainer>
       <OptionsContainer>
-        <OptionCard onClick={() => handleNavigate('/ownvan')}>
-          <OptionTitleContainer>
-            <h2>I Own a Van</h2>
-          </OptionTitleContainer>
-          <OptionIconContainer>
-            <img 
-              src="https://res.cloudinary.com/dxldk0ytk/image/upload/v1735412620/Vector_3_iszl78.png" 
-              alt="Driver Icon" 
-            />
-          </OptionIconContainer>
-        </OptionCard>
-        <OptionCard onClick={() => handleNavigate('/needvan')}>
-          <OptionTitleContainer>
-            <h2>I Need a Van</h2>
-          </OptionTitleContainer>
-          <OptionIconContainer>
-            <img 
-              src="https://res.cloudinary.com/dxldk0ytk/image/upload/v1735412746/Vector_4_vqbq0b.png" 
-              alt="User Icon" 
-            />
-          </OptionIconContainer>
-        </OptionCard>
+
+        <Link to="/ownvan" style={{ textDecoration: 'none' }}>
+          <OptionCard>
+            <OptionTitleContainer>
+              <h2>I Own a Van</h2>
+            </OptionTitleContainer>
+            <OptionIconContainer>
+              <img 
+                src="https://res.cloudinary.com/dxldk0ytk/image/upload/v1735412620/Vector_3_iszl78.png" 
+                alt="Driver Icon" 
+              />
+            </OptionIconContainer>
+          </OptionCard>
+        </Link>
+
+        <Link to="/needvan" style={{ textDecoration: 'none' }}>
+          <OptionCard>
+            <OptionTitleContainer>
+              <h2>I Need a Van</h2>
+            </OptionTitleContainer>
+            <OptionIconContainer>
+              <img 
+                src="https://res.cloudinary.com/dxldk0ytk/image/upload/v1735412746/Vector_4_vqbq0b.png" 
+                alt="User Icon" 
+              />
+            </OptionIconContainer>
+          </OptionCard>
+        </Link>
+
       </OptionsContainer>
     </PageContainer>
   );
 };
 
 export default OptionPage;
+
+
+// Styled components
+
 
 const PageContainer = styled.div`
   display: flex;
@@ -106,7 +113,9 @@ const OptionTitleContainer = styled.div`
   h2 {
     font-size: 16px;
     color: #126A10;
-    font-weight:500;
+
+    font-weight: 500;
+
 
     @media (max-width: 768px) {
       font-size: 14px;
@@ -123,4 +132,6 @@ const OptionIconContainer = styled.div`
       width: 50px;
     }
   }
+
 `;
+

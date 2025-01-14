@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { GiHamburgerMenu } from "react-icons/gi"
 import Button from '/src/Component/Button.jsx'
 import { useState } from 'react'
+import { Link } from "react-router-dom"
 
 const Header = () => {
 
@@ -18,10 +19,10 @@ const Header = () => {
 
   return (
     <Container>
-        <div class='logo'>
+        <div className='logo'>
             <a href="/"><img  src="/logo.png" alt="vanish logo" /></a>
         </div>
-        <div class='nav'>
+        <div className='nav'>
             <ul id="nav">
                 <a href="/"><li>Home</li></a>
                 <a href="/services"><li>Services</li></a>
@@ -40,9 +41,9 @@ const Header = () => {
                 </ul>
               </div>
         </div>
-        <div class='btn'>
+        <div className='btn'>
         <a href="/SignUp"><Button name='Sign Up' bgcolor='#126A10' color='white ' width= {160} height={48}/></a>
-        <Button name='Log In' bgcolor='white' color='#126A10' width= {160} height={48}/>
+         <Link to ="/SignIn"> <Button name='Log In' bgcolor='white' color='#126A10' width= {160} height={48}/> </Link>
             
             
         </div>
@@ -87,16 +88,36 @@ const Container = styled.div`
         display: flex;
         gap: 40px;
         
-        li{
-        cursor: pointer;
-       
-        }
-        li:hover{
-          color: #126A10;
-          /* text-decoration: underline; */
-          font-size: 18px;
-          transition: font-size 1.5s ease;
-        }
+      li {
+  color: #000; 
+  font-size: 16px; 
+  transition: all 0.3s ease; 
+  position: relative; 
+  cursor: pointer; 
+}
+
+li:hover {
+  color: #126A10; 
+  
+  transform: scale(1.1); 
+  text-shadow: 0 4px 8px rgba(18, 106, 16, 0.3); 
+}
+
+li::before {
+  content: ""; 
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #126A10;
+  transition: width 0.4s ease; 
+}
+
+li:hover::before {
+  width: 100%; 
+}
+
     }
     #nav2{
       display:none; 
