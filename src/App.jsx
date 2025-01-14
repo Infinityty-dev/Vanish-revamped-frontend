@@ -21,7 +21,7 @@ import Movement from "./Component/Movement.jsx";
 import Location from "./Component/Location.jsx"
 import DriversDashboard from './Component/DriversDashboard.jsx'
 import OrderAssessment from './pages/orderAssessment.jsx'
-
+import PaymentPage from './pages/Payment/Payment.jsx'
 
 function App() {
 
@@ -46,6 +46,7 @@ function App() {
             <Route path="/Location" element={<Location/>} />
             <Route path="/OrderAssessment" element ={<OrderAssessment/>}/>
             <Route path="/DriversDashboard" element={<DriversDashboard/>} />
+            <Route path="/Payment" element={<PaymentPage/>} />
           
             
        </Routes>
