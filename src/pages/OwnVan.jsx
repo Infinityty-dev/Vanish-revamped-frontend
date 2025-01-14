@@ -9,6 +9,7 @@ const OwnVan = () => {
 
         <OptionCardProps
         title="I Own a Van"
+        link="/DriversSignUp"
         icon={
           <img
             src="https://res.cloudinary.com/dxldk0ytk/image/upload/v1735412620/Vector_3_iszl78.png"

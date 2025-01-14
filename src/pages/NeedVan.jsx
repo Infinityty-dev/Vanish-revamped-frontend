@@ -8,7 +8,7 @@ const NeedVan = () => {
     <Container>
 
         <OptionCardProps
-
+        link="/SignUp"
         title= "I Need a Van"
 
         icon={

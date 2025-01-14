@@ -47,17 +47,17 @@ const Team = () => {
 
 
 
-<TeamCard image='/headshotAvatar.jpeg' 
-        name='Fatimah' 
+<TeamCard image='/FatimahB.png' 
+        name='Fatimah Adeniyi' 
         jobDescription='FullStack Developer'
-         about1='An objective driven passionate developer with' 
-         about2='proficiency in the MERN stack' 
-         about3='' 
-         about4=''
-         insta='https://google.com'
-         x='https://google.com'
-         www='https://google.com'
-         git='https://google.com'/>
+         about1='A goal-oriented and passionate developer proficient in the MERN stack' 
+         about2='Dedicated to building web solutions.' 
+         about3="I build web solutions, passionate about leveraging technology to optimize processes, deliver impactful business outcomes, and integrate customer-focused expertise." 
+         about4='I thrive on leveraging technology to streamline processes, deliver impactful business results, and incorporate a customer-focused approach.'
+         insta='https://www.instagram.com/techsupportwithteemah/profilecard/?igsh=MWd6Znhtam00bnc1Zg=='
+         x='https://x.com/techteemah?s=21&t=SPbPMgEPNU1NC-8P9LusQg'
+         www='www.linkedin.com/in/fatimahadeniyi'
+         git='https://github.com/Techteemah'/>
         
 
 

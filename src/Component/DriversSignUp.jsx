@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import React, { useState } from 'react';
-
+import { Link } from "react-router-dom";
 
 const DriversSignUp = ()=> {
     const [fullname, setFullname] = useState('');
@@ -31,9 +31,6 @@ const DriversSignUp = ()=> {
     }
   };
 
-   
-   
-   
    
    
     return(

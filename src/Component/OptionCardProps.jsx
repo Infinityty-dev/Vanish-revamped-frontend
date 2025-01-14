@@ -5,7 +5,7 @@ import Button from "./Button";
 import { Link} from 'react-router-dom';
 
 
-const OptionCardProps = ({ title, icon, }) => {
+const OptionCardProps = ({ title, icon, link }) => {
     return (
         <Container>
             <PageTitle> <h1>Choose Your Options</h1></PageTitle>
@@ -16,7 +16,7 @@ const OptionCardProps = ({ title, icon, }) => {
           <CardIcon>{icon}</CardIcon>
           <ButtonContainer>
 
-            <Link to= "/SignUp">
+            <Link to= {link}>
               <Button name= "Sign Up" bgcolor='#126A10' color='white' width= {160} height={48} />
             </Link>
             {/* <Link to= "/SignIn"> 
