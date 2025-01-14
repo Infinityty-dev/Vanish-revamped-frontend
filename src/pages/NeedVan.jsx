@@ -8,7 +8,9 @@ const NeedVan = () => {
     <Container>
 
         <OptionCardProps
-        title="I Need a Van"
+
+        title= "I Need a Van"
+
         icon={
           <img
             src="https://res.cloudinary.com/dxldk0ytk/image/upload/v1735412746/Vector_4_vqbq0b.png"
