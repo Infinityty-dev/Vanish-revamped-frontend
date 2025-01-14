@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 
+
 const DriversSignUp = ()=> {
     const [fullname, setFullname] = useState('');
     const [address, setAddress] = useState('');
@@ -32,9 +33,6 @@ const DriversSignUp = ()=> {
     }
   };
 
-   
-   
-   
    
    
     return(
