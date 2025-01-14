@@ -11,6 +11,9 @@ import Home from './pages/Home/Home.jsx'
 import OwnVan from './pages/ownVan.jsx'
 import NeedVan from './pages/NeedVan.jsx'
 import OptionPage from './pages/OptionPage.jsx'
+
+// import OrderAssessment from './pages/orderAssessment.jsx'
+
 import SignUp from './Component/SignUp.jsx'
 import SignIn from './Component/SignIn.jsx'
 import DriversSignUp from './Component/DriversSignUp.jsx'
@@ -23,6 +26,8 @@ import DriversDashboard from './Component/DriversDashboard.jsx'
 import OrderAssessment from './pages/orderAssessment.jsx'
 import EstimateCard from './Component/EstimateCard.jsx'
 import EstimateQoute from './Component/EstimateQoute.jsx'
+import Driver from './Component/Driver.jsx'
+
 
 
 function App() {
@@ -35,9 +40,11 @@ function App() {
           
             <Route path="/" element={<Home/>} />
             <Route path="/about-us" element={<Team />} />
+
             <Route path="/Optionpage" element={<OptionPage/>} />
             <Route path="/Ownvan" element={<OwnVan/>} />
             <Route path="/Needvan" element={<NeedVan/>} />
+
             <Route path="/SignUp" element={<SignUp/>} />
             <Route path='/Terms' element={<Terms/>} />
             <Route path="/SignIn" element={<SignIn/>} />
@@ -48,8 +55,12 @@ function App() {
             <Route path="/Location" element={<Location/>} />
             <Route path="/OrderAssessment" element ={<OrderAssessment/>}/>
             <Route path="/DriversDashboard" element={<DriversDashboard/>} />
+
             <Route path="/EstimateCard" element={<EstimateCard/>} />
             <Route path="/EstimateQuote" element={<EstimateQoute/>} />
+            <Route path ="/Driver" element={<Driver/>}/>
+
+
        </Routes>
        <Footer/>
        </BrowserRouter>

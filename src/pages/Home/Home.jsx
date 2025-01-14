@@ -12,6 +12,22 @@ import { IoIosSpeedometer } from "react-icons/io";
 import { FaShippingFast } from "react-icons/fa";
 import Button from '../../Component/Button.jsx';
 
+import emailjs from 'emailjs-com';
+
+import Driver from '../../Component/Driver.jsx';
+
+
+
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
+const serviceID = "service_6yh7mpo"; // Replace with your EmailJS service ID
+const templateID = "template_xr3634e"; // Replace with your EmailJS template ID
+const userID = "your_user_id"; // Replace with your EmailJS user ID
+
+
 
 
 
@@ -19,69 +35,184 @@ import Button from '../../Component/Button.jsx';
 const Home = ()=>{
 
 
+
+
+  const heroRef = useRef(null);
+  const serviceCardsRef = useRef([]);
+  const fleetRef = useRef(null);
+  const ratingsRef = useRef(null);
+  const revolutionizeRef = useRef(null);
+
+  useEffect(() => {
+    // Hero Section Animation
+    gsap.fromTo(
+      heroRef.current,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top 80%",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+  
+    // Services Cards Animation
+    serviceCardsRef.current.forEach((card, index) => {
+      gsap.fromTo(
+        card,
+        { opacity: 0, scale: 0.9, y: 50 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 1,
+          delay: index * 0.2,
+          ease: "elastic.out(1, 0.75)",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            toggleActions: "restart none none none",
+          },
+        }
+      );
+    });
+  
+    // Fleet Safety Section Animation
+    gsap.fromTo(
+      fleetRef.current,
+      { opacity: 0, x: -100 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: fleetRef.current,
+          start: "top 80%",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+  
+    // Ratings Section Animation
+    gsap.fromTo(
+      ratingsRef.current.children,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ratingsRef.current,
+          start: "top 85%",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+  
+    // Revolutionize Section Animation
+    gsap.fromTo(
+      revolutionizeRef.current.querySelector(".text"),
+      { opacity: 0, x: -50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: revolutionizeRef.current,
+          start: "top 90%",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+    gsap.fromTo(
+      revolutionizeRef.current.querySelector(".image"),
+      { opacity: 0, x: 50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: revolutionizeRef.current,
+          start: "top 90%",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+  }, []);
+
+
+
+
   const locations = [
 
     { id: 1, name: "Ajeromi-Ifelodun",r_dist:100 },
-    { id: 2, name: "Alimosho",r_dist:10 },
-    { id: 3, name: "Amuwo-Odofin" ,r_dist:10},
-    { id: 4, name: "Apapa",r_dist:10 },
-    { id: 5, name: "Badagry" ,r_dist:10},
-    { id: 6, name: "Agege" ,r_dist:10},
-    { id: 7, name: "Epe" ,r_dist:10},
-    { id: 8, name: "Eti-Osa",r_dist:10 },
-    { id: 9, name: "Ibeju-Lekki" ,r_dist:10},
-    { id: 10, name: "Ifako-Ijaiye" ,r_dist:10},
-    { id: 11, name: "Ikeja" ,r_dist:10},
-    { id: 12, name: "Ikorodu" ,r_dist:10},
-    { id: 13, name: "Kosofe",r_dist:10 },
-    { id: 14, name: "Lagos Island",r_dist:10 },
-    { id: 15, name: "Lagos Mainland" ,r_dist:10},
-    { id: 16, name: "Mushin" ,r_dist:10},
+    { id: 2, name: "Alimosho",r_dist:80 },
+    { id: 3, name: "Amuwo-Odofin" ,r_dist:50},
+    { id: 4, name: "Apapa",r_dist:70 },
+    { id: 5, name: "Badagry" ,r_dist:77},
+    { id: 6, name: "Agege" ,r_dist:44},
+    { id: 7, name: "Epe" ,r_dist:42},
+    { id: 8, name: "Eti-Osa",r_dist:78 },
+    { id: 9, name: "Ibeju-Lekki" ,r_dist:82},
+    { id: 10, name: "Ifako-Ijaiye" ,r_dist:12},
+    { id: 11, name: "Ikeja" ,r_dist:23},
+    { id: 12, name: "Ikorodu" ,r_dist:45},
+    { id: 13, name: "Kosofe",r_dist:56 },
+    { id: 14, name: "Lagos Island",r_dist:21 },
+    { id: 15, name: "Lagos Mainland" ,r_dist:22},
+    { id: 16, name: "Mushin" ,r_dist:57},
     { id: 17, name: "Ojo" ,r_dist:10},
-    { id: 18, name: "Oshodi-Isolo" ,r_dist:10},
-    { id: 19, name: "Shomolu" ,r_dist:10},
-    { id: 20, name: "Surulere" ,r_dist:10},
-    { id: 21, name: "Agbado/Oke-Odo" ,r_dist:10},
-    { id: 22, name: "Agboyi-Ketu",r_dist:10 },
-    { id: 23, name: "Ayobo-Ipaja",r_dist:10 },
-    { id: 24, name: "Bariga",r_dist:10 },
-    { id: 25, name: "Eredo",r_dist:10 },
-    { id: 26, name: "Egbe-Idimu",r_dist:10 },
-    { id: 27, name: "Ejigbo" ,r_dist:10},
-    { id: 28, name: "Igando-Ikotun" ,r_dist:10},
-    { id: 29, name: "Ikosi-Isheri",r_dist:10 },
-    { id: 30, name: "Isolo" ,r_dist:10},
-    { id: 31, name: "Mosan-Okunola",r_dist:10 },
-    { id: 32, name: "Odi Olowo-Ojuwoye",r_dist:10 },
-    { id: 33, name: "Ojodu",r_dist:10 },
-    { id: 34, name: "Ojokoro",r_dist:10 },
-    { id: 35, name: "Onigbongbo",r_dist:10 },
-    { id: 36, name: "Orile Agege",r_dist:10 },
-    { id: 37, name: "Ikorodu North" ,r_dist:10},
-    { id: 38, name: "Ikorodu West" ,r_dist:10},
-    { id: 39, name: "Igbogbo-Baiyeku",r_dist:10 },
-    { id: 40, name: "Ijede" ,r_dist:10},
-    { id: 41, name: "Imota",r_dist:10 },
-    { id: 42, name: "Agbowa-Ikosi" ,r_dist:10},
-    { id: 43, name: "Ikosi-Ejinrin",r_dist:10 },
-    { id: 44, name: "Badagry West",r_dist:10 },
-    { id: 45, name: "Olorunda" ,r_dist:10},
-    { id: 46, name: "Apapa-Iganmu",r_dist:10 },
-    { id: 47, name: "Itire-Ikate",r_dist:10 },
-    { id: 48, name: "Coker-Aguda",r_dist:10 },
-    { id: 49, name: "Igando-Ikotun",r_dist:10 },
-    { id: 50, name: "Ejigbo",r_dist:10 },
-    { id: 51, name: "Isolo",r_dist:10 },
-    { id: 52, name: "Ikosi-Isheri",r_dist:10 },
-    { id: 53, name: "Agboyi-Ketu",r_dist:10 },
-    { id: 54, name: "Yaba" ,r_dist:10},
-    
-
+    { id: 18, name: "Oshodi-Isolo" ,r_dist:34},
+    { id: 19, name: "Shomolu" ,r_dist:68},
+    { id: 20, name: "Surulere" ,r_dist:69},
+    { id: 21, name: "Agbado/Oke-Odo" ,r_dist:16},
+    { id: 22, name: "Agboyi-Ketu",r_dist:19 },
+    { id: 23, name: "Ayobo-Ipaja",r_dist:80 },
+    { id: 24, name: "Bariga",r_dist:92 },
+    { id: 25, name: "Eredo",r_dist:34 },
+    { id: 26, name: "Egbe-Idimu",r_dist:45 },
+    { id: 27, name: "Ejigbo" ,r_dist:40},
+    { id: 28, name: "Igando-Ikotun" ,r_dist:27},
+    { id: 29, name: "Ikosi-Isheri",r_dist:81 },
+    { id: 30, name: "Isolo" ,r_dist:84},
+    { id: 31, name: "Mosan-Okunola",r_dist:69 },
+    { id: 32, name: "Odi Olowo-Ojuwoye",r_dist:25 },
+    { id: 33, name: "Ojodu",r_dist:67 },
+    { id: 34, name: "Ojokoro",r_dist:78 },
+    { id: 35, name: "Onigbongbo",r_dist:34 },
+    { id: 36, name: "Orile Agege",r_dist:89 },
+    { id: 37, name: "Ikorodu North" ,r_dist:44},
+    { id: 38, name: "Ikorodu West" ,r_dist:55},
+    { id: 39, name: "Igbogbo-Baiyeku",r_dist:66 },
+    { id: 40, name: "Ijede" ,r_dist:77},
+    { id: 41, name: "Imota",r_dist:88 },
+    { id: 42, name: "Agbowa-Ikosi" ,r_dist:33},
+    { id: 43, name: "Ikosi-Ejinrin",r_dist:51 },
+    { id: 44, name: "Badagry West",r_dist:71 },
+    { id: 45, name: "Olorunda" ,r_dist:81},
+    { id: 46, name: "Apapa-Iganmu",r_dist:91 },
+    { id: 47, name: "Itire-Ikate",r_dist:65 },
+    { id: 48, name: "Coker-Aguda",r_dist:78 },
+    { id: 49, name: "Igando-Ikotun",r_dist:73 },
+    { id: 50, name: "Ejigbo",r_dist:84 },
+    { id: 51, name: "Isolo",r_dist:86 },
+    { id: 52, name: "Ikosi-Isheri",r_dist:49 },
+    { id: 53, name: "Agboyi-Ketu",r_dist:59 },
+    { id: 54, name: "Yaba" ,r_dist:69},
   
-    
   ];
 
-  const ratePerKm = 1.5; // Fixed rate per kilometer
+  const ratePerKm = 2.5; // Fixed rate per kilometer
 
   // States
   const [startLocation, setStartLocation] = useState("");
@@ -89,9 +220,13 @@ const Home = ()=>{
   const [filteredLocations, setFilteredLocations] = useState(locations);
   const [quote, setQuote] = useState(null);
   const [isQuoteVisible, setQuoteVisible] = useState(false);
+  const [selectedOption, setSelectedOption] =useState(1)
 
+
+
+    // Prevent the default form submission behavior
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
+    e.preventDefault(); 
     
   };
 
@@ -117,7 +252,11 @@ const Home = ()=>{
       )
     );
   };
-  
+  const selectChange = (e)=>{
+    e.preventDefault();
+    setSelectedOption(e.target.value);
+    console.log(setSelectedOption(e.target.value))
+  }
 
   const calculateQuote = () => {
     
@@ -129,9 +268,9 @@ const Home = ()=>{
     const distance = Math.abs(
       locations.find((loc) => loc.name === startLocation).r_dist - locations.find((loc) => loc.name === endLocation).r_dist
     );
-    console.log('dist:',distance);
+    // console.log('dist:',distance);
     
-    const cost = distance * ratePerKm;
+    const cost = distance * ratePerKm * 1000;
     setQuote(`The estimated cost is $${cost.toFixed(2)}`);
     setQuoteVisible(true);
   };
@@ -145,7 +284,7 @@ const Home = ()=>{
   return(
    <>
     <Container>
-     <div class='hero'>
+    <div className="hero" ref={heroRef}>
              <div className='hero-text'>
                  <h1>
                      Effortless <br/>Logistic, Every<br/> Step of the Way
@@ -159,6 +298,7 @@ const Home = ()=>{
                  <h2>Move from A to Z</h2>
                  <p>Track your van every step of the way</p>
                  <hr/>
+                 {/* **************************************************FORM************************* */}
                  <form onSubmit={handleSubmit}style={{position:"relative"}} >
                          <label>Pick Up Location</label> <br/>
                          <div className='input1 dropdown-container'>
@@ -195,8 +335,8 @@ const Home = ()=>{
                             </datalist>
                                 
                          </div>
-                       
-                         {/* <div className='form-cards'>
+                       {/* ***************** */}
+                         <div className='form-cards'>
                              <div>
                              <IoIosSpeedometer size={25} color='#126A10 '/>
                                  <p color='black'>Schedule</p>
@@ -206,12 +346,13 @@ const Home = ()=>{
                                  <p>Instant</p>
                              </div>
                             
-                         </div> */}
+                         </div>
+                         {/* ************************ */}
 
                          <label for='services'>Services</label> <br/>
                          <div className='input1'>
-                         <select name="services" id="services">
-                             <option value="option1">Option 1</option>
+                         <select name="services" id="services" value={selectedOption} onChange={selectChange}>
+                             <option value='10' >Option 1</option>
                              <option value="option2">Option 2</option>
                              <option value="option3">Option 3</option>
                          </select>
@@ -240,7 +381,8 @@ const Home = ()=>{
                                             >
                                               <h3>Quote</h3>
                                               <p>{quote}</p>
-                                              <a href="/about-us"><button onClick={() => setQuoteVisible(false)} >Close</button></a>
+                                              <a href="/about-us"></a>
+                                              <button onClick={() => setQuoteVisible(false)} >Close</button>
                                             </div>
                                           )}
 
@@ -287,7 +429,8 @@ const Home = ()=>{
                  <ServiceCard img ={<PiFolderOpen  size={30}/>} title='Clear & No Hidden Fees' text1='Pay exactly what is stated' text2='without unexpected or additional' text3='charges.'/>
              </div>
 
-             <div className='fleet-safety-outer-box'>
+           
+      <div className="fleet-safety-outer-box" ref={fleetRef}>
              <div className='fleet-safety-text-box fleet-safety-inner-box'>
                  <img className='fleetCar fleetCarMobile ' src="/fleet-car.png" alt="" />
                  <h3>Your Fleet's Safety, Our Top Priority</h3>
@@ -304,14 +447,14 @@ const Home = ()=>{
              
              </div>
 
-             <div className='ratings'>
+             <div className="ratings" ref={ratingsRef}>
              <div><h1>10,000+</h1><p>Deliveries Managed</p></div>
              <div><h1>2,500+</h1><p>Active Clients</p></div>
              <div><h1>98%</h1><p>On-time Delivery Rate</p></div>
              <div><h1>200+</h1><p>Industry Awards</p></div>
              </div>
 
-             <div className='revolutionise'>
+             <div className="revolutionise" ref={revolutionizeRef}>
              <div className='text'>
                  <h2>Ready to Revolutionize Your <br /> Logistic Operations ?</h2>
                  <p>Join other countless other businesses that have streamlined their <br /> logistics with our cutting-edge solutions</p>
@@ -361,9 +504,12 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
         margin-bottom:20px;
     }
     p{
-        font-size:25px;
+        font-size:24px;
         color:black;
         margin-bottom:20px;
+          font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
     }
 }
     .heroFormInput{
@@ -485,7 +631,7 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
 section{
     background-image:url('/Vector.png');
     background-repeat:  repeat;
-    background-size: 30px 30px;
+    background-size: 510px 510px;
     z-index:-1;
     padding-bottom:100px;
     
@@ -494,16 +640,18 @@ section{
     padding-top: 70px;
     text-align: center;
     h1{
-      font-size: 3em;
+      font-size: 40px;
       color: black;
       margin-bottom: 30px;
+       font-family: "Poppins", serif;
     }
     span{
       color: #126A10;
       font-weight: bold;
     }
     p{
-      font-size: 18px;
+      font-size: 16px;
+       font-family: "Poppins", serif;
     }
   }
   .serviceCards{
@@ -513,21 +661,22 @@ section{
     margin-top: 50px;
     margin-bottom: 200px;
     gap: 30px;
+
   }
   .fleet-safety-outer-box{
     width: 90%;
     margin-bottom: 150px;
     margin:auto;
     border-radius: 20px;
-    box-shadow:1px 1px 10px ;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     padding: 100px 200px 100px 100px;
     position: relative;
-    background-color: #80808014;
+    background-color: transparent;
   }
 
   .fleet-safety-text-box{
     border-radius: 20px;
-    box-shadow:1px 1px 2px ;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     padding-left: 40px;
     border: none;
     background-color: #fff;

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import Button from "../Component/Button";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { TiArrowForward, TiArrowBack } from "react-icons/ti";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import Button from '../Component/Button';
+
+import { IoMdArrowRoundBack} from 'react-icons/io'
+import { TiArrowForward } from "react-icons/ti";
+
 
 const OrderAssessment = () => {
   const [currentVan, setCurrentVan] = useState(0);

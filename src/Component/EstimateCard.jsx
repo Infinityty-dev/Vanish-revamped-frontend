@@ -10,11 +10,11 @@ const EstimateCard = ({ estimate = 0 }) => {
   return (
     <Container>
       <Cardcontainer>
-        <Link to="/OrderAssessment">
-          <CloseButton>
-            <AiOutlineClose />
-          </CloseButton>
-        </Link>
+        <CloseButton onClick={onClose}>
+
+          <AiOutlineClose/> 
+
+        </CloseButton>
         <h2>Your vanISH estimate!</h2>
         <Emoji>
           <BsEmojiLaughingFill />
