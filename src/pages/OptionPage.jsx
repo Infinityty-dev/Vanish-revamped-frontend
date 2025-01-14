@@ -1,14 +1,17 @@
 import React from 'react';
+
 import { Link } from 'react-router-dom'; 
 import styled from 'styled-components'; 
 
 const OptionPage = () => {
+
   return (
     <PageContainer>
       <HeaderContainer>
         <h1>Choose Your Options</h1>
       </HeaderContainer>
       <OptionsContainer>
+
         <Link to="/ownvan" style={{ textDecoration: 'none' }}>
           <OptionCard>
             <OptionTitleContainer>
@@ -36,6 +39,7 @@ const OptionPage = () => {
             </OptionIconContainer>
           </OptionCard>
         </Link>
+
       </OptionsContainer>
     </PageContainer>
   );
@@ -43,7 +47,9 @@ const OptionPage = () => {
 
 export default OptionPage;
 
+
 // Styled components
+
 
 const PageContainer = styled.div`
   display: flex;
@@ -107,7 +113,9 @@ const OptionTitleContainer = styled.div`
   h2 {
     font-size: 16px;
     color: #126A10;
+
     font-weight: 500;
+
 
     @media (max-width: 768px) {
       font-size: 14px;
@@ -124,4 +132,6 @@ const OptionIconContainer = styled.div`
       width: 50px;
     }
   }
+
 `;
+
