@@ -11,9 +11,17 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoIosSpeedometer } from "react-icons/io";
 import { FaShippingFast } from "react-icons/fa";
 import Button from '../../Component/Button.jsx';
+
 import emailjs from 'emailjs-com';
 
+import Driver from '../../Component/Driver.jsx';
 
+
+
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const serviceID = "service_6yh7mpo"; // Replace with your EmailJS service ID
 const templateID = "template_xr3634e"; // Replace with your EmailJS template ID
@@ -23,7 +31,126 @@ const userID = "your_user_id"; // Replace with your EmailJS user ID
 
 
 
+
 const Home = ()=>{
+
+
+
+
+  const heroRef = useRef(null);
+  const serviceCardsRef = useRef([]);
+  const fleetRef = useRef(null);
+  const ratingsRef = useRef(null);
+  const revolutionizeRef = useRef(null);
+
+  useEffect(() => {
+    // Hero Section Animation
+    gsap.fromTo(
+      heroRef.current,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top 80%",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+  
+    // Services Cards Animation
+    serviceCardsRef.current.forEach((card, index) => {
+      gsap.fromTo(
+        card,
+        { opacity: 0, scale: 0.9, y: 50 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 1,
+          delay: index * 0.2,
+          ease: "elastic.out(1, 0.75)",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            toggleActions: "restart none none none",
+          },
+        }
+      );
+    });
+  
+    // Fleet Safety Section Animation
+    gsap.fromTo(
+      fleetRef.current,
+      { opacity: 0, x: -100 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: fleetRef.current,
+          start: "top 80%",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+  
+    // Ratings Section Animation
+    gsap.fromTo(
+      ratingsRef.current.children,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ratingsRef.current,
+          start: "top 85%",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+  
+    // Revolutionize Section Animation
+    gsap.fromTo(
+      revolutionizeRef.current.querySelector(".text"),
+      { opacity: 0, x: -50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: revolutionizeRef.current,
+          start: "top 90%",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+    gsap.fromTo(
+      revolutionizeRef.current.querySelector(".image"),
+      { opacity: 0, x: 50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: revolutionizeRef.current,
+          start: "top 90%",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+  }, []);
+
+
 
 
   const locations = [
@@ -157,7 +284,7 @@ const Home = ()=>{
   return(
    <>
     <Container>
-     <div class='hero'>
+    <div className="hero" ref={heroRef}>
              <div className='hero-text'>
                  <h1>
                      Effortless <br/>Logistic, Every<br/> Step of the Way
@@ -302,7 +429,8 @@ const Home = ()=>{
                  <ServiceCard img ={<PiFolderOpen  size={30}/>} title='Clear & No Hidden Fees' text1='Pay exactly what is stated' text2='without unexpected or additional' text3='charges.'/>
              </div>
 
-             <div className='fleet-safety-outer-box'>
+           
+      <div className="fleet-safety-outer-box" ref={fleetRef}>
              <div className='fleet-safety-text-box fleet-safety-inner-box'>
                  <img className='fleetCar fleetCarMobile ' src="/fleet-car.png" alt="" />
                  <h3>Your Fleet's Safety, Our Top Priority</h3>
@@ -319,14 +447,14 @@ const Home = ()=>{
              
              </div>
 
-             <div className='ratings'>
+             <div className="ratings" ref={ratingsRef}>
              <div><h1>10,000+</h1><p>Deliveries Managed</p></div>
              <div><h1>2,500+</h1><p>Active Clients</p></div>
              <div><h1>98%</h1><p>On-time Delivery Rate</p></div>
              <div><h1>200+</h1><p>Industry Awards</p></div>
              </div>
 
-             <div className='revolutionise'>
+             <div className="revolutionise" ref={revolutionizeRef}>
              <div className='text'>
                  <h2>Ready to Revolutionize Your <br /> Logistic Operations ?</h2>
                  <p>Join other countless other businesses that have streamlined their <br /> logistics with our cutting-edge solutions</p>
@@ -376,9 +504,12 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
         margin-bottom:20px;
     }
     p{
-        font-size:25px;
+        font-size:24px;
         color:black;
         margin-bottom:20px;
+          font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
     }
 }
     .heroFormInput{
@@ -500,7 +631,7 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
 section{
     background-image:url('/Vector.png');
     background-repeat:  repeat;
-    background-size: 30px 30px;
+    background-size: 510px 510px;
     z-index:-1;
     padding-bottom:100px;
     
@@ -509,16 +640,18 @@ section{
     padding-top: 70px;
     text-align: center;
     h1{
-      font-size: 3em;
+      font-size: 40px;
       color: black;
       margin-bottom: 30px;
+       font-family: "Poppins", serif;
     }
     span{
       color: #126A10;
       font-weight: bold;
     }
     p{
-      font-size: 18px;
+      font-size: 16px;
+       font-family: "Poppins", serif;
     }
   }
   .serviceCards{
@@ -528,21 +661,22 @@ section{
     margin-top: 50px;
     margin-bottom: 200px;
     gap: 30px;
+
   }
   .fleet-safety-outer-box{
     width: 90%;
     margin-bottom: 150px;
     margin:auto;
     border-radius: 20px;
-    box-shadow:1px 1px 10px ;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     padding: 100px 200px 100px 100px;
     position: relative;
-    background-color: #80808014;
+    background-color: transparent;
   }
 
   .fleet-safety-text-box{
     border-radius: 20px;
-    box-shadow:1px 1px 2px ;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     padding-left: 40px;
     border: none;
     background-color: #fff;

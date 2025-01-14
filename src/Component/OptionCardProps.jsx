@@ -2,6 +2,9 @@ import React from 'react'
 import styled from "styled-components";
 import Button from "./Button";
 
+import { Link} from 'react-router-dom';
+
+
 const OptionCardProps = ({ title, icon, }) => {
     return (
         <Container>
@@ -12,8 +15,14 @@ const OptionCardProps = ({ title, icon, }) => {
           </CardTitle>
           <CardIcon>{icon}</CardIcon>
           <ButtonContainer>
-            <Button name= "Sign Up" bgcolor='#126A10' color='white' width= {160} height={48} />
-            <Button name= "Login" bgcolor='white' color='#126A10' width= {160} height={48} />
+
+            <Link to= "/SignUp">
+              <Button name= "Sign Up" bgcolor='#126A10' color='white' width= {160} height={48} />
+            </Link>
+            <Link to= "/SignIn">
+              <Button name= "Login" bgcolor='white' color='#126A10' width= {160} height={48} />
+            </Link>            
+
           </ButtonContainer>
           </CardContainer>
         </Container>
@@ -78,5 +87,11 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
+
+
+  a{
+    text-decoration:none;
+  }
+
 `;
   
