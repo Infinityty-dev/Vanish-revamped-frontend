@@ -11,6 +11,8 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoIosSpeedometer } from "react-icons/io";
 import { FaShippingFast } from "react-icons/fa";
 import Button from '../../Component/Button.jsx';
+// import Driver from '../../Component/Driver.jsx';
+import {Link} from "react-router-dom"
 
 import emailjs from 'emailjs-com';
 
@@ -459,7 +461,7 @@ const Home = ()=>{
                  <h2>Ready to Revolutionize Your <br /> Logistic Operations ?</h2>
                  <p>Join other countless other businesses that have streamlined their <br /> logistics with our cutting-edge solutions</p>
                  <div className='revolutionise-button'>
-                     <Button name='Sign Up' bgcolor='rgb(18, 106, 16)' color='white' width= {160} height={48}/>
+                    <Link to ="/SignUp"> <Button name='Sign Up' bgcolor='rgb(18, 106, 16)' color='white' width= {160} height={48}/></Link>
                  </div>
              </div>
              <div className='image'>

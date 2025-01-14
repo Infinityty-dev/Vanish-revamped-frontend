@@ -21,6 +21,7 @@ import Movement from "./Component/Movement.jsx";
 import Location from "./Component/Location.jsx"
 import DriversDashboard from './Component/DriversDashboard.jsx'
 import OrderAssessment from './pages/orderAssessment.jsx'
+import PaymentPage from './pages/Payment/Payment.jsx'
 import EstimateCard from './Component/EstimateCard.jsx'
 import EstimateQoute from './Component/EstimateQoute.jsx'
 
@@ -48,8 +49,16 @@ function App() {
             <Route path="/Location" element={<Location/>} />
             <Route path="/OrderAssessment" element ={<OrderAssessment/>}/>
             <Route path="/DriversDashboard" element={<DriversDashboard/>} />
+
+            <Route path="/Payment" element={<PaymentPage/>} />
             <Route path="/EstimateCard" element={<EstimateCard/>} />
             <Route path="/EstimateQuote" element={<EstimateQoute/>} />
+            <Route path ="/Driver" element={<Driver/>}/>
+
+
+            <Route path="/EstimateCard" element={<EstimateCard/>} />
+            <Route path="/EstimateQuote" element={<EstimateQoute/>} />
+
        </Routes>
        <Footer/>
        </BrowserRouter>
