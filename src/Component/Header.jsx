@@ -43,7 +43,7 @@ const Header = () => {
         </div>
         <div className='btn'>
          <Link to ="/OptionPage"> <a href="/SignUp"><Button name='Sign Up' bgcolor='#126A10' color='white ' width= {160} height={48}/></a> </Link> 
-         <Link to ="/SignIn"> <Button name='Log In' bgcolor='white' color='#126A10' width= {160} height={48}/> </Link>
+         <Link to ="/OptionPage"> <Button name='Log In' bgcolor='white' color='#126A10' width= {160} height={48}/> </Link>
             
             
         </div>
