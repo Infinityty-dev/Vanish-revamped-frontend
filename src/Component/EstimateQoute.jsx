@@ -19,7 +19,7 @@ const EstimateQuote = ({ estimate = 0 }) => {
           <BsEmojiLaughingFill />
         </Emoji>
         <p>Your vanISH estimate is</p>
-        <p className="amount">${estimate.toFixed(2)}</p>
+        <p className="amount">₦{estimate.toFixed(2)}</p>
         <Link to="/signup">
           <Button name="Next" bgcolor="#126a10" color="white" width={160} height={48} />
         </Link>
