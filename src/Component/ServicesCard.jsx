@@ -42,8 +42,10 @@ const ServicesCard = (props) => {
         </div>
       </div>
     </Container>
+
   );
 };
+
 
 export default ServicesCard;
 const Container = styled.div`

@@ -2,7 +2,9 @@ import styled from "styled-components"
 import React, { useState } from 'react';
 import Google from "../assets/flat-color-icons_google.png"
 import Apple from "../assets/devicon_apple.png"
+
 import { Link } from "react-router-dom";
+
 
 const SignInPage = ()=>{
     const [name, setName] = useState('');
@@ -92,7 +94,9 @@ const SignInPage = ()=>{
                 </Button>
 
                 <p className="bgs">
+
                     Don't have an account? <Link to = "/SignUp"><span>Sign Up</span> </Link>
+
                 </p>
 
 
@@ -139,7 +143,9 @@ const Signwrapper = styled.div`
     }
     span{
         color:  #126A10;
+
         text-decoration: none;
+
     }
     
 

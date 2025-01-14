@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import bg from "../assets/bg.jpg"
+
 import { Link } from "react-router-dom";
+
 
 const Location = () => {
 
@@ -33,9 +35,11 @@ const Location = () => {
        </Form>
        
         </Geo>
+
         <Link to="/Driver">
         <button>Proceed</button>
         </Link>
+
 
         </Service>
         </Background>

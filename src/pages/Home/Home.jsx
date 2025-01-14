@@ -11,7 +11,11 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoIosSpeedometer } from "react-icons/io";
 import { FaShippingFast } from "react-icons/fa";
 import Button from '../../Component/Button.jsx';
+
+import emailjs from 'emailjs-com';
+
 import Driver from '../../Component/Driver.jsx';
+
 
 
 import React, { useEffect, useRef } from "react";
@@ -19,10 +23,16 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
+const serviceID = "service_6yh7mpo"; // Replace with your EmailJS service ID
+const templateID = "template_xr3634e"; // Replace with your EmailJS template ID
+const userID = "your_user_id"; // Replace with your EmailJS user ID
+
+
+
+
+
 
 const Home = ()=>{
-
-
 
 
 
@@ -143,92 +153,66 @@ const Home = ()=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   const locations = [
 
     { id: 1, name: "Ajeromi-Ifelodun",r_dist:100 },
-    { id: 2, name: "Alimosho",r_dist:10 },
-    { id: 3, name: "Amuwo-Odofin" ,r_dist:10},
-    { id: 4, name: "Apapa",r_dist:10 },
-    { id: 5, name: "Badagry" ,r_dist:10},
-    { id: 6, name: "Agege" ,r_dist:10},
-    { id: 7, name: "Epe" ,r_dist:10},
-    { id: 8, name: "Eti-Osa",r_dist:10 },
-    { id: 9, name: "Ibeju-Lekki" ,r_dist:10},
-    { id: 10, name: "Ifako-Ijaiye" ,r_dist:10},
-    { id: 11, name: "Ikeja" ,r_dist:10},
-    { id: 12, name: "Ikorodu" ,r_dist:10},
-    { id: 13, name: "Kosofe",r_dist:10 },
-    { id: 14, name: "Lagos Island",r_dist:10 },
-    { id: 15, name: "Lagos Mainland" ,r_dist:10},
-    { id: 16, name: "Mushin" ,r_dist:10},
+    { id: 2, name: "Alimosho",r_dist:80 },
+    { id: 3, name: "Amuwo-Odofin" ,r_dist:50},
+    { id: 4, name: "Apapa",r_dist:70 },
+    { id: 5, name: "Badagry" ,r_dist:77},
+    { id: 6, name: "Agege" ,r_dist:44},
+    { id: 7, name: "Epe" ,r_dist:42},
+    { id: 8, name: "Eti-Osa",r_dist:78 },
+    { id: 9, name: "Ibeju-Lekki" ,r_dist:82},
+    { id: 10, name: "Ifako-Ijaiye" ,r_dist:12},
+    { id: 11, name: "Ikeja" ,r_dist:23},
+    { id: 12, name: "Ikorodu" ,r_dist:45},
+    { id: 13, name: "Kosofe",r_dist:56 },
+    { id: 14, name: "Lagos Island",r_dist:21 },
+    { id: 15, name: "Lagos Mainland" ,r_dist:22},
+    { id: 16, name: "Mushin" ,r_dist:57},
     { id: 17, name: "Ojo" ,r_dist:10},
-    { id: 18, name: "Oshodi-Isolo" ,r_dist:10},
-    { id: 19, name: "Shomolu" ,r_dist:10},
-    { id: 20, name: "Surulere" ,r_dist:10},
-    { id: 21, name: "Agbado/Oke-Odo" ,r_dist:10},
-    { id: 22, name: "Agboyi-Ketu",r_dist:10 },
-    { id: 23, name: "Ayobo-Ipaja",r_dist:10 },
-    { id: 24, name: "Bariga",r_dist:10 },
-    { id: 25, name: "Eredo",r_dist:10 },
-    { id: 26, name: "Egbe-Idimu",r_dist:10 },
-    { id: 27, name: "Ejigbo" ,r_dist:10},
-    { id: 28, name: "Igando-Ikotun" ,r_dist:10},
-    { id: 29, name: "Ikosi-Isheri",r_dist:10 },
-    { id: 30, name: "Isolo" ,r_dist:10},
-    { id: 31, name: "Mosan-Okunola",r_dist:10 },
-    { id: 32, name: "Odi Olowo-Ojuwoye",r_dist:10 },
-    { id: 33, name: "Ojodu",r_dist:10 },
-    { id: 34, name: "Ojokoro",r_dist:10 },
-    { id: 35, name: "Onigbongbo",r_dist:10 },
-    { id: 36, name: "Orile Agege",r_dist:10 },
-    { id: 37, name: "Ikorodu North" ,r_dist:10},
-    { id: 38, name: "Ikorodu West" ,r_dist:10},
-    { id: 39, name: "Igbogbo-Baiyeku",r_dist:10 },
-    { id: 40, name: "Ijede" ,r_dist:10},
-    { id: 41, name: "Imota",r_dist:10 },
-    { id: 42, name: "Agbowa-Ikosi" ,r_dist:10},
-    { id: 43, name: "Ikosi-Ejinrin",r_dist:10 },
-    { id: 44, name: "Badagry West",r_dist:10 },
-    { id: 45, name: "Olorunda" ,r_dist:10},
-    { id: 46, name: "Apapa-Iganmu",r_dist:10 },
-    { id: 47, name: "Itire-Ikate",r_dist:10 },
-    { id: 48, name: "Coker-Aguda",r_dist:10 },
-    { id: 49, name: "Igando-Ikotun",r_dist:10 },
-    { id: 50, name: "Ejigbo",r_dist:10 },
-    { id: 51, name: "Isolo",r_dist:10 },
-    { id: 52, name: "Ikosi-Isheri",r_dist:10 },
-    { id: 53, name: "Agboyi-Ketu",r_dist:10 },
-    { id: 54, name: "Yaba" ,r_dist:10},
-    
-
+    { id: 18, name: "Oshodi-Isolo" ,r_dist:34},
+    { id: 19, name: "Shomolu" ,r_dist:68},
+    { id: 20, name: "Surulere" ,r_dist:69},
+    { id: 21, name: "Agbado/Oke-Odo" ,r_dist:16},
+    { id: 22, name: "Agboyi-Ketu",r_dist:19 },
+    { id: 23, name: "Ayobo-Ipaja",r_dist:80 },
+    { id: 24, name: "Bariga",r_dist:92 },
+    { id: 25, name: "Eredo",r_dist:34 },
+    { id: 26, name: "Egbe-Idimu",r_dist:45 },
+    { id: 27, name: "Ejigbo" ,r_dist:40},
+    { id: 28, name: "Igando-Ikotun" ,r_dist:27},
+    { id: 29, name: "Ikosi-Isheri",r_dist:81 },
+    { id: 30, name: "Isolo" ,r_dist:84},
+    { id: 31, name: "Mosan-Okunola",r_dist:69 },
+    { id: 32, name: "Odi Olowo-Ojuwoye",r_dist:25 },
+    { id: 33, name: "Ojodu",r_dist:67 },
+    { id: 34, name: "Ojokoro",r_dist:78 },
+    { id: 35, name: "Onigbongbo",r_dist:34 },
+    { id: 36, name: "Orile Agege",r_dist:89 },
+    { id: 37, name: "Ikorodu North" ,r_dist:44},
+    { id: 38, name: "Ikorodu West" ,r_dist:55},
+    { id: 39, name: "Igbogbo-Baiyeku",r_dist:66 },
+    { id: 40, name: "Ijede" ,r_dist:77},
+    { id: 41, name: "Imota",r_dist:88 },
+    { id: 42, name: "Agbowa-Ikosi" ,r_dist:33},
+    { id: 43, name: "Ikosi-Ejinrin",r_dist:51 },
+    { id: 44, name: "Badagry West",r_dist:71 },
+    { id: 45, name: "Olorunda" ,r_dist:81},
+    { id: 46, name: "Apapa-Iganmu",r_dist:91 },
+    { id: 47, name: "Itire-Ikate",r_dist:65 },
+    { id: 48, name: "Coker-Aguda",r_dist:78 },
+    { id: 49, name: "Igando-Ikotun",r_dist:73 },
+    { id: 50, name: "Ejigbo",r_dist:84 },
+    { id: 51, name: "Isolo",r_dist:86 },
+    { id: 52, name: "Ikosi-Isheri",r_dist:49 },
+    { id: 53, name: "Agboyi-Ketu",r_dist:59 },
+    { id: 54, name: "Yaba" ,r_dist:69},
   
-    
   ];
 
-  const ratePerKm = 1.5; // Fixed rate per kilometer
+  const ratePerKm = 2.5; // Fixed rate per kilometer
 
   // States
   const [startLocation, setStartLocation] = useState("");
@@ -236,9 +220,13 @@ const Home = ()=>{
   const [filteredLocations, setFilteredLocations] = useState(locations);
   const [quote, setQuote] = useState(null);
   const [isQuoteVisible, setQuoteVisible] = useState(false);
+  const [selectedOption, setSelectedOption] =useState(1)
 
+
+
+    // Prevent the default form submission behavior
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
+    e.preventDefault(); 
     
   };
 
@@ -264,7 +252,11 @@ const Home = ()=>{
       )
     );
   };
-  
+  const selectChange = (e)=>{
+    e.preventDefault();
+    setSelectedOption(e.target.value);
+    console.log(setSelectedOption(e.target.value))
+  }
 
   const calculateQuote = () => {
     
@@ -276,9 +268,9 @@ const Home = ()=>{
     const distance = Math.abs(
       locations.find((loc) => loc.name === startLocation).r_dist - locations.find((loc) => loc.name === endLocation).r_dist
     );
-    console.log('dist:',distance);
+    // console.log('dist:',distance);
     
-    const cost = distance * ratePerKm;
+    const cost = distance * ratePerKm * 1000;
     setQuote(`The estimated cost is $${cost.toFixed(2)}`);
     setQuoteVisible(true);
   };
@@ -306,6 +298,7 @@ const Home = ()=>{
                  <h2>Move from A to Z</h2>
                  <p>Track your van every step of the way</p>
                  <hr/>
+                 {/* **************************************************FORM************************* */}
                  <form onSubmit={handleSubmit}style={{position:"relative"}} >
                          <label>Pick Up Location</label> <br/>
                          <div className='input1 dropdown-container'>
@@ -342,8 +335,8 @@ const Home = ()=>{
                             </datalist>
                                 
                          </div>
-                       
-                         {/* <div className='form-cards'>
+                       {/* ***************** */}
+                         <div className='form-cards'>
                              <div>
                              <IoIosSpeedometer size={25} color='#126A10 '/>
                                  <p color='black'>Schedule</p>
@@ -353,12 +346,13 @@ const Home = ()=>{
                                  <p>Instant</p>
                              </div>
                             
-                         </div> */}
+                         </div>
+                         {/* ************************ */}
 
                          <label for='services'>Services</label> <br/>
                          <div className='input1'>
-                         <select name="services" id="services">
-                             <option value="option1">Option 1</option>
+                         <select name="services" id="services" value={selectedOption} onChange={selectChange}>
+                             <option value='10' >Option 1</option>
                              <option value="option2">Option 2</option>
                              <option value="option3">Option 3</option>
                          </select>
@@ -387,7 +381,8 @@ const Home = ()=>{
                                             >
                                               <h3>Quote</h3>
                                               <p>{quote}</p>
-                                              <a href="/about-us"><button onClick={() => setQuoteVisible(false)} >Close</button></a>
+                                              <a href="/about-us"></a>
+                                              <button onClick={() => setQuoteVisible(false)} >Close</button>
                                             </div>
                                           )}
 
@@ -480,6 +475,8 @@ const Home = ()=>{
     
 
     </Container>
+      {/* <Location/>  */}
+    {/* <Movement/>  */}
 
     </>
  )

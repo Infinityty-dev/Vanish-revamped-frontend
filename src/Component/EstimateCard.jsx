@@ -9,7 +9,9 @@ const EstimateCard = ({ onClose, estimate = 0 }) => {
     <Container>
       <Cardcontainer>
         <CloseButton onClick={onClose}>
+
           <AiOutlineClose/> 
+
         </CloseButton>
         <h2>Your vanISH estimate!</h2>
         <Emoji>
