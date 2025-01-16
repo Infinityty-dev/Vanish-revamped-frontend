@@ -443,7 +443,7 @@ const Home = ()=>{
              
                  
                  <div className='service-button'>
-                 <Button className='sbutton'name='Learn More' bgcolor='rgb(18, 106, 16)' color='white' width= {160} height={48}/>
+                <a href="./Blog"> <Button className='sbutton'name='Learn More' bgcolor='rgb(18, 106, 16)' color='white' width= {160} height={48}/></a>
                  </div>
              </div>
              
