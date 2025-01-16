@@ -28,8 +28,12 @@ return(
 
             <p id="para">Enter the following details</p>
          <Contain>
-            <label className="move-label" htmlFor="">Service Type</label> <br /> <br />
-            <input className="move-input" type="text" placeholder="House Hold, Office......"/><br /> <br />
+            <label className="move-label" htmlFor="" >Service Type</label> <br /> <br />
+            <select className="select" name="service option">
+            <option value= "Residence"> HOME</option> 
+            <option value= "Warehouse">WAREHOUSE</option>
+            <option value = "Office"> OFFICE</option>
+            </select> <br /> <br />
             <label className="move-label" htmlFor="">Pick-Up Date</label><br /> <br />
             <input className="move-input" type="date" placeholder="29/10/2024"/><br /> <br />
 
@@ -210,6 +214,16 @@ padding-left: 30px;
 
 
 .move-input{
+    border-radius: 10px;
+    height: 40px;
+    width: 300px;
+    border-color: #F8F8F8;
+    background-color: #f3f0f0 ; 
+    border: none;
+    padding-left:15px;
+}
+
+.select{
     border-radius: 10px;
     height: 40px;
     width: 300px;
