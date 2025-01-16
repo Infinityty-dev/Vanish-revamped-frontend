@@ -2,35 +2,60 @@ import styled from "styled-components"
 import React, { useState } from 'react';
 import Google from "../assets/flat-color-icons_google.png"
 import Apple from "../assets/devicon_apple.png"
-
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 const SignInPage = ()=>{
+    const navigate = useNavigate()
     const [name, setName] = useState('');
     const [email,setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
         setError('Please fill in all fields');
         return;
       }
-  
-      
-      if (name === 'Ameenah' && email=== 'husseinashehu@gmail.com' && password === '123456') {
-        setError('');
-        alert('Sign-in successful!');
-      } else {
-        setError('Invalid email or password');
+      const formData = {
+
+        email,
+        password,
+        name
       }
+
+      console.log(formData);
+      
+      
+     try {
+        
+        const response = await axios.post("https://vanish-backend.onrender.com/api/v1/users/userSignin" , formData)
+       console.log(response);
+       
+        if (response.data.success) {
+
+            navigate("/movement")
+        }
+     } catch (error) {
+        
+     }
     };
 
-    
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value)
+    }
 
+    const handleNameChange = (e) => {
+        setName(e.target.value)
+    }
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value)
+    }
 
     return(
         <Carrier>
@@ -50,25 +75,25 @@ const SignInPage = ()=>{
 
                     <Label>Name</Label>
                     <Input type="text"
-                    name = "name"
+                   
                     value = {name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={ handleNameChange }
                     placeholder = "Ameenah"/>
 
 
                     <Label>Email Address</Label>
-                    <Input type="password"
-                    name = "emailaddress"
+                    <Input type="email"
+                   
                     value = {email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleEmailChange}
                     placeholder = "name@email.com"/>
 
 
                     <Label>Password</Label>
                     <Input type="password"
-                    name = "password"
+                  
                     value = {password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={ handlePasswordChange}
                     placeholder = "Enter Password"/>
 
                     
@@ -77,7 +102,7 @@ const SignInPage = ()=>{
                 </form>
                 <p>Forgot Password?</p>
 
-                <Button>
+                <Button onClick={handleSubmit}>
                     Login
                 </Button>
 
@@ -236,7 +261,7 @@ margin-left: 12px;
 /* box-sizing: border-box; */
 
 &::placeholder{
-    color: #F8F8F8;
+    color: black;
     
 }
 
