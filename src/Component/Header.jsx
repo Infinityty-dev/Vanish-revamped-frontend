@@ -30,7 +30,7 @@ const Header = () => {
             </ul>
            
             <GiHamburgerMenu className="hamburger" onClick={toggleMenu} />
-             
+             {/* Side Pane */}
               <div className={`side-pane ${isOpen ? "open" : ""}`} id='sidePane'>
                 <ul>
                   <li><a href="/">Home</a></li>
@@ -167,14 +167,14 @@ li:hover::before {
     display: flex;
   }
 
-  
+  /* Side pane */
   #sidePane{
     display: flex;
   }
 .side-pane {
   position: fixed;
   top: 40px;
-  right: -250px; 
+  right: -250px; /* Initially hidden */
   width: 150px;
   height: fit;
   padding-bottom: 50px;
@@ -188,7 +188,7 @@ li:hover::before {
 }
 
 .side-pane.open {
-  right: 0; 
+  right: 0; /* Slide in when open */
 }
 
 .side-pane ul {
@@ -199,8 +199,8 @@ li:hover::before {
 }
 
 .side-pane li {
-  margin-right: 10px;
-  text-align: right;
+  /* margin-right: 10px ; */
+  /* text-align: right; */
 }
 
 .side-pane a {
