@@ -62,17 +62,17 @@ const Team = () => {
 
 
 
-        <TeamCard image='/headshotAvatar.jpeg' 
+        <TeamCard image='/Christian.jpg' 
         name='Christian Daniels' 
         jobDescription='FullStack Developer'
          about1='An objective driven passionate developer with' 
-         about2='proficiency in the MERN stack' 
-         about3='' 
-         about4=''
-         insta='https://google.com'
-         x='https://google.com'
-         www='https://google.com'
-         git='https://google.com'/>
+         about2='proficiency in the MERN stack and UI/UX' 
+         about3='Always eager to embrace new challenges' 
+         about4='and expand his skill set'
+         insta='https://www.instagram.com/kris10dani/profilecard/?igsh=eTA4Y3hkcnBmbzA1'
+         x='https://x.com/kris10dani?s=11&t=SPbPMgEPNU1NC-8P9LusQg'
+         www='https://my-portfolio-gold-eight-38.vercel.app/'
+         git='https://github.com/kingkrisman'/>
 
 
 
@@ -108,7 +108,7 @@ const Team = () => {
 
 
 
-<TeamCard image='/headshotAvatar.jpeg' 
+<TeamCard image='/Aminah.jpg' 
         name='Ameenah' 
         jobDescription='FullStack Developer'
          about1='An objective driven passionate developer with' 

@@ -10,7 +10,6 @@ const NeedVan = () => {
         <OptionCardProps
         link= "/SignUp"
 
-        link="/SignUp"
         title= "I Need a Van"
 
         icon={

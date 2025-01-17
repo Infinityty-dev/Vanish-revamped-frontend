@@ -81,6 +81,11 @@ const EstimateCard = ({ estimate = 0 }) => {
           height={48}
           clickMe={handleOpenModal}
         />
+
+        <p className="amount">₦{estimate.toFixed(2)}</p>
+        <Link to="/Payment">
+          <Button name="Pay Now" bgcolor="#126a10" color="white" width={160} height={48} />
+        </Link>
       </Cardcontainer>
 
       {/* Email Modal */}

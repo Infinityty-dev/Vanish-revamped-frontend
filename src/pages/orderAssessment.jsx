@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import Button from '../Component/Button';
 import { useState } from 'react';
 import {TiArrowBack} from "react-icons/ti";
-
-import { IoMdArrowRoundBack} from 'react-icons/io'
+import { IoMdArrowRoundBack} from 'react-icons/io';
 import { TiArrowForward } from "react-icons/ti";
+
 
 
 const OrderAssessment = () => {
@@ -29,7 +29,7 @@ const OrderAssessment = () => {
     <Container>
       <BackArrow>
         <Link to="/" className="back-link">
-          <IoMdArrowRoundBack size={26} color="lightgrey" />
+          <IoMdArrowRoundBack size={26} color="#818181" />
         </Link>
       </BackArrow>
 
@@ -72,17 +72,17 @@ const OrderAssessment = () => {
               <span>Required Services:</span>
             </Text>
             <Text>
-              <span>Packaging & Loading</span>
+              <span>Packaging & Loading:</span>
             </Text>
             <Text>
-              <span>Cleaning Service</span>
+              <span>Cleaning Service:</span>
             </Text>
             <Text>
-              <span>Offloading</span>
+              <span>Offloading:</span>
             </Text>
             <Services>
               <span>Services:</span>
-              <span>N 70,000.00</span>
+              <span>N 100,000.00</span>
             </Services>
           </SummarySection>
 
@@ -109,10 +109,10 @@ const OrderAssessment = () => {
           </SummarySection>
         </SummaryBox>
       </SummaryContainer>
-
+      
       <Footer>
-        <Link to="/EstimateCard">
-          <Button name="Book Now" bgcolor="#126A10" color="white" width={160} height={48} />
+        <Link to="/Payment">
+          <Button name="Pay" bgcolor="#126A10" color="white" width={160} height={48} />
         </Link>
       </Footer>
     </Container>
@@ -160,7 +160,7 @@ const ContainerText = styled.div`
   margin-bottom: 0px;
   margin-left: 0px;
   text-align: left;
-  font-weight: 100;
+  font-weight: 200;
 
   @media (max-width: 350px) {
     font-size: 16px;
@@ -185,7 +185,7 @@ const Note = styled.p`
   font-size: 14px;
   font-family: poppins;
   margin-bottom: 20px;
-  color: #d91616;
+  color: #818181;
   text-align: center;
 
   @media (max-width: 350px) {
@@ -204,7 +204,7 @@ const CatalogueArrows = styled.div`
 const ArrowLeft = styled.div`
   position: absolute;
   left: 10px;
-  background-color: #77bc76;
+  background-color: #126a10;
   border-radius: 45%;
   width: 40px;
   height: 40px;
@@ -217,7 +217,7 @@ const ArrowLeft = styled.div`
 const ArrowRight = styled.div`
   position: absolute;
   right: 1180px;
-  background-color: #77bc76;
+  background-color: #126a10;
   border-radius: 45%;
   width: 40px;
   height: 40px;
@@ -274,7 +274,7 @@ const SummarySection = styled.div`
 const Title = styled.h3`
   font-size: 16px;
   margin-bottom: 10px;
-  color: #2e7d32;
+  color: #126a10;
   font-weight: bold;
   font-family: poppins;
 
@@ -304,7 +304,7 @@ const Services = styled.div`
   font-family: poppins;
   font-weight: bold;
   margin-top: 10px;
-  color: #2e7d32;
+  color: #126a10;
   display: flex;
   justify-content: space-between;
 

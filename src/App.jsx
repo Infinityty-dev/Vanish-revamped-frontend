@@ -25,6 +25,15 @@ import PaymentPage from './pages/Payment/Payment.jsx'
 import EstimateCard from './Component/EstimateCard.jsx'
 import EstimateQoute from './Component/EstimateQoute.jsx'
 import Driver from "./Component/Driver.jsx"
+import Blog from './pages/Home/Blog.jsx'
+
+
+
+
+
+
+
+
 
 
 function App() {
@@ -50,6 +59,7 @@ function App() {
             <Route path="/Location" element={<Location/>} />
             <Route path="/OrderAssessment" element ={<OrderAssessment/>}/>
             <Route path="/DriversDashboard" element={<DriversDashboard/>} />
+            <Route path="/Blog" element={<Blog/>} />
 
             <Route path="/Payment" element={<PaymentPage/>} />
             <Route path="/EstimateCard" element={<EstimateCard/>} />
@@ -59,10 +69,22 @@ function App() {
 
             <Route path="/EstimateCard" element={<EstimateCard/>} />
             <Route path="/EstimateQuote" element={<EstimateQoute/>} />
+            
 
        </Routes>
        <Footer/>
+       
        </BrowserRouter>
+
+
+
+
+
+
+
+
+
+
 
     </>
   )
