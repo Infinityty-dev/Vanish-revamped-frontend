@@ -1,18 +1,24 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import axios from "axios"
+import { useNavigate } from 'react-router-dom';
+
 
 
 
 
 
 const SignUpPage = ()=> {
+    const navigate = useNavigate ()
     const [email, setEmail] = useState('');
-    const [phonenumber,setPhonenumber] = useState('');
+    const [phone,setPhonenumber] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-
-  const handleSubmit = (e) => {
+    const [terms, setTerms] = useState(false)
+    const [fullName, setFullName] = useState ('');
+   const [success, setSuccess] = useState('');
+  const handleSubmit = async (e) => {   
     e.preventDefault();
 
     
@@ -21,22 +27,60 @@ const SignUpPage = ()=> {
       return;
     }
 
+    console.log(typeof terms);
     
-    if (email === 'husseinashehu@gmail.com' && password === '123456' && phonenumber === '08121116319') {
-      setError('');
-      alert('Sign-in successful!');
-    } else {
-      setError('Invalid email or password');
+  const formData= {
+    name: fullName,
+    email, 
+    phone,
+    password,
+    TandC: terms,
+  }
+  console.log(formData);
+  
+        
+  try {
+    const response = await axios.post("https://vanish-backend.onrender.com/api/v1/users/userSignup", 
+       formData
+    )
+
+    if (response.data.success) {
+        setSuccess ("User Signed Up Successfully")
+     setTimeout(()=>{
+            navigate ("/SignIn")
+            
+     },2000)
     }
+  } 
+  catch (error){
+     console.log(error.response) 
+
+     setError (error.response.data.message)
+};
   };
 
+  const handleEmailChange =  (e) =>{
+    setEmail(e.target.value)
+  }
 
+  const handlePhoneChange =  (e) => {
+     setPhonenumber(e.target.value)
+  }
 
-   
-   
-   
-   
-   
+  const handlePasswordChange = (e) => {
+     setPassword(e.target.value)
+  }
+
+  const handleNameChange = (e) => {
+
+    setFullName(e.target.value)
+  }
+  
+  const handleTandC = (e) => {
+    setTerms(!terms)
+  }
+ 
+
     return(
         <Carrier>
             <Signwrapper>
@@ -51,11 +95,19 @@ const SignUpPage = ()=> {
 
                 </Signtitle>
                 <form onSubmit={handleSubmit}> 
+                    {error && <ErrorText>{error}</ErrorText>}
+                    {success && <SuccessText>{success}</SuccessText>}
+                    
+                <Label>Name</Label>
+                    <Input type='text'placeholder='input your name'value={fullName} onChange={
+                        handleNameChange 
+                    }/>
+
                     <Label>Email Address</Label>
                     <Input type="text"
                     name = "name@email.com"
                     value = {email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleEmailChange}
                     placeholder = "name@email.com"/>
                     
                     
@@ -65,8 +117,8 @@ const SignUpPage = ()=> {
                     <Label>Phone Number</Label>
                     <Input 
                     type = "phone number" name = "phone number"
-                    value={phonenumber}
-                    onChange={(e) => setPhonenumber(e.target.value)}
+                    value={phone}
+                    onChange={handlePhoneChange}
                     placeholder = "Enter Phone Number"/>
                 
 
@@ -78,7 +130,7 @@ const SignUpPage = ()=> {
                     <Input type="password"
                     name = "password"
                     value = {password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={handlePasswordChange}
                     placeholder = "Enter Password"/>
                     
                     
@@ -89,10 +141,10 @@ const SignUpPage = ()=> {
                     
 
                 </form>
-                {error && <ErrorText>{error}</ErrorText>}
+                
                
                 <Box>
-                    <input type="checkbox" id="checkbox"/> 
+                    <input type="checkbox" id="checkbox" onChange={handleTandC}/> 
                     <span>I have read and agreed with the 
                     <Link to="/Terms">
                         <span className="red"> Terms of Service </span> </Link> and 
@@ -102,12 +154,11 @@ const SignUpPage = ()=> {
                     
                    
                 </Box>
-               <Link to="/Movement">
-                <Button>
+                <Button onClick={handleSubmit}>
                     Continue
 
                 </Button>
-                </Link>
+                
 
                 <p>
 
@@ -276,4 +327,20 @@ const Button = styled.button`
 
 
     
+`
+
+const ErrorText = styled.p`
+    color: red;
+    font-size: 18px;
+
+
+
+
+`
+
+const SuccessText = styled.p`
+    color: green;
+    font-size: 20px;
+    font-weight: 700px;
+
 `

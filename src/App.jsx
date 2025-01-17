@@ -8,8 +8,6 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 // // import SignUp from './Pages/Signup/Signup'
 import Team from './pages/Team.jsx'
 import Home from './pages/Home/Home.jsx'
-import OwnVan from './pages/ownVan.jsx'
-import NeedVan from './pages/NeedVan.jsx'
 import OptionPage from './pages/OptionPage.jsx'
 import SignUp from './Component/SignUp.jsx'
 import SignIn from './Component/SignIn.jsx'
@@ -25,6 +23,14 @@ import PaymentPage from './pages/Payment/Payment.jsx'
 import EstimateCard from './Component/EstimateCard.jsx'
 import EstimateQoute from './Component/EstimateQoute.jsx'
 import Driver from "./Component/Driver.jsx"
+import Blog from './pages/Home/Blog.jsx'
+import NeedVan from './pages/NeedVan.jsx'
+import OwnVan from './pages/ownVan.jsx'
+import LoginOwnVan from './pages/LoginOwnVan.jsx'
+import LoginOptionPage from './pages/LoginOptionPage.jsx'
+import LoginNeedVan from './pages/LoginNeedVan.jsx'
+
+
 
 
 function App() {
@@ -34,12 +40,11 @@ function App() {
      <BrowserRouter>
          <Header/>
          <Routes>
-          
             <Route path="/" element={<Home/>} />
             <Route path="/about-us" element={<Team />} />
-            <Route path="/Optionpage" element={<OptionPage/>} />
-            <Route path="/Ownvan" element={<OwnVan/>} />
-            <Route path="/Needvan" element={<NeedVan/>} />
+            <Route path="/optionpage" element={<OptionPage/>} />
+            <Route path="/ownvan" element={<OwnVan/>} />
+            <Route path="/needvan" element={<NeedVan/>} />
             <Route path="/SignUp" element={<SignUp/>} />
             <Route path='/Terms' element={<Terms/>} />
             <Route path="/SignIn" element={<SignIn/>} />
@@ -48,21 +53,34 @@ function App() {
             <Route path="/DriversSignIn" element={<DriversSignIn/>} />
             <Route path="/Movement" element={<Movement/>} />
             <Route path="/Location" element={<Location/>} />
-            <Route path="/OrderAssessment" element ={<OrderAssessment/>}/>
+            <Route path="/orderAssessment" element ={<OrderAssessment/>}/>
             <Route path="/DriversDashboard" element={<DriversDashboard/>} />
+            <Route path="/Blog" element={<Blog/>} />
 
             <Route path="/Payment" element={<PaymentPage/>} />
-            <Route path="/EstimateCard" element={<EstimateCard/>} />
-            <Route path="/EstimateQuote" element={<EstimateQoute/>} />
+            <Route path="/estimateCard" element={<EstimateCard/>} />
+            <Route path="/estimateQuote" element={<EstimateQoute/>} />
             <Route path ="/Driver" element={<Driver/>}/>
 
-
-            <Route path="/EstimateCard" element={<EstimateCard/>} />
-            <Route path="/EstimateQuote" element={<EstimateQoute/>} />
+            <Route path="/loginownvan" element={<LoginOwnVan/>} />
+            <Route path="/loginneedvan" element={<LoginNeedVan/>} />
+            <Route path="/loginoptionpage" element={<LoginOptionPage/>} />
+            
 
        </Routes>
        <Footer/>
+       
        </BrowserRouter>
+
+
+
+
+
+
+
+
+
+
 
     </>
   )

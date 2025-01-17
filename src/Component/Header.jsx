@@ -30,7 +30,7 @@ const Header = () => {
             </ul>
            
             <GiHamburgerMenu className="hamburger" onClick={toggleMenu} />
-             
+             {/* Side Pane */}
               <div className={`side-pane ${isOpen ? "open" : ""}`} id='sidePane'>
                 <ul>
                   <li><a href="/">Home</a></li>
@@ -43,7 +43,7 @@ const Header = () => {
         </div>
         <div className='btn'>
          <Link to ="/OptionPage"> <a href="/SignUp"><Button name='Sign Up' bgcolor='#126A10' color='white ' width= {160} height={48}/></a> </Link> 
-         <Link to ="/OptionPage"> <Button name='Log In' bgcolor='white' color='#126A10' width= {160} height={48}/> </Link>
+         <Link to ="/LoginOptionPage"> <Button name='Log In' bgcolor='white' color='#126A10' width= {160} height={48}/> </Link>
             
             
         </div>
@@ -167,14 +167,14 @@ li:hover::before {
     display: flex;
   }
 
-  
+  /* Side pane */
   #sidePane{
     display: flex;
   }
 .side-pane {
   position: fixed;
   top: 40px;
-  right: -250px; 
+  right: -250px; /* Initially hidden */
   width: 150px;
   height: fit;
   padding-bottom: 50px;
@@ -188,7 +188,7 @@ li:hover::before {
 }
 
 .side-pane.open {
-  right: 0; 
+  right: 0; /* Slide in when open */
 }
 
 .side-pane ul {
@@ -199,8 +199,8 @@ li:hover::before {
 }
 
 .side-pane li {
-  margin-right: 10px;
-  text-align: right;
+  /* margin-right: 10px ; */
+  /* text-align: right; */
 }
 
 .side-pane a {
