@@ -19,15 +19,15 @@ const Location = () => {
         </PickUp>
         <Form>
          <Form1>
-         <p>Other Required Services:</p>
-         <input type="checkbox" /> <label>Packaging & Loading</label> 
-         <input type="checkbox" /> <label>Cleaning Service</label> <br /> <br />
-         <input type="checkbox" /> <label>Packaging & Loading</label>
-         <input type="checkbox" /> <label>Packaging & Loading</label> <br /> <br />
-         <input type="checkbox" /> <label>Packaging & Loading</label>
-         <input type="checkbox" /> <label>Packaging & Loading</label><br /> <br />
-         <input type="checkbox" /> <label>Packaging & Loading</label>
-         <input type="checkbox" /> <label>Packaging & Loading</label>
+         <p>Other Required Services:</p> <br /> <br />
+         <input type="checkbox" /> <label>Packaging </label> 
+         <input type="checkbox" /> <label>Loading</label> <br /> <br />
+         <input type="checkbox" /> <label>Offloading</label>
+         <input type="checkbox" /> <label>Arranging</label> <br /> <br />
+         {/* <input type="checkbox" /> <label>Cleaning </label>
+         <input type="checkbox" /> <label>Packaging & Loading</label><br /> <br /> */}
+         {/* <input type="checkbox" /> <label>Packaging & Loading</label>
+         <input type="checkbox" /> <label>Packaging & Loading</label> */}
          </Form1>
          <p id='disclaimer'>Note: All selected service charge will be added in-line with the most suitable van for your moving request.</p>
          
@@ -64,7 +64,6 @@ const Service = styled.div`
    border-radius:18px;
    font-size: 13px;
    font-family: "Poppins";
-   /* display: none; */
 
    button{
       background-color: #126A10;
@@ -83,10 +82,6 @@ const Service = styled.div`
     height: 507px;
     margin: auto;
     font-size: 13px;
-          /* border:1px solid; */
-
-
-
 
 
     button{
@@ -120,9 +115,7 @@ const Service = styled.div`
       border-radius: 10px;
       color: white;
       border:none;
-      /* margin-left: 350px; */
-      /* margin-top: 55px; */
-    
+      
       
    }
 
@@ -134,8 +127,6 @@ const Service = styled.div`
 const Geo = styled.div`
    display: flex;
    justify-content: space-around;
-   /* width: 880px;
-   height: 250px; */
    padding-top:50px;
 
 
@@ -146,9 +137,7 @@ const Geo = styled.div`
     /* width: 360px; */
     height: 350px;
 
-    }
-
-    
+    }  
   
 `
 
@@ -171,8 +160,7 @@ const PickUp = styled.div`
         p{
         padding-left: 15px; 
         margin-top: 20px;
-        /* font-size: 20px; */
-        /* border:1px solid; */
+        
       }
      }
 `
@@ -181,8 +169,7 @@ const Form = styled.div`
     width: 390px;
     height: 243px;
     background-color:#f1efef;
-    /* border:1px solid; */
-    padding-left: 15px;
+    padding-left: 35px;
     
     
 
@@ -258,6 +245,5 @@ const Form = styled.div`
 
 `
 const Form1 = styled.div`
-    
-    
+
 `
