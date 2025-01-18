@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -18,7 +19,7 @@ const Footer = () => {
             </div>
             <div>
                 <h4>Legal</h4>
-                <p>Terms and Conditions</p>
+               <Link to="/Terms"> <p className='terms'>Terms and Conditions </p> </Link>
             </div>
             <div>
                 <h4>Services</h4>
@@ -52,7 +53,15 @@ color: white;
 p{
     font-size: 15px;
     margin:10px 0px 10px 0px;
+    text-decoration: none;
+    color: white;
 }
+.terms{
+text-decoration:none;
+outline:none;
+color:white;
+}
+
 
 .footer-text{
     display: flex;

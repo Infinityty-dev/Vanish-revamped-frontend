@@ -1,18 +1,90 @@
 import styled from "styled-components"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
-
-
+import Cookies from "js-cookie"
+import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 
 
 const Movement = () => {
+        const navigate = useNavigate ()
+        const userId = Cookies.get ("userID")
         const [serviceType, setServiceType] = useState('');
         const [pickUpDate, setpickUpDate] = useState('');
         const [pickUpLocation, setpickUpLocation] = useState('');
         const [pickUpZone, setpickUpZone] = useState ('')
         const [dropOffLocation, setdropOffLocation] = useState ('')
         const [dropOffZone, setdropOffZone] = useState ('')
-        
+        const [error, setError] = useState ('')
+        const handleSubmit = async (e) => {
+            e.preventDefault ();
+
+            if (
+                !serviceType ||
+                !pickUpDate ||
+                !pickUpLocation ||
+                !pickUpZone ||
+                !dropOffLocation ||
+                !dropOffZone ) {setError ('All input fields are required')
+                 return;   
+                }
+
+            const formData = {
+                serviceType,
+                pickUpDate,
+                pickUpLocation,
+                pickUpZone,
+                dropOffLocation,
+                dropOffZone,
+            }
+            console.log(formData);
+            console.log(userId);
+            
+
+            try{
+                const response = await axios.post(`https://vanish-backend.onrender.com/api/v1/movements/location/${userId}`,
+                    formData
+                )
+                 setTimeout (() =>{
+                    if(response.status == 201){
+                        navigate ("/Location")
+
+                    }
+
+                },2000)
+                
+            }
+            catch (error) {
+                console.log(error.response);
+                setError (error.response.data.message)
+            };
+        };
+
+        const handleserviceTypeChange =(e) =>{
+            setServiceType (e.target.value)
+            
+        }
+
+        const handlepickUpDateChange = (e) =>{
+            setpickUpDate (e.target.value)
+        }
+
+        const handlepickUpLocationChange = (e) =>{
+            setpickUpLocation (e.target.value)
+        }
+
+        const handlepickUpZoneChange = (e) => {
+            setpickUpZone (e.target.value)
+
+        }
+
+        const handledropOffLocationChange = (e) => {
+            setdropOffLocation (e.target.value)
+        }
+
+        const handledropOffZoneChange = (e) => {
+            setdropOffZone (e.target.value)
+        }
         
     
 return(
@@ -24,26 +96,41 @@ return(
 
         <p id="move">Move from A to Z</p>
 
-        <Form >
-
+        <Form onSubmit={handleSubmit}>
+         {error && <ErrorText>{error}</ErrorText>}
             <p id="para">Enter the following details</p>
          <Contain>
-            <label className="move-label" htmlFor="">Service Type</label> <br /> <br />
-            <input className="move-input" type="text" placeholder="House Hold, Office......"/><br /> <br />
+            {/* <label className="move-label" htmlFor="" >Service Type</label> <br /> <br />
+            <select className="select" name="service option">
+            <option value= "Residence"> HOME</option> 
+            <option value= "Warehouse">WAREHOUSE</option>
+            <option value = "Office"> OFFICE</option>
+            </select> */}
+
+
+            <label className="move-label" htmlFor="" >Service Type</label> <br /> <br /> 
+            <select className="select" name="service option" value={serviceType} onChange={handleserviceTypeChange}>
+            <option value= "HOME"> HOME</option> 
+            <option value= "WAREHOUSE">WAREHOUSE</option>
+            <option value = "OFFICE"> OFFICE</option>
+            </select> <br /> <br />
             <label className="move-label" htmlFor="">Pick-Up Date</label><br /> <br />
-            <input className="move-input" type="date" placeholder="29/10/2024"/><br /> <br />
+            <input className="move-input" type="date" placeholder="29/10/2024" value={pickUpDate} onChange={handlepickUpDateChange}/><br /> <br />
 
             <label className="move-label" htmlFor="">Pick-Up Address</label> <br /> <br />
-            <input className="move-input" type="text" placeholder="1, Muba Abiru street, Ikorodu" /> <br /> <br />
-            <label className="move-label" htmlFor="">Pick-Up Zone</label><br /> <br />
-            <input className="move-input" type="text" placeholder="Lagos"/> <br /> <br />
-            <label className="move-label" htmlFor="">Drop-Off Address</label><br /> <br />
-            <input className="move-input" type="text" placeholder="10,Shagamu street, Igando"/> <br /> <br />
-            <label className="move-label" htmlFor="">Drop-Off Zone</label> <br /> <br />
-            <input className="move-input" type="text" placeholder="Shagamu..."/> <br /> <br />
+            <input className="move-input" type="text" placeholder="1, Muba Abiru street, Ikorodu" value={pickUpLocation} onChange={handlepickUpLocationChange} /> <br /> <br />
 
-             <Link to="/Location">
-            <button>Submit</button> </Link>
+            <label className="move-label" htmlFor="">Pick-Up Zone</label><br /> <br />
+            <input className="move-input" type="text" placeholder="Lagos" value={pickUpZone} onChange={handlepickUpZoneChange}/> <br /> <br />
+
+            <label className="move-label" htmlFor="">Drop-Off Address</label><br /> <br />
+            <input className="move-input" type="text" placeholder="10,Shagamu street, Igando" value={dropOffLocation} onChange={handledropOffLocationChange}/> <br /> <br /> 
+
+            <label className="move-label" htmlFor="">Drop-Off Zone</label> <br /> <br />
+            <input className="move-input" type="text" placeholder="Lagos" value={dropOffZone} onChange={handledropOffZoneChange} /> <br /> <br />
+
+             
+            <button onClick={handleSubmit}> Submit </button> 
             </Contain>
         </Form>
 
@@ -219,6 +306,16 @@ padding-left: 30px;
     padding-left:15px;
 }
 
+.select{
+    border-radius: 10px;
+    height: 40px;
+    width: 300px;
+    border-color: #F8F8F8;
+    background-color: #f3f0f0 ; 
+    border: none;
+    padding-left:15px;
+}
+
 button{
       background-color: #126A10;
       width:200px;
@@ -303,5 +400,10 @@ button{
 
    }
 
-
 `
+
+const ErrorText = styled.p`
+    color: red;
+    font-size: 18px;
+
+    `

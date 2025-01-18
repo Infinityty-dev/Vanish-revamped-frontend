@@ -11,8 +11,14 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoIosSpeedometer } from "react-icons/io";
 import { FaShippingFast } from "react-icons/fa";
 import Button from '../../Component/Button.jsx';
+
 import { Autocomplete } from '@react-google-maps/api'
 import axios from 'axios';
+
+
+// import Driver from '../../Component/Driver.jsx';
+import {Link} from "react-router-dom"
+import smile from '../../assets/Quote.png'
 
 import emailjs from 'emailjs-com';
 
@@ -273,7 +279,8 @@ const Home = ()=>{
     // console.log('dist:',distance);
     
     const cost = distance * ratePerKm * 1000;
-    setQuote(`The estimated cost is $${cost.toFixed(2)}`);
+    setQuote(`The estimated cost is 
+     ₦${cost.toFixed(2)}`);
     setQuoteVisible(true);
   };
 
@@ -365,7 +372,7 @@ const Home = ()=>{
     <Container>
     <div className="hero" ref={heroRef}>
              <div className='hero-text'>
-                 <h1>
+                 <h1 className='bigcap'>
                      Effortless <br/>Logistic, Every<br/> Step of the Way
                  </h1>
                  <p>
@@ -373,20 +380,20 @@ const Home = ()=>{
                      get the best rates-all from one platform.
                  </p>
              </div>
-             <div className = 'hero-form'>
+             <div className = 'hero-form1'>
                  <h2>Move from A to Z</h2>
                  <p>Track your van every step of the way</p>
                  <hr/>
                  {/* **************************************************FORM************************* */}
-                 <form onSubmit={handleSubmit}style={{position:"relative"}} >
-                         <label>Pick Up Location</label> <br/>
+                 <form className='hq' onSubmit={handleSubmit}style={{position:"relative"}} >
+                         <label className='off'>Pick Up Location</label> <br/>
                          <div className='input1 dropdown-container'>
                            {/* <div>
                            <FaLocationDot size={25} /> 
                            </div>
-                           <input id='input1'className='input' type='text' value={startLocation} list='locations' onChange={handleStartChange} placeholder='pick up location'/>
+                           <input    id='input1'className='input' type='text' value={startLocation} list='locations' onChange={handleStartChange} placeholder='pick up location'/>
 
-                           <datalist id="locations">
+                           <datalist  id="locations">
                               {filteredLocations.map((location) => (
                                 <option key={location.id} value={location.name} />
                               ))}
@@ -404,16 +411,18 @@ const Home = ()=>{
                       
                            
                           </div>
-                          
+
+          
                           <br/>
 
 
-                         <label>Drop Off Location</label> <br/>
+
+                         <label className='off'>Drop Off Location</label> <br/>
                          <div className='input1 input2'>
                            {/* <div>
                            <FaLocationDot size={25} /> 
                            </div>
-                           <input id='input2' className='input' type='text' value={endLocation} onChange={handleEndChange} list="locations" placeholder='drop off location'/>
+                           <input id='input2' className='in' type='text' value={endLocation} onChange={handleEndChange} list="locations" placeholder='drop off location'/>
                           
 
                            <datalist id="locations">
@@ -434,7 +443,7 @@ const Home = ()=>{
                                 
                          </div>
                        {/* ***************** */}
-                         <div className='form-cards'>
+                       <div className='form-cards'>
                              <div>
                              <IoIosSpeedometer size={25} color='#126A10 '/>
                                  <p color='black'>Schedule</p>
@@ -462,6 +471,7 @@ const Home = ()=>{
                         {distance && <p>Distance: {distance}</p>}
                         {cost && <p>Estimated Cost: {cost}</p>} 
                         {isQuoteVisible && (
+
                                             <div className='quoteStyle'>
                                               {/* <h3>{error && <p style={{ color: 'red' }}>{error}</p>}</h3>
                                               <p> {distance && <p>Distance: {distance}</p>}</p>
@@ -471,6 +481,35 @@ const Home = ()=>{
                                               {cost && <p>Estimated Cost: {cost}</p>}
                                               
                                               <button onClick={() => setQuoteVisible(false)} >Close</button>
+
+                                            <div
+                                              style={{
+                                                marginTop: "20px",
+                                                margin:"auto",
+                                                alignContent:"center",
+                                                padding: "10px",
+                                                border: "1px solid #ccc",
+                                                borderRadius: "24px",
+                                                backgroundColor: "#f9f9f9",
+                                                position: "absolute",
+                                                top: "60%",
+                                                left: "30%",
+                                                boxShadow:" rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px",
+                                                transform: "translate(-30%, -30%)",
+                                                width: "400px",
+                                                height:"200px",
+                                                textAlign: "center",
+                                                color:"black",
+                                                
+                                              }}
+                                            >
+                                              <button style={{background:"transparent", color:"gray", position:"relative", right:"170px", top:"-10px"}} onClick={() => setQuoteVisible(false)} >X</button>
+                                              <h3 style={{fontSize:"20px", fontFamily:"poppins", color:"#126a10", marginTop:"-40px"}}  >Your vanIT Estimate!</h3>
+                                              <img src={smile} className="emoji" />
+                                              <p>{quote}</p>
+                                              <a href="/about-us"></a>
+                                              <Link to ="/signup"><button style={{height:"40px", borderRadius:"10px"}}>Continue</button></Link> 
+
                                             </div>
                                           )}
 {/* // onClick={calculateQuote} */}
@@ -555,7 +594,7 @@ const Home = ()=>{
              
                  
                  <div className='service-button'>
-                 <Button className='sbutton'name='Learn More' bgcolor='rgb(18, 106, 16)' color='white' width= {160} height={48}/>
+                <a href="./Blog"> <Button className='sbutton'name='Learn More' bgcolor='rgb(18, 106, 16)' color='white' width= {160} height={48}/></a>
                  </div>
              </div>
              
@@ -573,7 +612,7 @@ const Home = ()=>{
                  <h2>Ready to Revolutionize Your <br /> Logistic Operations ?</h2>
                  <p>Join other countless other businesses that have streamlined their <br /> logistics with our cutting-edge solutions</p>
                  <div className='revolutionise-button'>
-                     <Button name='Sign Up' bgcolor='rgb(18, 106, 16)' color='white' width= {160} height={48}/>
+                    <Link to ="/SignUp"> <Button name='Sign Up' bgcolor='rgb(18, 106, 16)' color='white' width= {160} height={48}/></Link>
                  </div>
              </div>
              <div className='image'>
@@ -606,11 +645,37 @@ const Container = styled.div`
 display: flex;
 justify-content: space-around;
 align-items:center;
-height:85vh;
+height:100vh;
 color:green;
 background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100%),
             url('/hero-image.png') center/cover no-repeat;
 }
+
+.emoji{
+width:81px;
+}
+
+.off{
+position:relative;
+top:30px;
+}
+
+.hq{
+margin-top:-10px;
+
+}
+
+
+
+
+.bigcap{
+font-size:70px;
+        margin-bottom:20px;
+       color:#126A10;
+       font-weight:600;
+       
+}
+
 
 .hero-text{
     h1{
@@ -634,6 +699,7 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
         width:100%;
         padding:5px;
         /* z-index: 2; */
+        
        }
        img{
         width:20px;
@@ -641,17 +707,18 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
         margin-left:10px;
        }
     }
-.hero-form{
+.hero-form1{
     border:solid 1px black;
     background-color:white;
     background-image:url('/Vector.png');
     background-repeat:  repeat;
     background-size: 30px 30px;
     max-width:550px;
-    height:fit-content;
+    height:100vh;
     padding:15px 75px;
     border-bottom-right-radius:30px;
     border-top-right-radius:30px;
+    
     h2{
       font-size: 20px;
       text-align: center;
@@ -661,6 +728,8 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
     }
     label{
       color: black;
+     position:relative;
+     top:30px;
     }
 
     h2,p,hr,label{
@@ -676,18 +745,20 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
     border: #126A10 1px solid;
     border-radius:5px;
     padding: 3px;
-    margin-top: 5px;
+  margin-top: 5px;
     margin-bottom: 10px;
     background-color: white;
     width: 100%;
 
 
+
     input{
-      
+       
       height: 31px;
       outline: none;
       border: none;
       padding-left: 10px;
+      
     }
    
     }
@@ -696,12 +767,14 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
         /* height:30px; */
         background-color:white;
         align-content:center;
+        
     }
     label{
         margin-bottom:10px;
     }
     form{
         position: relative;
+       
     }
     .img1,.img2{
         position: absolute;
@@ -748,7 +821,7 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
             background-color: #e7f0e7;
             text-align:center;
             width:70px;
-            margin-bottom:10px;
+            margin-bottom:-15px;
             padding:10px 0px 10px 0px;
             border-radius:10px;
         }
