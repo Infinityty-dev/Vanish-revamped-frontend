@@ -11,9 +11,15 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoIosSpeedometer } from "react-icons/io";
 import { FaShippingFast } from "react-icons/fa";
 import Button from '../../Component/Button.jsx';
+
+import { Autocomplete } from '@react-google-maps/api'
+import axios from 'axios';
+
+
 // import Driver from '../../Component/Driver.jsx';
 import {Link} from "react-router-dom"
 import smile from '../../assets/Quote.png'
+
 import emailjs from 'emailjs-com';
 
 import Driver from '../../Component/Driver.jsx';
@@ -284,6 +290,83 @@ const Home = ()=>{
 
 
 
+
+  const [origin, setOrigin] = useState('');
+  const [destination, setDestination] = useState('');
+  const [originAutocomplete, setOriginAutocomplete] = useState(null);
+  const [destinationAutocomplete, setDestinationAutocomplete] = useState(null);
+  const [distance, setDistance] = useState('');
+  const [cost, setCost] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const API_KEY ='AIzaSyBBhijfr7zpw3AG27yONYmX8t5P2VlNUNo' ;
+  const MULTIPLIER = 1213;
+
+  const onPlaceChanged = (type) => {
+    const place = type === 'origin' ? originAutocomplete.getPlace() : destinationAutocomplete.getPlace();
+    if (place && place.formatted_address) {
+      type === 'origin' ? setOrigin(place.formatted_address) : setDestination(place.formatted_address);
+    }
+  };
+  const calculateDistance = async () => {
+        if (!origin || !destination) {
+          setError('Please enter both origin and destination addresses.');
+          return;
+        }
+    
+        setLoading(true);
+        setError('');
+        setDistance('');
+        setCost('');
+    
+        try {
+          const response = await axios.get(`https://thingproxy.freeboard.io/fetch/https://maps.googleapis.com/maps/api/distancematrix/json`, {
+            params: {
+              origins: origin,
+              destinations: destination,
+              key:API_KEY,
+              units: 'metric',
+              
+            },
+          });
+        
+    
+          const result = response.data;
+    
+          if (result.rows[0].elements[0].status === 'OK') {
+            const distanceInKm = result.rows[0].elements[0].distance.value / 1000;
+            const calculatedCost = distanceInKm * MULTIPLIER;
+    
+            setDistance(`${distanceInKm.toFixed(2)} km`);
+            setCost(`₦${calculatedCost.toFixed(2)}`);
+          } else {
+            setError('Could not find a route between the provided addresses.');
+          }
+        } catch (err) {
+          console.error(err);
+          setError('An error occurred while fetching distance data.');
+        } finally {
+          setLoading(false);
+        } 
+      };
+
+
+//**************************************************************** */
+
+
+
+
+
+
+
+
+
+//((((((())))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+
+
+
   return(
    <>
     <Container>
@@ -305,7 +388,7 @@ const Home = ()=>{
                  <form className='hq' onSubmit={handleSubmit}style={{position:"relative"}} >
                          <label className='off'>Pick Up Location</label> <br/>
                          <div className='input1 dropdown-container'>
-                           <div>
+                           {/* <div>
                            <FaLocationDot size={25} /> 
                            </div>
                            <input    id='input1'className='input' type='text' value={startLocation} list='locations' onChange={handleStartChange} placeholder='pick up location'/>
@@ -314,17 +397,29 @@ const Home = ()=>{
                               {filteredLocations.map((location) => (
                                 <option key={location.id} value={location.name} />
                               ))}
-                            </datalist>
-
-                          
+                            </datalist> */}
+                            
+       <Autocomplete onLoad={setOriginAutocomplete} onPlaceChanged={() => onPlaceChanged('origin')}>
+ <input
+          type="text"
+          placeholder="Enter Origin"
+          value={origin}
+          onChange={(e) => setOrigin(e.target.value)}
+          style={{ width: '100%', padding: '8px', marginBottom: '10px' }}
+        />
+      </Autocomplete>
+                      
                            
                           </div>
-                         
+
+          
+                          <br/>
+
 
 
                          <label className='off'>Drop Off Location</label> <br/>
                          <div className='input1 input2'>
-                           <div>
+                           {/* <div>
                            <FaLocationDot size={25} /> 
                            </div>
                            <input id='input2' className='in' type='text' value={endLocation} onChange={handleEndChange} list="locations" placeholder='drop off location'/>
@@ -334,7 +429,17 @@ const Home = ()=>{
                               {filteredLocations.map((location) => (
                                 <option key={location.id} value={location.name} />
                               ))}
-                            </datalist>
+                            </datalist> */}
+
+                            <Autocomplete onLoad={setDestinationAutocomplete} onPlaceChanged={() => onPlaceChanged('destination')}>
+                                <input
+                                  type="text"
+                                  placeholder="Enter Destination"
+                                  value={destination}
+                                  onChange={(e) => setDestination(e.target.value)}
+                                  style={{ width: '100%', padding: '8px', marginBottom: '10px' ,background:'transarent'}}
+                                />
+                              </Autocomplete>
                                 
                          </div>
                        {/* ***************** */}
@@ -351,17 +456,32 @@ const Home = ()=>{
                          </div>
                          {/* ************************ */}
 
-                         <label for='services'>Services</label> <br/>
+                         {/* <label for='services'>Services</label> <br/>
                          <div className='input1'>
                          <select name="services" id="services" value={selectedOption} onChange={selectChange}>
                              <option value='10' >Option 1</option>
                              <option value="option2">Option 2</option>
                              <option value="option3">Option 3</option>
                          </select>
-                         </div>
+                         </div> */}
                         <div id='output'></div>
 
+
+                       {error && <p style={{ color: 'red' }}>{error}</p>}
+                        {distance && <p>Distance: {distance}</p>}
+                        {cost && <p>Estimated Cost: {cost}</p>} 
                         {isQuoteVisible && (
+
+                                            <div className='quoteStyle'>
+                                              {/* <h3>{error && <p style={{ color: 'red' }}>{error}</p>}</h3>
+                                              <p> {distance && <p>Distance: {distance}</p>}</p>
+                                              <p>{cost && <p>Estimated Cost: {cost}</p>}</p> */}
+                                               {error && <p style={{ color: 'red' }}>{error}</p>}
+                                              {distance && <p>Distance: {distance}</p>}
+                                              {cost && <p>Estimated Cost: {cost}</p>}
+                                              
+                                              <button onClick={() => setQuoteVisible(false)} >Close</button>
+
                                             <div
                                               style={{
                                                 marginTop: "20px",
@@ -389,11 +509,12 @@ const Home = ()=>{
                                               <p>{quote}</p>
                                               <a href="/about-us"></a>
                                               <Link to ="/signup"><button style={{height:"40px", borderRadius:"10px"}}>Continue</button></Link> 
+
                                             </div>
                                           )}
-
+{/* // onClick={calculateQuote} */}
                          <div className='form-button'>
-                          <button onClick={calculateQuote}   style={{
+                          {/* <button onClick={calculateDistance}  style={{
                                                                       width: "160",
                                                                       height: "48",
                                                                       borderRadius: '15px',
@@ -406,9 +527,35 @@ const Home = ()=>{
                                                                       padding:"10px 25px",
                                                                       boxShadow:'1px 1px 12px lightgrey '
                                                                     }}>
-                                                                      Get A Quote
+                                                                      Get A Quote {loading ? 'Calculating...' : 'Calculate Distance & Cost'}
                                                                     </button>
-                          {/* <Button onClick={calculateQuote} name='Get A Quote' width= {160} height={48} bgcolor='#126a10' color='white'/> */}
+                          */}
+
+                                            <button
+                                                    onClick={calculateDistance}
+                                                    style={{
+                                                      // width: '100%',
+                                                      // padding: '10px',
+                                                      // backgroundColor: '#28a745',
+                                                      // color: 'white',
+                                                      // border: 'none',
+                                                      // cursor: 'pointer',
+                                                      width: "160",
+                                                                      height: "48",
+                                                                      borderRadius: '15px',
+                                                                      backgroundColor: '#126a10',
+                                                                      color: 'white',
+                                                                      border: '2px solid #126A10',
+                                                                      cursor: 'pointer',
+                                                                      marginRight: '20px',
+                                                                      marginTop:"20px",
+                                                                      padding:"10px 25px",
+                                                                      boxShadow:'1px 1px 12px lightgrey '
+                                                    }}
+                                                    disabled={loading}
+                                                  >
+                                                    {loading ? 'Calculating...' : 'Calculate Distance & Cost'}
+                                                  </button>
                           </div>
                  </form>
 
@@ -574,6 +721,7 @@ font-size:70px;
     
     h2{
       font-size: 20px;
+      text-align: center;
     }
     p{
       font-size: 13px;
@@ -632,6 +780,25 @@ font-size:70px;
         position: absolute;
         left: 10px;
 
+    }
+    .quoteStyle{
+
+                margin-top: 20px;
+                margin: auto;
+                align-content: center;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+                position: absolute;
+                top: 60%;
+                left: 60%;
+                transform: translate(-30%, -30%);
+                width: 200px;
+                height:200px;
+                text-align: center;
+                color:black;
+            
     }
     select{
       width: 100%;
@@ -853,6 +1020,26 @@ section{
       display:inline-block ;
       width:290px;
     }
+
+    .quoteStyle{
+
+        margin-top: 20px;
+        margin: auto;
+        align-content: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        position: absolute;
+        top: 60%;
+        right: 60%;
+        transform: translate(-30%, -30%);
+        width: 200px;
+        height:200px;
+        text-align: center;
+        color:black;
+
+}
 
     section .text-div h1 {
       font-size: 2em;
