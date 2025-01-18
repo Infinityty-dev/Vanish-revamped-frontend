@@ -66,8 +66,8 @@ const Team = () => {
         name='Christian Daniels' 
         jobDescription='FullStack Developer'
 
-         about1='An objective driven passionate developer with' 
-         about2='proficiency in the MERN stack and UI/UX' 
+        //  about1='An objective driven passionate developer with' 
+        //  about2='proficiency in the MERN stack and UI/UX' 
 
          about1='An objective driven passionate developer ' 
          about2='with proficiency in the MERN stack and UI/UX' 

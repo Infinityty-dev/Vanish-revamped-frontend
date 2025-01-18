@@ -2,8 +2,6 @@ import styled from "styled-components"
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import axios from "axios"
-
-
 import { useNavigate } from "react-router-dom";
 
 
@@ -12,19 +10,15 @@ import { useNavigate } from "react-router-dom";
 
 const DriversSignUp = ()=> {
     const navigate = useNavigate ()
-    const [fullname, setfullname] = useState('');
-    const [address, setAddress] = useState('');
+    const [fullname, setname] = useState('');
+    const [address, setaddress] = useState('');
     const [driverLicenceNumber, setdriverLicenceNumber] = useState('');
-    const [licenceType, setLicenceType] = useState('');
+    const [licenceType, setlicenceType] = useState('');
     const [carType, setcarType] = useState('');
-    const [email, setEmail] = useState('');
+    const [email, setemail] = useState('');
     const [phone,setphone] = useState('');
-    const [password, setPassword] = useState('');
+    const [password, setpassword] = useState('');
     const [error, setError] = useState('');
-    
-
-  const handleSubmit = async (e) => {
-
     const [success, setSuccess] = useState
      ('');
     const [driverTerms, setDriverTerms] = useState(false)
@@ -38,15 +32,6 @@ const DriversSignUp = ()=> {
     }  
 
     const formData = {
-        name: fullname,
-        address,
-        driverslicense,
-        licensetype,
-        typeofvehicle,
-        email,
-        phone,
-        password,
-        TandC: DriverTerms,
 
         name:fullname,
         address,
@@ -61,28 +46,8 @@ const DriversSignUp = ()=> {
     console.log(formData);
     
     try{
-        const response = await axios.post("https://vanish-backend.onrender.com/api/v1/users/driverSignup", formData)
-    }
-
-    catch (error) {
-        console.log(error);
-        
-    };
-
-
-    
-    // if (email === 'husseinashehu@gmail.com' && password === '123456' && phonenumber === '08121116319') {
-    //   setError('');
-    //   alert('Sign-in successful!');
-    // } else {
-    //   setError('Invalid email or password');
-    // }
-  };
-
-  const handleNameChange = (e) => {
-    setFullName (e.target.value)
-
         const response = await axios.post("https://vanish-backend.onrender.com/api/v1/users/driverSignup", formData
+
         )
         if (response.status === 201) {
             setSuccess ("User Signed Up Sucessfully")
@@ -91,7 +56,6 @@ const DriversSignUp = ()=> {
             },2000)
         }
     }
-
     catch (error) {
         console.log(error.response);
         setError (error.response.data.message)
@@ -100,52 +64,35 @@ const DriversSignUp = ()=> {
 
   };
 
-  const handlefullnameChange = (e) => {
-    setfullname (e.target.value)
+  const handlenameChange = (e) => {
+    setname (e.target.value)
   }
 
-  const handleAddressChange =  (e) =>{
-    setAddress(e.target.value)
+  const handleaddressChange =  (e) =>{
+    setaddress(e.target.value)
   }
 
-
-  const handleDriverLicense =  (e) =>{
-    setEmail(e.target.value)
-  }
-
-  const handleLicenceTypeChange =  (e) =>{
-    setLicenseType(e.target.value)
-  }
-
-  const handleTypeOfVehicleChange =  (e) =>{
-    setEmail(e.target.value)
 
   const handledriverLicenceNumberChange =  (e) =>{
     setdriverLicenceNumber(e.target.value)
   }
 
-  const handleLicenceTypeChange =  (e) =>{
-    setLicenceType(e.target.value)
+  const handlelicenceTypeChange =  (e) =>{
+    setlicenceType(e.target.value)
   }
 
   const handlecarTypeChange =  (e) =>{
     setcarType(e.target.value)
   }
 
-  const handleEmailChange =  (e) =>{
-    setEmail(e.target.value)
+  const handleemailChange =  (e) =>{
+    setemail(e.target.value)
   }
 
-  const handlePasswordChange =  (e) =>{
-    setPassword(e.target.value)
+  const handlepasswordChange =  (e) =>{
+    setpassword(e.target.value)
   }
 
-  const handlePhoneChange =  (e) =>{
-    setPhone(e.target.value)
-  }
-
-  const handleTandCChange =  (e) =>{
-    setDriverTerms(!terms)
 
   const handlephoneChange =  (e) =>{
     setphone(e.target.value)
@@ -173,13 +120,6 @@ const DriversSignUp = ()=> {
                 <form onSubmit={handleSubmit}> 
                     {error}
 
-                    <Label>Full Name</Label>
-                    <Input type="text"
-                    name = "Ameenah"
-                    value = {fullname}
-                    onChange={(e) => setFullname(e.target.value)}
-                    placeholder = "Ameenah"/>
-
                     {error && <ErrorText>{error}</ErrorText>}
                     {success && <SuccessText>{success}</SuccessText>}
 
@@ -188,49 +128,33 @@ const DriversSignUp = ()=> {
                     placeholder = "Input your name"
                     // name = "Ameenah"
                     value = {fullname}
-                    onChange={handlefullnameChange} />
+                    onChange={handlenameChange} />
 
                     <Label>Address</Label>
                     <Input type="text"
                     placeholder = "city"
                     name = "Address"
                     value = {address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    placeholder = "city"/>
-
-                    onChange={handleAddressChange}
+                    onChange={handleaddressChange}
                     />
 
                     <Label>Driver's License Number</Label>
                     <Input type="text"
                     name = "536267235356"
-                    value = {driverslicensenumber}
-                    onChange={(e) => setDriverslicensenumber(e.target.value)}
-                    placeholder = "536267235356"/>
-
-                    <Label>License Type</Label>
-                    <Input type="text"
-                    name = "commercial"
-                    value = {licensetype}
-                    onChange={(e) => setLicensetype(e.target.value)}
-                    placeholder = "commercial"/>
-
-                    <Label>Type of Vehicle</Label>
-                    <Input type="text"
-                    name = "must be a van"
-                    value = {typeofvehicle}
-                    onChange={(e) => setTypeofvehicle(e.target.value)}
-                    placeholder = "must be a van"/>
-
-
-
-
                     value = {driverLicenceNumber}
                     onChange={handledriverLicenceNumberChange}
                     placeholder = "536267235356"/>
 
+                    <Label>Type of Vehicle</Label>
+                    <Input type="text"
+                    name = "must be a van"
+                    value = {carType}
+                    onChange={handlecarTypeChange}
+                    placeholder = "must be a van"/>
+
+
                     <Label>License Type</Label>
-                    <select className="select"onChange={handleLicenceTypeChange}    name="service option" value={licenceType}>
+                    <select className="select"onChange={handlelicenceTypeChange}    name="service option" value={licenceType}>
                     <option value= "Temporary"> Temporary</option> 
                     <option value= "Permanent">Permanent</option>
                     </select>
@@ -241,20 +165,17 @@ const DriversSignUp = ()=> {
                     <option value= "small"> Small Van</option> 
                     <option value= "Medium">Medium Van</option>
                     <option value= "Large">Large Van</option>
-                    
                     </select>
                     
-
 
                     <Label>Email Address</Label>
                     <Input type="text"
                     name = "name@email.com"
                     value = {email}
-                    onChange={handleEmailChange}
+                    onChange={handleemailChange}
                     placeholder = "name@email.com"/>
                     
-                    
-
+                
                     <Label>Phone Number</Label>
                     <Input 
                     type = "phone number" name = "phone number"
@@ -262,18 +183,14 @@ const DriversSignUp = ()=> {
                     onChange={handlephoneChange}
                     placeholder = "Enter Phone Number"/>
                 
-
-
                     <Label>Password</Label>
                     <Input type="password"
                     name = "password"
                     value = {password}
-                    onChange={handlePasswordChange}
+                    onChange={handlepasswordChange}
                     placeholder = "Enter Password"/>
                     
                     
-                
-
                 </form>
                 {error && <ErrorText>{error}</ErrorText>}
                
