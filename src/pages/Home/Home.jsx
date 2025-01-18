@@ -13,7 +13,7 @@ import { FaShippingFast } from "react-icons/fa";
 import Button from '../../Component/Button.jsx';
 // import Driver from '../../Component/Driver.jsx';
 import {Link} from "react-router-dom"
-
+import smile from '../../assets/Quote.png'
 import emailjs from 'emailjs-com';
 
 import Driver from '../../Component/Driver.jsx';
@@ -273,7 +273,8 @@ const Home = ()=>{
     // console.log('dist:',distance);
     
     const cost = distance * ratePerKm * 1000;
-    setQuote(`The estimated cost is $${cost.toFixed(2)}`);
+    setQuote(`The estimated cost is 
+     ₦${cost.toFixed(2)}`);
     setQuoteVisible(true);
   };
 
@@ -368,22 +369,26 @@ const Home = ()=>{
                                                 alignContent:"center",
                                                 padding: "10px",
                                                 border: "1px solid #ccc",
-                                                borderRadius: "5px",
+                                                borderRadius: "24px",
                                                 backgroundColor: "#f9f9f9",
                                                 position: "absolute",
                                                 top: "60%",
-                                                left: "60%",
+                                                left: "30%",
+                                                boxShadow:" rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px",
                                                 transform: "translate(-30%, -30%)",
-                                                width: "200px",
+                                                width: "400px",
                                                 height:"200px",
                                                 textAlign: "center",
                                                 color:"black",
+                                                
                                               }}
                                             >
-                                              <h3>Quote</h3>
+                                              <button style={{background:"transparent", color:"gray", position:"relative", right:"170px", top:"-10px"}} onClick={() => setQuoteVisible(false)} >X</button>
+                                              <h3 style={{fontSize:"20px", fontFamily:"poppins", color:"#126a10", marginTop:"-40px"}}  >Your vanIT Estimate!</h3>
+                                              <img src={smile} className="emoji" />
                                               <p>{quote}</p>
                                               <a href="/about-us"></a>
-                                              <button onClick={() => setQuoteVisible(false)} >Close</button>
+                                              <Link to ="/signup"><button style={{height:"40px", borderRadius:"10px"}}>Continue</button></Link> 
                                             </div>
                                           )}
 
@@ -499,6 +504,9 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
             url('/hero-image.png') center/cover no-repeat;
 }
 
+.emoji{
+width:81px;
+}
 
 .off{
 position:relative;
