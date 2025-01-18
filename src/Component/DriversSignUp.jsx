@@ -2,7 +2,10 @@ import styled from "styled-components"
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import axios from "axios"
+
+
 import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -18,6 +21,10 @@ const DriversSignUp = ()=> {
     const [phone,setphone] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    
+
+  const handleSubmit = async (e) => {
+
     const [success, setSuccess] = useState
      ('');
     const [driverTerms, setDriverTerms] = useState(false)
@@ -31,6 +38,16 @@ const DriversSignUp = ()=> {
     }  
 
     const formData = {
+        name: fullname,
+        address,
+        driverslicense,
+        licensetype,
+        typeofvehicle,
+        email,
+        phone,
+        password,
+        TandC: DriverTerms,
+
         name:fullname,
         address,
         driverLicenceNumber,
@@ -44,6 +61,27 @@ const DriversSignUp = ()=> {
     console.log(formData);
     
     try{
+        const response = await axios.post("https://vanish-backend.onrender.com/api/v1/users/driverSignup", formData)
+    }
+
+    catch (error) {
+        console.log(error);
+        
+    };
+
+
+    
+    // if (email === 'husseinashehu@gmail.com' && password === '123456' && phonenumber === '08121116319') {
+    //   setError('');
+    //   alert('Sign-in successful!');
+    // } else {
+    //   setError('Invalid email or password');
+    // }
+  };
+
+  const handleNameChange = (e) => {
+    setFullName (e.target.value)
+
         const response = await axios.post("https://vanish-backend.onrender.com/api/v1/users/driverSignup", formData
         )
         if (response.status === 201) {
@@ -70,6 +108,18 @@ const DriversSignUp = ()=> {
     setAddress(e.target.value)
   }
 
+
+  const handleDriverLicense =  (e) =>{
+    setEmail(e.target.value)
+  }
+
+  const handleLicenceTypeChange =  (e) =>{
+    setLicenseType(e.target.value)
+  }
+
+  const handleTypeOfVehicleChange =  (e) =>{
+    setEmail(e.target.value)
+
   const handledriverLicenceNumberChange =  (e) =>{
     setdriverLicenceNumber(e.target.value)
   }
@@ -90,12 +140,20 @@ const DriversSignUp = ()=> {
     setPassword(e.target.value)
   }
 
+  const handlePhoneChange =  (e) =>{
+    setPhone(e.target.value)
+  }
+
+  const handleTandCChange =  (e) =>{
+    setDriverTerms(!terms)
+
   const handlephoneChange =  (e) =>{
     setphone(e.target.value)
   }
 
   const handleTandCChange =  (e) =>{
     setDriverTerms(!driverTerms)
+
   }
    
     
@@ -113,6 +171,15 @@ const DriversSignUp = ()=> {
 
                 </Signtitle>
                 <form onSubmit={handleSubmit}> 
+                    {error}
+
+                    <Label>Full Name</Label>
+                    <Input type="text"
+                    name = "Ameenah"
+                    value = {fullname}
+                    onChange={(e) => setFullname(e.target.value)}
+                    placeholder = "Ameenah"/>
+
                     {error && <ErrorText>{error}</ErrorText>}
                     {success && <SuccessText>{success}</SuccessText>}
 
@@ -128,12 +195,36 @@ const DriversSignUp = ()=> {
                     placeholder = "city"
                     name = "Address"
                     value = {address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    placeholder = "city"/>
+
                     onChange={handleAddressChange}
                     />
 
                     <Label>Driver's License Number</Label>
                     <Input type="text"
                     name = "536267235356"
+                    value = {driverslicensenumber}
+                    onChange={(e) => setDriverslicensenumber(e.target.value)}
+                    placeholder = "536267235356"/>
+
+                    <Label>License Type</Label>
+                    <Input type="text"
+                    name = "commercial"
+                    value = {licensetype}
+                    onChange={(e) => setLicensetype(e.target.value)}
+                    placeholder = "commercial"/>
+
+                    <Label>Type of Vehicle</Label>
+                    <Input type="text"
+                    name = "must be a van"
+                    value = {typeofvehicle}
+                    onChange={(e) => setTypeofvehicle(e.target.value)}
+                    placeholder = "must be a van"/>
+
+
+
+
                     value = {driverLicenceNumber}
                     onChange={handledriverLicenceNumberChange}
                     placeholder = "536267235356"/>

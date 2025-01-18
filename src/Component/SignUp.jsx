@@ -49,6 +49,8 @@ const SignUpPage = ()=> {
      setTimeout(()=>{
             navigate ("/SignIn")
 
+            
+
      },2000)
     }
   } 
@@ -322,6 +324,11 @@ const Button = styled.button`
 const ErrorText = styled.p`
     color: red;
     font-size: 18px;
+
+
+
+
+
 
 `
 

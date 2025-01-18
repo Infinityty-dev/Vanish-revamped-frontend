@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import OptionCardProps from '../Component/OptionCardProps';
 
 
-const OwnVan = () => {
+const LoginOwnVan = () => {
   return (
     <Container>
       <OptionCardProps
         title="I Own a Van"
-        link="/DriversSignUp"
-        buttonName="SignUp"
+        link="/DriversSignIn"
+        buttonName="Login"
         icon={
           <img
             src="https://res.cloudinary.com/dxldk0ytk/image/upload/v1735412620/Vector_3_iszl78.png"
@@ -20,6 +20,6 @@ const OwnVan = () => {
     </Container>
   );
 };
-export default OwnVan;
+export default LoginOwnVan;
 
 const Container = styled.div``

@@ -100,6 +100,12 @@ return(
          {error && <ErrorText>{error}</ErrorText>}
             <p id="para">Enter the following details</p>
          <Contain>
+            <label className="move-label" htmlFor="" >Service Type</label> <br /> <br />
+            <select className="select" name="service option">
+            <option value= "Residence"> HOME</option> 
+            <option value= "Warehouse">WAREHOUSE</option>
+            <option value = "Office"> OFFICE</option>
+
             <label className="move-label" htmlFor="" >Service Type</label> <br /> <br /> 
             <select className="select" name="service option" value={serviceType} onChange={handleserviceTypeChange}>
             <option value= "HOME"> HOME</option> 
