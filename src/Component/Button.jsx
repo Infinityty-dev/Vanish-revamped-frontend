@@ -5,7 +5,7 @@ const Button = (props) => {
   return (
     <div >
         
-        <button style={{
+        <button onClick={props.clickMe}  style={{
         width: props.width,
         height: props.height,
         borderRadius: '15px',
@@ -15,7 +15,7 @@ const Button = (props) => {
         cursor: 'pointer',
         marginRight: '20px',
         boxShadow:'1px 1px 12px lightgrey '
-    }}>{props.name}</button>
+    }}   >{props.name}</button>
     </div>
   )
 }

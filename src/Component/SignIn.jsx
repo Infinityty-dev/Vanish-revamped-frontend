@@ -5,6 +5,7 @@ import Apple from "../assets/devicon_apple.png"
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie"
 
 
 const SignInPage = ()=>{
@@ -34,7 +35,7 @@ const SignInPage = ()=>{
      try {
         
         const response = await axios.post("https://vanish-backend.onrender.com/api/v1/users/userSignin" , formData)
-       console.log(response);
+      Cookies.set ("userID", response.data.data._id);
        
         if (response.data.success) {
 

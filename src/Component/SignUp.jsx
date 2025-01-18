@@ -48,7 +48,7 @@ const SignUpPage = ()=> {
         setSuccess ("User Signed Up Successfully")
      setTimeout(()=>{
             navigate ("/SignIn")
-            
+
      },2000)
     }
   } 
@@ -111,8 +111,6 @@ const SignUpPage = ()=> {
                     placeholder = "name@email.com"/>
                     
                     
-                    
-                    
 
                     <Label>Phone Number</Label>
                     <Input 
@@ -122,9 +120,6 @@ const SignUpPage = ()=> {
                     placeholder = "Enter Phone Number"/>
                 
 
-                
-                
-                   
 
                     <Label>Password</Label>
                     <Input type="password"
@@ -133,11 +128,6 @@ const SignUpPage = ()=> {
                     onChange={handlePasswordChange}
                     placeholder = "Enter Password"/>
                     
-                    
-                    
-
-                    
-
                     
 
                 </form>
@@ -332,9 +322,6 @@ const Button = styled.button`
 const ErrorText = styled.p`
     color: red;
     font-size: 18px;
-
-
-
 
 `
 
