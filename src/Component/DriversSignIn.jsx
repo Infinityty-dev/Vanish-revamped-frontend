@@ -2,15 +2,19 @@ import styled from "styled-components"
 import React, { useState } from 'react';
 import Google from "../assets/flat-color-icons_google.png"
 import Apple from "../assets/devicon_apple.png"
+import { Link,  } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie"
 
-
-const DriversSignIn = ()=>{
-    const [name, setName] = useState('');
-    const [email,setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const DriversSignIn = ()=>{
+    const navigate = useNavigate ()
+    const [name, setname] = useState('');
+    const [email,setemail] = useState('');
+    const [password, setpassword] = useState('');
     const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
@@ -19,14 +23,39 @@ const DriversSignIn = ()=>{
       }
   
       
-      if (name === 'Ameenah' && email=== 'husseinashehu@gmail.com' && password === '123456') {
-        setError('');
-        alert('Sign-in successful!');
-      } else {
-        setError('Invalid email or password');
+      const formData = {
+        name,
+        email,
+        password
+      }
+
+      console.log(formData);
+      
+      try{
+        const response = await axios.post("https://vanish-backend.onrender.com/api/v1/users/driverSignin", formData)
+        console.log(response);
+        Cookies.set ("userID", response.data._id)
+        
+        if (response.data.success) {
+            
+            navigate("/driversdashboard")
+        }
+        
+      } catch (error) {
+
       }
     };
 
+    const handlenameChange = (e) => {
+        setname(e.target.value)
+    }
+
+    const handleemailChange = (e) => {
+        setemail (e.target.value)
+    }
+    const handlepasswordChange = (e) => {
+        setpassword (e.target.value)
+    }
     
 
 
@@ -50,15 +79,15 @@ const DriversSignIn = ()=>{
                     <Input type="text"
                     name = "name"
                     value = {name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder = "Ameenah"/>
+                    onChange={handlenameChange}
+                    placeholder = "Name"/>
 
 
                     <Label>Email Address</Label>
-                    <Input type="password"
+                    <Input type="email"
                     name = "emailaddress"
                     value = {email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleemailChange}
                     placeholder = "name@email.com"/>
 
 
@@ -66,7 +95,7 @@ const DriversSignIn = ()=>{
                     <Input type="password"
                     name = "password"
                     value = {password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={handlepasswordChange}
                     placeholder = "Enter Password"/>
 
                     
@@ -75,7 +104,7 @@ const DriversSignIn = ()=>{
                 </form>
                 <p>Forgot Password?</p>
 
-                <Button>
+                <Button onClick = {handleSubmit}>
                     Login
                 </Button>
 
@@ -92,7 +121,8 @@ const DriversSignIn = ()=>{
                 </Button>
 
                 <p className="bgs">
-                    Don't have an account? <span>Sign Up</span>
+                    Don't have an account?<Link to ="/driverssignup"> <span>Sign Up</span>
+                    </Link>
                 </p>
 
 

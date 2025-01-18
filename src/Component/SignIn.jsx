@@ -81,7 +81,7 @@ const SignInPage = ()=>{
                    
                     value = {name}
                     onChange={ handleNameChange }
-                    placeholder = "Ameenah"/>
+                    placeholder = "Name"/>
 
 
                     <Label>Email Address</Label>
