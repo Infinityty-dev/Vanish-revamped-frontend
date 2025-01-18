@@ -93,6 +93,9 @@ const Layout = ({ children }) => {
             <Route path="/DriversDashboard" element={<DriversDashboard/>} />
             <Route path="/Blog" element={<Blog/>} />
 
+            {/* <Route path="/Payment" element={<PaymentPage/>} /> */}
+            <Route path="/EstimateCard" element={<EstimateCard/>} />
+            <Route path="/EstimateQuote" element={<EstimateQoute/>} />
             <Route path="/Payment" element={<PaymentPage/>} />
             <Route path="/estimateCard" element={<EstimateCard/>} />
             <Route path="/estimateQuote" element={<EstimateQoute/>} />
