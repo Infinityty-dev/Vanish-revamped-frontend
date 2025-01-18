@@ -19,7 +19,7 @@ const Footer = () => {
             </div>
             <div>
                 <h4>Legal</h4>
-               <Link to="/Terms"> <p>Terms and Conditions </p> </Link>
+               <Link to="/Terms"> <p className='terms'>Terms and Conditions </p> </Link>
             </div>
             <div>
                 <h4>Services</h4>
@@ -56,6 +56,12 @@ p{
     text-decoration: none;
     color: white;
 }
+.terms{
+text-decoration:none;
+outline:none;
+color:white;
+}
+
 
 .footer-text{
     display: flex;
