@@ -111,7 +111,7 @@ const OrderAssessment = () => {
       </SummaryContainer>
       
       <Footer>
-        <Link to="/Payment">
+        <Link to="/EstimateCard">
           <Button name="Pay" bgcolor="#126A10" color="white" width={160} height={48} />
         </Link>
       </Footer>

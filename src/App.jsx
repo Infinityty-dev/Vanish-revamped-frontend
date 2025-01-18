@@ -61,7 +61,7 @@ function App() {
             <Route path="/DriversDashboard" element={<DriversDashboard/>} />
             <Route path="/Blog" element={<Blog/>} />
 
-            <Route path="/Payment" element={<PaymentPage/>} />
+            {/* <Route path="/Payment" element={<PaymentPage/>} /> */}
             <Route path="/EstimateCard" element={<EstimateCard/>} />
             <Route path="/EstimateQuote" element={<EstimateQoute/>} />
             <Route path ="/Driver" element={<Driver/>}/>
