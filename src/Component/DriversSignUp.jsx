@@ -4,20 +4,31 @@ import { Link } from "react-router-dom";
 import axios from "axios"
 
 
+import { useNavigate } from "react-router-dom";
+
+
+
+
 
 const DriversSignUp = ()=> {
-    const [fullname, setFullname] = useState('');
+    const navigate = useNavigate ()
+    const [fullname, setfullname] = useState('');
     const [address, setAddress] = useState('');
-    const [driverslicensenumber, setDriverslicensenumber] = useState('');
-    const [licensetype, setLicensetype] = useState('');
-    const [typeofvehicle, setTypeofvehicle] = useState('');
+    const [driverLicenceNumber, setdriverLicenceNumber] = useState('');
+    const [licenceType, setLicenceType] = useState('');
+    const [carType, setcarType] = useState('');
     const [email, setEmail] = useState('');
-    const [phonenumber,setPhonenumber] = useState('');
+    const [phone,setphone] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     
 
   const handleSubmit = async (e) => {
+
+    const [success, setSuccess] = useState
+     ('');
+    const [driverTerms, setDriverTerms] = useState(false)
+    const handleSubmit = async (e) => {
     e.preventDefault();
 
     
@@ -36,6 +47,16 @@ const DriversSignUp = ()=> {
         phone,
         password,
         TandC: DriverTerms,
+
+        name:fullname,
+        address,
+        driverLicenceNumber,
+        licenceType,
+        carType,
+        email,
+        phone,
+        password,
+        TandC: driverTerms,
     }
     console.log(formData);
     
@@ -60,11 +81,33 @@ const DriversSignUp = ()=> {
 
   const handleNameChange = (e) => {
     setFullName (e.target.value)
+
+        const response = await axios.post("https://vanish-backend.onrender.com/api/v1/users/driverSignup", formData
+        )
+        if (response.status === 201) {
+            setSuccess ("User Signed Up Sucessfully")
+            setTimeout (() =>{
+                navigate ("/DriversSignIn")
+            },2000)
+        }
+    }
+
+    catch (error) {
+        console.log(error.response);
+        setError (error.response.data.message)
+    };
+
+
+  };
+
+  const handlefullnameChange = (e) => {
+    setfullname (e.target.value)
   }
 
   const handleAddressChange =  (e) =>{
     setAddress(e.target.value)
   }
+
 
   const handleDriverLicense =  (e) =>{
     setEmail(e.target.value)
@@ -76,6 +119,17 @@ const DriversSignUp = ()=> {
 
   const handleTypeOfVehicleChange =  (e) =>{
     setEmail(e.target.value)
+
+  const handledriverLicenceNumberChange =  (e) =>{
+    setdriverLicenceNumber(e.target.value)
+  }
+
+  const handleLicenceTypeChange =  (e) =>{
+    setLicenceType(e.target.value)
+  }
+
+  const handlecarTypeChange =  (e) =>{
+    setcarType(e.target.value)
   }
 
   const handleEmailChange =  (e) =>{
@@ -92,9 +146,17 @@ const DriversSignUp = ()=> {
 
   const handleTandCChange =  (e) =>{
     setDriverTerms(!terms)
+
+  const handlephoneChange =  (e) =>{
+    setphone(e.target.value)
+  }
+
+  const handleTandCChange =  (e) =>{
+    setDriverTerms(!driverTerms)
+
   }
    
-   
+    
     return(
         <Carrier>
             <Signwrapper>
@@ -118,12 +180,26 @@ const DriversSignUp = ()=> {
                     onChange={(e) => setFullname(e.target.value)}
                     placeholder = "Ameenah"/>
 
+                    {error && <ErrorText>{error}</ErrorText>}
+                    {success && <SuccessText>{success}</SuccessText>}
+
+                    <Label>Full Name</Label>
+                    <Input type="text"
+                    placeholder = "Input your name"
+                    // name = "Ameenah"
+                    value = {fullname}
+                    onChange={handlefullnameChange} />
+
                     <Label>Address</Label>
                     <Input type="text"
+                    placeholder = "city"
                     name = "Address"
                     value = {address}
                     onChange={(e) => setAddress(e.target.value)}
                     placeholder = "city"/>
+
+                    onChange={handleAddressChange}
+                    />
 
                     <Label>Driver's License Number</Label>
                     <Input type="text"
@@ -149,64 +225,76 @@ const DriversSignUp = ()=> {
 
 
 
+                    value = {driverLicenceNumber}
+                    onChange={handledriverLicenceNumberChange}
+                    placeholder = "536267235356"/>
+
+                    <Label>License Type</Label>
+                    <select className="select"onChange={handleLicenceTypeChange}    name="service option" value={licenceType}>
+                    <option value= "Temporary"> Temporary</option> 
+                    <option value= "Permanent">Permanent</option>
+                    </select>
+                    
+
+                    <Label>Type of Vehicle</Label>
+                    <select className="select" name="service option" onChange={handlecarTypeChange}>
+                    <option value= "small"> Small Van</option> 
+                    <option value= "Medium">Medium Van</option>
+                    <option value= "Large">Large Van</option>
+                    
+                    </select>
+                    
+
 
                     <Label>Email Address</Label>
                     <Input type="text"
                     name = "name@email.com"
                     value = {email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleEmailChange}
                     placeholder = "name@email.com"/>
-                    
-                    
                     
                     
 
                     <Label>Phone Number</Label>
                     <Input 
                     type = "phone number" name = "phone number"
-                    value={phonenumber}
-                    onChange={(e) => setPhonenumber(e.target.value)}
+                    value={phone}
+                    onChange={handlephoneChange}
                     placeholder = "Enter Phone Number"/>
                 
 
-                
-                
-                   
 
                     <Label>Password</Label>
                     <Input type="password"
                     name = "password"
                     value = {password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={handlePasswordChange}
                     placeholder = "Enter Password"/>
                     
                     
-                    
-
-                    
-
-                    
+                
 
                 </form>
                 {error && <ErrorText>{error}</ErrorText>}
                
                 <Box>
-                    <input type="checkbox" id="checkbox"/> 
+                    <input type="checkbox" id="checkbox"onChange = {handleTandCChange}
+                    /> 
                     <span>I have read and agreed with the 
-                        <Link to ="/DriverTerms" >
+                        <Link className="link" to ="/DriverTerms" >
                         <span className="red"> Terms of Service </span> </Link> and 
-                        <br/> our <span className="red">Privacy Policy</span>.</span>
+                        <br/> our Privacy Policy</span>.
                     
                    
                 </Box>
 
-               <Link to="/DriversDashboard"> <Button>
+                <Button onClick={handleSubmit}>
                     Continue
 
-                </Button> </Link>
+                </Button> 
 
                 <p>
-                    Already have an account? <span>Sign In</span>
+                    Already have an account? <Link to={"/SignIn"}> <span>Sign In</span></Link>
                 </p>
             </Signwrapper>
         </Carrier>
@@ -242,7 +330,17 @@ const Signwrapper = styled.div`
     }
     
     
+    .select{
+    border-radius: 10px;
+    height: 45px;
+    width: 90%;
+    border: 1px solid #D7C525;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 10px;
 
+}
 
 `
 
@@ -270,6 +368,8 @@ const Signtitle = styled.div`
 
        
 }
+
+
 @media (max-width: 400px){
             display: flex;
             flex-direction: column;
@@ -286,9 +386,6 @@ const Signtitle = styled.div`
 
     
     
-
-
-    
 `
 
 const Input = styled.input`
@@ -302,8 +399,10 @@ margin-left: 12px;
 
 &::placeholder{
     color: #F8F8F8;
+
     
 }
+
 
 
 border-radius: 10px;
@@ -314,6 +413,7 @@ font-size: 15px;
     outline: none;
 }
 
+
     
 `
 const Label = styled.label`
@@ -322,6 +422,9 @@ const Label = styled.label`
     font-family: Poppins;
     display: block;
     margin-left: 12px;
+
+    
+    
 
 `
 
@@ -354,6 +457,11 @@ span{
     color: #D91616;
 }
 
+.link{
+    text-decoration: none;
+
+}
+
 `
 const Button = styled.button`
     width: 94%;
@@ -370,4 +478,30 @@ const Button = styled.button`
 
 
     
+`
+
+const Select = styled.div`
+    border-radius: 10px;
+    height: 40px;
+    width: 300px;
+    border-color: #F8F8F8;
+    background-color: #f3f0f0 ; 
+    border: none;
+    padding-left:15px;
+
+`
+const ErrorText = styled.p`
+    color: red;
+    font-size: 18px;
+
+
+
+
+`
+
+const SuccessText = styled.p`
+    color: green;
+    font-size: 20px;
+    font-weight: 700px;
+
 `

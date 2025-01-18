@@ -288,7 +288,7 @@ const Home = ()=>{
     <Container>
     <div className="hero" ref={heroRef}>
              <div className='hero-text'>
-                 <h1>
+                 <h1 className='bigcap'>
                      Effortless <br/>Logistic, Every<br/> Step of the Way
                  </h1>
                  <p>
@@ -296,20 +296,20 @@ const Home = ()=>{
                      get the best rates-all from one platform.
                  </p>
              </div>
-             <div className = 'hero-form'>
+             <div className = 'hero-form1'>
                  <h2>Move from A to Z</h2>
                  <p>Track your van every step of the way</p>
                  <hr/>
                  {/* **************************************************FORM************************* */}
-                 <form onSubmit={handleSubmit}style={{position:"relative"}} >
-                         <label>Pick Up Location</label> <br/>
+                 <form className='hq' onSubmit={handleSubmit}style={{position:"relative"}} >
+                         <label className='off'>Pick Up Location</label> <br/>
                          <div className='input1 dropdown-container'>
                            <div>
                            <FaLocationDot size={25} /> 
                            </div>
-                           <input id='input1'className='input' type='text' value={startLocation} list='locations' onChange={handleStartChange} placeholder='pick up location'/>
+                           <input    id='input1'className='input' type='text' value={startLocation} list='locations' onChange={handleStartChange} placeholder='pick up location'/>
 
-                           <datalist id="locations">
+                           <datalist  id="locations">
                               {filteredLocations.map((location) => (
                                 <option key={location.id} value={location.name} />
                               ))}
@@ -318,16 +318,15 @@ const Home = ()=>{
                           
                            
                           </div>
-                          <br/>
-                          <br/>
+                         
 
 
-                         <label>Drop Off Location</label> <br/>
+                         <label className='off'>Drop Off Location</label> <br/>
                          <div className='input1 input2'>
                            <div>
                            <FaLocationDot size={25} /> 
                            </div>
-                           <input id='input2' className='input' type='text' value={endLocation} onChange={handleEndChange} list="locations" placeholder='drop off location'/>
+                           <input id='input2' className='in' type='text' value={endLocation} onChange={handleEndChange} list="locations" placeholder='drop off location'/>
                           
 
                            <datalist id="locations">
@@ -338,7 +337,7 @@ const Home = ()=>{
                                 
                          </div>
                        {/* ***************** */}
-                         <div className='form-cards'>
+                       <div className='form-cards'>
                              <div>
                              <IoIosSpeedometer size={25} color='#126A10 '/>
                                  <p color='black'>Schedule</p>
@@ -494,11 +493,34 @@ const Container = styled.div`
 display: flex;
 justify-content: space-around;
 align-items:center;
-height:85vh;
+height:100vh;
 color:green;
 background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100%),
             url('/hero-image.png') center/cover no-repeat;
 }
+
+
+.off{
+position:relative;
+top:30px;
+}
+
+.hq{
+margin-top:-10px;
+
+}
+
+
+
+
+.bigcap{
+font-size:70px;
+        margin-bottom:20px;
+       color:#126A10;
+       font-weight:600;
+       
+}
+
 
 .hero-text{
     h1{
@@ -522,6 +544,7 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
         width:100%;
         padding:5px;
         /* z-index: 2; */
+        
        }
        img{
         width:20px;
@@ -529,17 +552,18 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
         margin-left:10px;
        }
     }
-.hero-form{
+.hero-form1{
     border:solid 1px black;
     background-color:white;
     background-image:url('/Vector.png');
     background-repeat:  repeat;
     background-size: 30px 30px;
     max-width:550px;
-    height:fit-content;
+    height:100vh;
     padding:15px 75px;
     border-bottom-right-radius:30px;
     border-top-right-radius:30px;
+    
     h2{
       font-size: 20px;
     }
@@ -548,6 +572,8 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
     }
     label{
       color: black;
+     position:relative;
+     top:30px;
     }
 
     h2,p,hr,label{
@@ -563,18 +589,20 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
     border: #126A10 1px solid;
     border-radius:5px;
     padding: 3px;
-    margin-top: 5px;
+  margin-top: 5px;
     margin-bottom: 10px;
     background-color: white;
     width: 100%;
 
 
+
     input{
-      
+       
       height: 31px;
       outline: none;
       border: none;
       padding-left: 10px;
+      
     }
    
     }
@@ -583,12 +611,14 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
         /* height:30px; */
         background-color:white;
         align-content:center;
+        
     }
     label{
         margin-bottom:10px;
     }
     form{
         position: relative;
+       
     }
     .img1,.img2{
         position: absolute;
@@ -616,7 +646,7 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
             background-color: #e7f0e7;
             text-align:center;
             width:70px;
-            margin-bottom:10px;
+            margin-bottom:-15px;
             padding:10px 0px 10px 0px;
             border-radius:10px;
         }

@@ -87,6 +87,7 @@ const Container = styled.div`
         list-style: none;
         display: flex;
         gap: 40px;
+       margin-top:15px;
         
       li {
   color: #000; 
