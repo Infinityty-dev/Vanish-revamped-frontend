@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; 
 import styled from 'styled-components'; 
 
-const OptionPage = () => {
+const LoginOptionPage = () => {
   
 
   return (
@@ -13,7 +13,7 @@ const OptionPage = () => {
       </HeaderContainer>
       <OptionsContainer>
 
-        <Link to="/ownvan" style={{ textDecoration: 'none' }}>
+        <Link to="/loginownvan" style={{ textDecoration: 'none' }}>
           <OptionCard>
             <OptionTitleContainer>
               <h2>I Own a Van</h2>
@@ -21,13 +21,13 @@ const OptionPage = () => {
             <OptionIconContainer>
               <img 
                 src="https://res.cloudinary.com/dxldk0ytk/image/upload/v1735412620/Vector_3_iszl78.png" 
-                alt="Driver Icon" 
+                alt="DriverIcon" 
               />
             </OptionIconContainer>
           </OptionCard>
         </Link>
 
-        <Link to="/needvan" style={{ textDecoration: 'none' }}>
+        <Link to="/loginneedvan" style={{ textDecoration: 'none' }}>
           <OptionCard>
             <OptionTitleContainer>
               <h2>I Need a Van</h2>
@@ -46,7 +46,7 @@ const OptionPage = () => {
   );
 };
 
-export default OptionPage;
+export default LoginOptionPage;
 
 
 

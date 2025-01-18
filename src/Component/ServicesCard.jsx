@@ -102,7 +102,9 @@ border-radius: 24px;
 
   
 
-
+p{
+line-height:15px;
+}
 
   
 
