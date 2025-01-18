@@ -52,8 +52,8 @@ const Team = () => {
         jobDescription='FullStack Developer'
          about1='A goal-oriented and passionate developer proficient in the MERN stack' 
          about2='Dedicated to building web solutions.' 
-         about3="I build web solutions, passionate about leveraging technology to optimize processes, deliver impactful business outcomes, and integrate customer-focused expertise." 
-         about4='I thrive on leveraging technology to streamline processes, deliver impactful business results, and incorporate a customer-focused approach.'
+         about3="I am passionate about leveraging technology to optimize processes," 
+         about4=" deliver impactful business results, and incorporate a customer-focused approach."
          insta='https://www.instagram.com/techsupportwithteemah/profilecard/?igsh=MWd6Znhtam00bnc1Zg=='
          x='https://x.com/techteemah?s=21&t=SPbPMgEPNU1NC-8P9LusQg'
          www='www.linkedin.com/in/fatimahadeniyi'
