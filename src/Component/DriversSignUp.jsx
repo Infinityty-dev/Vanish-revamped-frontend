@@ -253,8 +253,8 @@ const Signwrapper = styled.div`
     width: 90%;
     border: 1px solid #D7C525;
     font-size: 15px;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin: 10px 0;
+    margin-left: 12px;
     padding: 10px;
 
 }
@@ -397,16 +397,16 @@ const Button = styled.button`
     
 `
 
-const Select = styled.div`
-    border-radius: 10px;
-    height: 40px;
-    width: 300px;
-    border-color: #F8F8F8;
-    background-color: #f3f0f0 ; 
-    border: none;
-    padding-left:15px;
+// const Select = styled.div`
+//     border-radius: 10px;
+//     height: 40px;
+//     width: 300px;
+//     border-color: #F8F8F8;
+//     background-color: #f3f0f0 ; 
+//     border: none;
+//     padding-left:15px;
 
-`
+// `
 const ErrorText = styled.p`
     color: red;
     font-size: 18px;
