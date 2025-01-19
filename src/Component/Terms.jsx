@@ -9,7 +9,7 @@ const Terms = () => {
               <h5> 1. DEFINITIONS </h5>
 <p>For the purposes of these Terms and Conditions, the following definitions apply: <br />
 
-- Service Provider: vanISH, its affiliates, agents, and subcontractors. <br />
+- Service Provider: vanIT, its affiliates, agents, and subcontractors. <br />
 - Customer: The person or entity requesting the Services. <br />
 - Services: The load moving transportation services provided by the Service Provider. <br />
 - Van: The truck or other equipment used to provide the Services. <br />

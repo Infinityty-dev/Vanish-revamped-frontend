@@ -22,8 +22,8 @@ const Team = () => {
         <TeamCard image='/headshotAvatar.jpeg' 
         name='Samuel Okolie' 
         jobDescription='FullStack Developer'
-         about1='An objective driven passionate developer with' 
-         about2='proficiency in the MERN stack' 
+         about1='An objective driven passionate developer ' 
+         about2='with proficiency in the MERN stack' 
          about3='' 
          about4=''
          insta='https://google.com'
@@ -36,8 +36,8 @@ const Team = () => {
 <TeamCard image='/Becca.jpeg' 
          name='Olufunmi Oyewole' 
          jobDescription='FullStack Developer'
-         about1='An objective driven passionate developer with' 
-         about2='proficiency in the MERN stack' 
+         about1='An objective driven passionate developer ' 
+         about2='with proficiency in the MERN stack' 
          about3='Excellent team player with a commitment' 
          about4='to continuous learning and personal growth.'
          insta= 'https://www.instagram.com/becca_dah_diva/profilecard/?igsh=bmhhZHprN3Jsd242 target= "_blank"'
@@ -47,32 +47,36 @@ const Team = () => {
 
 
 
-<TeamCard image='/headshotAvatar.jpeg' 
-        name='Fatimah' 
+<TeamCard image='/FatimahB.png' 
+        name='Fatimah Adeniyi' 
         jobDescription='FullStack Developer'
-         about1='An objective driven passionate developer with' 
-         about2='proficiency in the MERN stack' 
-         about3='' 
-         about4=''
-         insta='https://google.com'
-         x='https://google.com'
-         www='https://google.com'
-         git='https://google.com'/>
+         about1='A goal-oriented and passionate developer proficient in the MERN stack' 
+         about2='Dedicated to building web solutions.' 
+         about3="I build web solutions, passionate about leveraging technology to optimize processes, deliver impactful business outcomes, and integrate customer-focused expertise." 
+         about4='I thrive on leveraging technology to streamline processes, deliver impactful business results, and incorporate a customer-focused approach.'
+         insta='https://www.instagram.com/techsupportwithteemah/profilecard/?igsh=MWd6Znhtam00bnc1Zg=='
+         x='https://x.com/techteemah?s=21&t=SPbPMgEPNU1NC-8P9LusQg'
+         www='www.linkedin.com/in/fatimahadeniyi'
+         git='https://github.com/Techteemah'/>
         
 
 
 
-        <TeamCard image='/headshotAvatar.jpeg' 
+        <TeamCard image='/Christian.jpg' 
         name='Christian Daniels' 
         jobDescription='FullStack Developer'
-         about1='An objective driven passionate developer with' 
-         about2='proficiency in the MERN stack' 
-         about3='' 
-         about4=''
-         insta='https://google.com'
-         x='https://google.com'
-         www='https://google.com'
-         git='https://google.com'/>
+
+        //  about1='An objective driven passionate developer with' 
+        //  about2='proficiency in the MERN stack and UI/UX' 
+
+         about1='An objective driven passionate developer ' 
+         about2='with proficiency in the MERN stack and UI/UX' 
+         about3='Always eager to embrace new challenges' 
+         about4='and expand his skill set'
+         insta='https://www.instagram.com/kris10dani/profilecard/?igsh=eTA4Y3hkcnBmbzA1'
+         x='https://x.com/kris10dani?s=11&t=SPbPMgEPNU1NC-8P9LusQg'
+         www='https://my-portfolio-gold-eight-38.vercel.app/'
+         git='https://github.com/kingkrisman'/>
 
 
 
@@ -80,8 +84,8 @@ const Team = () => {
 <TeamCard image='/headshotAvatar.jpeg' 
         name='Ezinne' 
         jobDescription='FullStack Developer'
-         about1='An objective driven passionate developer with' 
-         about2='proficiency in the MERN stack' 
+         about1='An objective driven passionate developer ' 
+         about2=' with proficiency in the MERN stack' 
          about3='' 
          about4=''
          insta='https://google.com'
@@ -95,8 +99,8 @@ const Team = () => {
 <TeamCard image='/Ezytech.jpeg' 
         name='Ahmed Adebayo' 
         jobDescription='FullStack Developer'
-         about1='An objective driven passionate developer with' 
-         about2='proficiency in the MERN stack' 
+         about1='An objective driven passionate developer ' 
+         about2='with proficiency in the MERN stack' 
          about3='' 
          about4=''
          insta='https://google.com'
@@ -108,11 +112,11 @@ const Team = () => {
 
 
 
-<TeamCard image='/headshotAvatar.jpeg' 
+<TeamCard image='/Aminah.jpg' 
         name='Ameenah' 
         jobDescription='FullStack Developer'
-         about1='An objective driven passionate developer with' 
-         about2='proficiency in the MERN stack' 
+         about1='An objective driven passionate developer ' 
+         about2='with proficiency in the MERN stack' 
          about3='' 
          about4=''
          insta='https://google.com'

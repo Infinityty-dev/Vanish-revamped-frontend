@@ -4,7 +4,7 @@ import car from "../../public/whitevan.png"
 import driver from "../../public/man.png"
 import CardOne from "./Card"
 import bg from "../assets/bg.jpg"
-
+import { Link } from "react-router-dom"
 
 
 
@@ -27,6 +27,9 @@ return(
    <CardOne className = "card1" img ={driver} alt ="" text = "Kris Daniel" p="100Metres (5mins away)" review= "4.9 (531 reviews" motor = {car} />
    <CardOne className = "card1" img ={driver} alt ="" text = "Kris Daniel" p="100Metres (15mins away)" review= "4.9 (531 reviews" motor = {car} />
    </Row>
+   <Link to="/OrderAssessment">
+            <button>Submit</button> </Link>
+   
    
 
    </Order>
@@ -57,7 +60,18 @@ margin: auto;
 p{
     font-size: 12px;
 }
-
+button{
+      background-color: #126A10;
+      width:200px;
+      height:40px;
+      border-radius: 15px;
+      color: white;
+      border:none;
+      margin-left: 50px;
+      margin-top: 20px;
+    
+      
+   }
 `
 const Map = styled.div`
         
@@ -74,8 +88,23 @@ const Row = styled.div`
     flex-direction : row;
     margin-top: 10px;
     margin-left: 5px;    
+
+    button{
+      background-color: #126A10;
+      width:200px;
+      height:40px;
+      border-radius: 15px;
+      color: white;
+      border:none;
+      margin-left: 50px;
+      margin-top: 20px;
+    
+      
+   }
+
     
 `
+
 
 
 

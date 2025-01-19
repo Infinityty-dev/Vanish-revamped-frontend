@@ -11,8 +11,14 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoIosSpeedometer } from "react-icons/io";
 import { FaShippingFast } from "react-icons/fa";
 import Button from '../../Component/Button.jsx';
+
+import { Autocomplete } from '@react-google-maps/api'
+import axios from 'axios';
+
+
 // import Driver from '../../Component/Driver.jsx';
 import {Link} from "react-router-dom"
+import smile from '../../assets/Quote.png'
 
 import emailjs from 'emailjs-com';
 
@@ -273,7 +279,8 @@ const Home = ()=>{
     // console.log('dist:',distance);
     
     const cost = distance * ratePerKm * 1000;
-    setQuote(`The estimated cost is $${cost.toFixed(2)}`);
+    setQuote(`The estimated cost is 
+     ₦${cost.toFixed(2)}`);
     setQuoteVisible(true);
   };
 
@@ -283,12 +290,89 @@ const Home = ()=>{
 
 
 
+
+  const [origin, setOrigin] = useState('');
+  const [destination, setDestination] = useState('');
+  const [originAutocomplete, setOriginAutocomplete] = useState(null);
+  const [destinationAutocomplete, setDestinationAutocomplete] = useState(null);
+  const [distance, setDistance] = useState('');
+  const [cost, setCost] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const API_KEY ='AIzaSyBBhijfr7zpw3AG27yONYmX8t5P2VlNUNo' ;
+  const MULTIPLIER = 1213;
+
+  const onPlaceChanged = (type) => {
+    const place = type === 'origin' ? originAutocomplete.getPlace() : destinationAutocomplete.getPlace();
+    if (place && place.formatted_address) {
+      type === 'origin' ? setOrigin(place.formatted_address) : setDestination(place.formatted_address);
+    }
+  };
+  const calculateDistance = async () => {
+        if (!origin || !destination) {
+          setError('Please enter both origin and destination addresses.');
+          return;
+        }
+    
+        setLoading(true);
+        setError('');
+        setDistance('');
+        setCost('');
+    
+        try {
+          const response = await axios.get(`https://thingproxy.freeboard.io/fetch/https://maps.googleapis.com/maps/api/distancematrix/json`, {
+            params: {
+              origins: origin,
+              destinations: destination,
+              key:API_KEY,
+              units: 'metric',
+              
+            },
+          });
+        
+    
+          const result = response.data;
+    
+          if (result.rows[0].elements[0].status === 'OK') {
+            const distanceInKm = result.rows[0].elements[0].distance.value / 1000;
+            const calculatedCost = distanceInKm * MULTIPLIER;
+    
+            setDistance(`${distanceInKm.toFixed(2)} km`);
+            setCost(`₦${calculatedCost.toFixed(2)}`);
+          } else {
+            setError('Could not find a route between the provided addresses.');
+          }
+        } catch (err) {
+          console.error(err);
+          setError('An error occurred while fetching distance data.');
+        } finally {
+          setLoading(false);
+        } 
+      };
+
+
+//**************************************************************** */
+
+
+
+
+
+
+
+
+
+//((((((())))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+
+
+
   return(
    <>
     <Container>
     <div className="hero" ref={heroRef}>
              <div className='hero-text'>
-                 <h1>
+                 <h1 className='bigcap'>
                      Effortless <br/>Logistic, Every<br/> Step of the Way
                  </h1>
                  <p>
@@ -296,49 +380,70 @@ const Home = ()=>{
                      get the best rates-all from one platform.
                  </p>
              </div>
-             <div className = 'hero-form'>
+             <div className = 'hero-form1'>
                  <h2>Move from A to Z</h2>
                  <p>Track your van every step of the way</p>
                  <hr/>
                  {/* **************************************************FORM************************* */}
-                 <form onSubmit={handleSubmit}style={{position:"relative"}} >
-                         <label>Pick Up Location</label> <br/>
+                 <form className='hq' onSubmit={handleSubmit}style={{position:"relative"}} >
+                         <label className='off'>Pick Up Location</label> <br/>
                          <div className='input1 dropdown-container'>
-                           <div>
+                           {/* <div>
                            <FaLocationDot size={25} /> 
                            </div>
-                           <input id='input1'className='input' type='text' value={startLocation} list='locations' onChange={handleStartChange} placeholder='pick up location'/>
+                           <input    id='input1'className='input' type='text' value={startLocation} list='locations' onChange={handleStartChange} placeholder='pick up location'/>
 
-                           <datalist id="locations">
+                           <datalist  id="locations">
                               {filteredLocations.map((location) => (
                                 <option key={location.id} value={location.name} />
                               ))}
-                            </datalist>
-
-                          
+                            </datalist> */}
+                            
+       <Autocomplete onLoad={setOriginAutocomplete} onPlaceChanged={() => onPlaceChanged('origin')}>
+ <input
+          type="text"
+          placeholder="Enter Origin"
+          value={origin}
+          onChange={(e) => setOrigin(e.target.value)}
+          style={{ width: '100%', padding: '8px', marginBottom: '10px' }}
+        />
+      </Autocomplete>
+                      
                            
                           </div>
-                          <br/>
+
+          
                           <br/>
 
 
-                         <label>Drop Off Location</label> <br/>
+
+                         <label className='off'>Drop Off Location</label> <br/>
                          <div className='input1 input2'>
-                           <div>
+                           {/* <div>
                            <FaLocationDot size={25} /> 
                            </div>
-                           <input id='input2' className='input' type='text' value={endLocation} onChange={handleEndChange} list="locations" placeholder='drop off location'/>
+                           <input id='input2' className='in' type='text' value={endLocation} onChange={handleEndChange} list="locations" placeholder='drop off location'/>
                           
 
                            <datalist id="locations">
                               {filteredLocations.map((location) => (
                                 <option key={location.id} value={location.name} />
                               ))}
-                            </datalist>
+                            </datalist> */}
+
+                            <Autocomplete onLoad={setDestinationAutocomplete} onPlaceChanged={() => onPlaceChanged('destination')}>
+                                <input
+                                  type="text"
+                                  placeholder="Enter Destination"
+                                  value={destination}
+                                  onChange={(e) => setDestination(e.target.value)}
+                                  style={{ width: '100%', padding: '8px', marginBottom: '10px' ,background:'transarent'}}
+                                />
+                              </Autocomplete>
                                 
                          </div>
                        {/* ***************** */}
-                         <div className='form-cards'>
+                       <div className='form-cards'>
                              <div>
                              <IoIosSpeedometer size={25} color='#126A10 '/>
                                  <p color='black'>Schedule</p>
@@ -351,17 +456,32 @@ const Home = ()=>{
                          </div>
                          {/* ************************ */}
 
-                         <label for='services'>Services</label> <br/>
+                         {/* <label for='services'>Services</label> <br/>
                          <div className='input1'>
                          <select name="services" id="services" value={selectedOption} onChange={selectChange}>
                              <option value='10' >Option 1</option>
                              <option value="option2">Option 2</option>
                              <option value="option3">Option 3</option>
                          </select>
-                         </div>
+                         </div> */}
                         <div id='output'></div>
 
+
+                       {error && <p style={{ color: 'red' }}>{error}</p>}
+                        {distance && <p>Distance: {distance}</p>}
+                        {cost && <p>Estimated Cost: {cost}</p>} 
                         {isQuoteVisible && (
+
+                                            <div className='quoteStyle'>
+                                              {/* <h3>{error && <p style={{ color: 'red' }}>{error}</p>}</h3>
+                                              <p> {distance && <p>Distance: {distance}</p>}</p>
+                                              <p>{cost && <p>Estimated Cost: {cost}</p>}</p> */}
+                                               {error && <p style={{ color: 'red' }}>{error}</p>}
+                                              {distance && <p>Distance: {distance}</p>}
+                                              {cost && <p>Estimated Cost: {cost}</p>}
+                                              
+                                              <button onClick={() => setQuoteVisible(false)} >Close</button>
+
                                             <div
                                               style={{
                                                 marginTop: "20px",
@@ -369,27 +489,32 @@ const Home = ()=>{
                                                 alignContent:"center",
                                                 padding: "10px",
                                                 border: "1px solid #ccc",
-                                                borderRadius: "5px",
+                                                borderRadius: "24px",
                                                 backgroundColor: "#f9f9f9",
                                                 position: "absolute",
                                                 top: "60%",
-                                                left: "60%",
+                                                left: "30%",
+                                                boxShadow:" rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px",
                                                 transform: "translate(-30%, -30%)",
-                                                width: "200px",
+                                                width: "400px",
                                                 height:"200px",
                                                 textAlign: "center",
                                                 color:"black",
+                                                
                                               }}
                                             >
-                                              <h3>Quote</h3>
+                                              <button style={{background:"transparent", color:"gray", position:"relative", right:"170px", top:"-10px"}} onClick={() => setQuoteVisible(false)} >X</button>
+                                              <h3 style={{fontSize:"20px", fontFamily:"poppins", color:"#126a10", marginTop:"-40px"}}  >Your vanIT Estimate!</h3>
+                                              <img src={smile} className="emoji" />
                                               <p>{quote}</p>
                                               <a href="/about-us"></a>
-                                              <button onClick={() => setQuoteVisible(false)} >Close</button>
+                                              <Link to ="/signup"><button style={{height:"40px", borderRadius:"10px"}}>Continue</button></Link> 
+
                                             </div>
                                           )}
-
+{/* // onClick={calculateQuote} */}
                          <div className='form-button'>
-                          <button onClick={calculateQuote}   style={{
+                          {/* <button onClick={calculateDistance}  style={{
                                                                       width: "160",
                                                                       height: "48",
                                                                       borderRadius: '15px',
@@ -402,9 +527,35 @@ const Home = ()=>{
                                                                       padding:"10px 25px",
                                                                       boxShadow:'1px 1px 12px lightgrey '
                                                                     }}>
-                                                                      Get A Quote
+                                                                      Get A Quote {loading ? 'Calculating...' : 'Calculate Distance & Cost'}
                                                                     </button>
-                          {/* <Button onClick={calculateQuote} name='Get A Quote' width= {160} height={48} bgcolor='#126a10' color='white'/> */}
+                          */}
+
+                                            <button
+                                                    onClick={calculateDistance}
+                                                    style={{
+                                                      // width: '100%',
+                                                      // padding: '10px',
+                                                      // backgroundColor: '#28a745',
+                                                      // color: 'white',
+                                                      // border: 'none',
+                                                      // cursor: 'pointer',
+                                                      width: "160",
+                                                                      height: "48",
+                                                                      borderRadius: '15px',
+                                                                      backgroundColor: '#126a10',
+                                                                      color: 'white',
+                                                                      border: '2px solid #126A10',
+                                                                      cursor: 'pointer',
+                                                                      marginRight: '20px',
+                                                                      marginTop:"20px",
+                                                                      padding:"10px 25px",
+                                                                      boxShadow:'1px 1px 12px lightgrey '
+                                                    }}
+                                                    disabled={loading}
+                                                  >
+                                                    {loading ? 'Calculating...' : 'Calculate Distance & Cost'}
+                                                  </button>
                           </div>
                  </form>
 
@@ -443,7 +594,7 @@ const Home = ()=>{
              
                  
                  <div className='service-button'>
-                 <Button className='sbutton'name='Learn More' bgcolor='rgb(18, 106, 16)' color='white' width= {160} height={48}/>
+                <a href="./Blog"> <Button className='sbutton'name='Learn More' bgcolor='rgb(18, 106, 16)' color='white' width= {160} height={48}/></a>
                  </div>
              </div>
              
@@ -494,11 +645,37 @@ const Container = styled.div`
 display: flex;
 justify-content: space-around;
 align-items:center;
-height:85vh;
+height:100vh;
 color:green;
 background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100%),
             url('/hero-image.png') center/cover no-repeat;
 }
+
+.emoji{
+width:81px;
+}
+
+.off{
+position:relative;
+top:30px;
+}
+
+.hq{
+margin-top:-10px;
+
+}
+
+
+
+
+.bigcap{
+font-size:70px;
+        margin-bottom:20px;
+       color:#126A10;
+       font-weight:600;
+       
+}
+
 
 .hero-text{
     h1{
@@ -522,6 +699,7 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
         width:100%;
         padding:5px;
         /* z-index: 2; */
+        
        }
        img{
         width:20px;
@@ -529,25 +707,29 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
         margin-left:10px;
        }
     }
-.hero-form{
+.hero-form1{
     border:solid 1px black;
     background-color:white;
     background-image:url('/Vector.png');
     background-repeat:  repeat;
     background-size: 30px 30px;
     max-width:550px;
-    height:fit-content;
+    height:100vh;
     padding:15px 75px;
     border-bottom-right-radius:30px;
     border-top-right-radius:30px;
+    
     h2{
       font-size: 20px;
+      text-align: center;
     }
     p{
       font-size: 13px;
     }
     label{
       color: black;
+     position:relative;
+     top:30px;
     }
 
     h2,p,hr,label{
@@ -563,18 +745,20 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
     border: #126A10 1px solid;
     border-radius:5px;
     padding: 3px;
-    margin-top: 5px;
+  margin-top: 5px;
     margin-bottom: 10px;
     background-color: white;
     width: 100%;
 
 
+
     input{
-      
+       
       height: 31px;
       outline: none;
       border: none;
       padding-left: 10px;
+      
     }
    
     }
@@ -583,17 +767,38 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
         /* height:30px; */
         background-color:white;
         align-content:center;
+        
     }
     label{
         margin-bottom:10px;
     }
     form{
         position: relative;
+       
     }
     .img1,.img2{
         position: absolute;
         left: 10px;
 
+    }
+    .quoteStyle{
+
+                margin-top: 20px;
+                margin: auto;
+                align-content: center;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+                position: absolute;
+                top: 60%;
+                left: 60%;
+                transform: translate(-30%, -30%);
+                width: 200px;
+                height:200px;
+                text-align: center;
+                color:black;
+            
     }
     select{
       width: 100%;
@@ -616,7 +821,7 @@ background:linear-gradient(to left,rgba(255,255,255,0)0%,rgba(255,255,255,50)100
             background-color: #e7f0e7;
             text-align:center;
             width:70px;
-            margin-bottom:10px;
+            margin-bottom:-15px;
             padding:10px 0px 10px 0px;
             border-radius:10px;
         }
@@ -815,6 +1020,26 @@ section{
       display:inline-block ;
       width:290px;
     }
+
+    .quoteStyle{
+
+        margin-top: 20px;
+        margin: auto;
+        align-content: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        position: absolute;
+        top: 60%;
+        right: 60%;
+        transform: translate(-30%, -30%);
+        width: 200px;
+        height:200px;
+        text-align: center;
+        color:black;
+
+}
 
     section .text-div h1 {
       font-size: 2em;
