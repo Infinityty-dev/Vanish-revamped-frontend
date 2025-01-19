@@ -27,6 +27,7 @@ import OrderAssessment from './pages/orderAssessment.jsx'
 import EstimateCard from './Component/EstimateCard.jsx'
 import EstimateQoute from './Component/EstimateQoute.jsx'
 import Driver from './Component/Driver.jsx'
+import { LoadScript } from '@react-google-maps/api';
 
 
 
@@ -34,11 +35,15 @@ function App() {
 
   return (
     <>
+  
      <BrowserRouter>
          <Header/>
          <Routes>
           
-            <Route path="/" element={<Home/>} />
+            <Route path="/" element={
+              <LoadScript googleMapsApiKey={'AIzaSyBBhijfr7zpw3AG27yONYmX8t5P2VlNUNo'} libraries={['places']}>
+                <Home/>
+                </LoadScript>} />
             <Route path="/about-us" element={<Team />} />
 
             <Route path="/Optionpage" element={<OptionPage/>} />
