@@ -40,7 +40,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 // // import SignUp from './Pages/Signup/Signup'
 import Team from './pages/Team.jsx'
 import Home from './pages/Home/Home.jsx'
-import OwnVan from './pages/ownVan.jsx'
+import OwnVan from './pages/OwnVan.jsx'
 import NeedVan from './pages/NeedVan.jsx'
 import OptionPage from './pages/OptionPage.jsx'
 
@@ -59,6 +59,9 @@ import OrderAssessment from './pages/orderAssessment.jsx'
 import EstimateCard from './Component/EstimateCard.jsx'
 import EstimateQoute from './Component/EstimateQoute.jsx'
 import Driver from './Component/Driver.jsx'
+
+import ServicePage from './pages/Service.jsx'
+
 import { LoadScript } from '@react-google-maps/api';
 
 
@@ -96,6 +99,7 @@ function App() {
             <Route path="/EstimateCard" element={<EstimateCard/>} />
             <Route path="/EstimateQuote" element={<EstimateQoute/>} />
             <Route path ="/Driver" element={<Driver/>}/>
+            <Route path ="/Services" element={<ServicePage/>}/>
 
 
        </Routes>
