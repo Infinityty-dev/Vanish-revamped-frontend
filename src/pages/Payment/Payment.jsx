@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import CardImage from '../../Component/CardImage';
 
 // Styled Components
 const PaymentContainer = styled.div`
@@ -56,7 +57,7 @@ const ErrorText = styled.span`
 const Button = styled.button`
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #126A10;
   color: white;
   border: none;
   border-radius: 5px;
@@ -73,25 +74,6 @@ const Button = styled.button`
     font-size: 14px;
   }
 `;
-
-const CardDisplay = styled.div`
-  text-align: center;
-  margin: 20px 0;
-
-  @media (max-width: 768px) {
-    margin: 15px 0;
-  }
-`;
-
-const CardImage = styled.img`
-  width: 120px;
-  height: auto;
-
-  @media (max-width: 768px) {
-    width: 100px;
-  }
-`;
-
 const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
@@ -198,12 +180,8 @@ const PaymentPage = () => {
     <PaymentContainer>
       <Title>Payment Page</Title>
 
-      <CardDisplay>
-        <CardImage
-          src={`https://via.placeholder.com/120x60?text=${cardType || 'Unknown'}`}
-          alt={`${cardType} card`}
-        />
-      </CardDisplay>
+     
+      <CardImage cardType={cardType} />
 
       <form onSubmit={handleSubmit}>
         <Label htmlFor="cardNumber">Card Number:</Label>
