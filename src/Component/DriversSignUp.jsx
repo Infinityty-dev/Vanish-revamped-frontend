@@ -145,12 +145,12 @@ const DriversSignUp = ()=> {
                     onChange={handledriverLicenceNumberChange}
                     placeholder = "536267235356"/>
 
-                    <Label>Type of Vehicle</Label>
+                    {/* <Label>Type of Vehicle</Label>
                     <Input type="text"
                     name = "must be a van"
                     value = {carType}
                     onChange={handlecarTypeChange}
-                    placeholder = "must be a van"/>
+                    placeholder = "must be a van"/> */}
 
 
                     <Label>License Type</Label>
@@ -211,7 +211,7 @@ const DriversSignUp = ()=> {
                 </Button> 
 
                 <p>
-                    Already have an account? <Link to={"/SignIn"}> <span>Sign In</span></Link>
+                    Already have an account? <Link to={"/DriversSignIn"}> <span>Sign In</span></Link>
                 </p>
             </Signwrapper>
         </Carrier>

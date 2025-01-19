@@ -41,6 +41,7 @@ const Layout = ({ children }) => {
     '/MailBox',
     '/Order',
     '/Chat',
+    '/movement',
   ];
   const shouldHideHeaderFooter = hideHeaderFooterRoutes.includes(location.pathname);
 
@@ -67,13 +68,14 @@ function App() {
       <Route path="/driverssignup" element={<Layout><DriversSignUp /></Layout>} />
       <Route path="/driverterms" element={<Layout><DriverTerms /></Layout>} />
       <Route path="/driverssignin" element={<Layout><DriversSignIn /></Layout>} />
-      <Route path="/movement" element={<Layout><Movement /></Layout>} />
+      <Route path="/movement" element={<Movement />} />
       <Route path="/location" element={<Layout><Location /></Layout>} />
       <Route path="/orderassessment" element={<Layout><OrderAssessment /></Layout>} />
       <Route path="/driversdashboard" element={<DriversDashboard />} />
       <Route path="/driversprofile" element={<DriversProfile />} />
       <Route path="/mailbox" element={<MailBox />} />
       <Route path="/order" element={<Order />} />
+   
       <Route path="/chat" element={<Chat />} />
       <Route path="/blog" element={<Layout><Blog /></Layout>} />
       <Route path="/payment" element={<Layout><PaymentPage /></Layout>} />
