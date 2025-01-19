@@ -304,6 +304,7 @@ padding-left: 30px;
     background-color: #f3f0f0 ; 
     border: none;
     padding-left:15px;
+    margin-top: -10px;
 }
 
 .select{
