@@ -295,7 +295,7 @@ const [cost, setCost] = useState('');
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState('');
 
-const API_KEY ='AIzaSyBBhijfr7zpw3AG27yONYmX8t5P2VlNUNo' ;
+const API_KEY =process.env.GOOGLE_API ;
 const MULTIPLIER = 1213;
 
 const onPlaceChanged = (type) => {
