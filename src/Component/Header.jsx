@@ -3,6 +3,8 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import Button from '/src/Component/Button.jsx'
 import { useState } from 'react'
 import { Link } from "react-router-dom"
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 const Header = () => {
 
@@ -17,10 +19,30 @@ const Header = () => {
 
 
 
+
+
+    const logoRef = useRef(null);
+
+  useEffect(() => {
+    const timeline = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+    timeline.to(logoRef.current, {
+      x: 70, // Move 500px to the right
+      duration: 2,
+      ease: "power2.inOut",
+    });
+    timeline.to(logoRef.current, {
+      x: 0, // Return to the starting point
+      duration: 2,
+      ease: "power2.inOut",
+    });
+  }, []);
+
+
+
   return (
     <Container>
-        <div className='logo'>
-            <a href="/"><img  src="/logo.png" alt="vanish logo" /></a>
+        <div className='logo' ref={logoRef}>
+            <a href="/">   <img  src="/logo.png" alt="vanish logo" /></a>
         </div>
         <div className='nav'>
             <ul id="nav">
@@ -73,7 +95,7 @@ const Container = styled.div`
 
   .logo{
     img{
-      width:150px;
+      width:110px;
       cursor: pointer;
     }
   }
