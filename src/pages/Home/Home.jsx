@@ -277,7 +277,6 @@ const Home = ()=>{
   };
 
 
-// *********************
 
 
 
@@ -299,7 +298,7 @@ const Home = ()=>{
                  <h2>Move from A to Z</h2>
                  <p>Track your van every step of the way</p>
                  <hr/>
-                 {/* *****************FORM******** */}
+
                  <form className='hq' onSubmit={handleSubmit}style={{position:"relative"}} >
                          <label className='off'>Pick Up Location</label> <br/>
                          <div className='input1 dropdown-container'>
@@ -335,7 +334,7 @@ const Home = ()=>{
                             </datalist>
                                 
                          </div>
-                       {/* ******* */}
+
                        <div className='form-cards'>
                              <div>
                              <IoIosSpeedometer size={25} color='#126A10 '/>
@@ -347,7 +346,7 @@ const Home = ()=>{
                              </div>
                             
                          </div>
-                         {/* ******** */}
+
 
                          <label for='services'>Services</label> <br/>
                          <div className='input1'>
