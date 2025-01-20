@@ -123,7 +123,7 @@ const SignInPage = ()=>{
 
                 <p className="bgs">
 
-                    Don't have an account? <Link to = "/SignUp"><span>Sign Up</span> </Link>
+                    Don't have an account? <Link to = "/SignUp" style={{ textDecoration: 'none' }}><span>Sign Up</span> </Link>
 
                 </p>
 

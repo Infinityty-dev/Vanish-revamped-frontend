@@ -138,7 +138,7 @@ const SignUpPage = ()=> {
                 <Box>
                     <input type="checkbox" id="checkbox" onChange={handleTandC}/> 
                     <span>I have read and agreed with the 
-                    <Link to="/Terms">
+                    <Link to="/Terms" style={{ textDecoration: 'none' }}>
                         <span className="red"> Terms of Service </span> </Link> and 
 
                         <br/> our Privacy Policy</span>.
@@ -155,7 +155,7 @@ const SignUpPage = ()=> {
                 <p>
 
 
-                    Already have an account? <Link to = "/SignIn"> <span>Sign In</span> </Link>
+                    Already have an account? <Link to = "/SignIn" style={{ textDecoration: 'none' }}> <span>Sign In</span> </Link>
 
                 </p>
             </Signwrapper>
