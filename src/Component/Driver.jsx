@@ -1,7 +1,11 @@
 import map from "../../public/mapimg.jpg"
 import styled from "styled-components"
 import car from "../../public/whitevan.png"
-import driver from "../../public/man.png"
+// import driver from "../../public/man.png"
+import ebuka from "../assets/svg/ebukacr.jpg"
+import kris from "../assets/svg/kriscr.jpg"
+import garba from "../assets/svg/garbacr.jpg"
+import hamed from "../assets/svg/Hamedcr.jpg"
 import CardOne from "./Card"
 import bg from "../assets/bg.jpg"
 import { Link } from "react-router-dom"
@@ -20,12 +24,13 @@ return(
    <h4>Drivers Found</h4>
    <p>Waiting for driver to comfirm the order</p>
    <Row>
-   <CardOne className = "card1" img ={driver} alt ="" text = "Kris Daniel" p="100Metres (10mins away)" review= "4.9 (531 reviews" motor = {car} />
-   <CardOne className = "card1" img ={driver} alt ="" text = "Hamed Adebayo" p="100Metres (2mins away)" review= "2.9 (131 reviews" motor = {car} />
+   <Link to="/OrderAssessment" style={{ textDecoration: 'none' }}><CardOne className = "card1" img ={kris} alt ="" text = "Kris Daniel" p="100Metres (10mins away)" review= "Toyota Hiace (Large Van)" motor = {car} /> </Link>
+   <Link to="/OrderAssessment" style={{ textDecoration: 'none' }}> <CardOne className = "card1" img ={hamed} alt ="" text = "Hamed Adebayo" p="20Metres (2mins away)" review= "Toyota Hiace (Small Van)" motor = {car} /> </Link>
    </Row>
    <Row>
-   <CardOne className = "card1" img ={driver} alt ="" text = "Kris Daniel" p="100Metres (5mins away)" review= "4.9 (531 reviews" motor = {car} />
-   <CardOne className = "card1" img ={driver} alt ="" text = "Kris Daniel" p="100Metres (15mins away)" review= "4.9 (531 reviews" motor = {car} />
+   <Link to="/OrderAssessment" style={{ textDecoration: 'none' }}><CardOne className = "card1" img ={garba} alt ="" text = "Ahmad Garba" p="50Metres (5mins away)" review= "Hyundai HD 36L(Medium)" motor = {car} /> </Link>
+   <Link to="/OrderAssessment" style={{ textDecoration: 'none' }}> <CardOne className = "card1" 
+   img ={ebuka} alt ="" text = "Ebuke Chinedu" p="150Metres (15mins away)" review= "Ford Econoline Cargo Van(Large)" motor = {car} /> </Link>
    </Row>
    <Link to="/OrderAssessment">
             <button>Submit</button> </Link>
@@ -55,10 +60,23 @@ background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0,0,0,0.5)), url(${b
 const Order = styled.div`
     background-color: white;
 /* border: 1px solid; */
-width: 600px;
+width: 640px;
+height: 700px;
 margin: auto;
+padding-left: 20px;
+/* text-decoration: none */
+
 p{
     font-size: 12px;
+    color: black;
+    /* text-decoration: none */
+}
+
+h4{
+    color: black;
+        /* text-decoration: none */
+
+
 }
 button{
       background-color: #126A10;
@@ -67,14 +85,14 @@ button{
       border-radius: 15px;
       color: white;
       border:none;
-      margin-left: 50px;
+      margin-left: 180px;
       margin-top: 20px;
     
       
    }
 `
 const Map = styled.div`
-        
+        padding-top: 10px;
     img{
         width: 600px;
         height: 300px;
@@ -88,6 +106,7 @@ const Row = styled.div`
     flex-direction : row;
     margin-top: 10px;
     margin-left: 5px;    
+    
 
     button{
       background-color: #126A10;
@@ -96,13 +115,13 @@ const Row = styled.div`
       border-radius: 15px;
       color: white;
       border:none;
-      margin-left: 50px;
+      margin-left: 90px;
       margin-top: 20px;
     
       
    }
 
-    
+   
 `
 
 

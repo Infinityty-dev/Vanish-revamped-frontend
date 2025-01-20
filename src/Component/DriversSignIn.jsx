@@ -121,7 +121,7 @@ import Cookies from "js-cookie"
                 </Button>
 
                 <p className="bgs">
-                    Don't have an account?<Link to ="/driverssignup"> <span>Sign Up</span>
+                    Don't have an account?<Link to ="/driverssignup" style={{ textDecoration: 'none' }}> <span>Sign Up</span>
                     </Link>
                 </p>
 

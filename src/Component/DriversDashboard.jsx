@@ -14,7 +14,7 @@ const DriversDashboard = () => {
       <div className="sidebar">
         <div className="side-header">
           <h3>
-            <sp>VT</sp>
+            <sp>VANit</sp>
           </h3>
         </div>
 
@@ -25,15 +25,15 @@ const DriversDashboard = () => {
              
             ><img src={dee}  className="profile-img bg-img"/></div>
             <h4>Ahmed Davis</h4>
-            <small>vanISH Driver</small>
+            <small>VANit Driver</small>
           </div>
 
           <div className="side-menu">
             <ul className="dd">
               <li className="wwn">
-              <Link to="/DriversDashboard">
+              <Link to="/">
                   <span className="las la-home"></span>
-                  <small>Dashboard</small>
+                  <small>Home</small>
                   </Link>
               </li>
               <li>
