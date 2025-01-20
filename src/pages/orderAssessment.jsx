@@ -47,6 +47,9 @@ const OrderAssessment = () => {
         <ArrowLeft>
           <TiArrowBack size={25} color="white" onClick={handlePreviousVan} />
         </ArrowLeft>
+
+
+        
         <ArrowRight>
           <TiArrowForward size={25} color="white" onClick={handleNextVan} />
         </ArrowRight>

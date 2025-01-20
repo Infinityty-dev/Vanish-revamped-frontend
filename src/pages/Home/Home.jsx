@@ -382,7 +382,7 @@ const Home = ()=>{
                                               }}
                                             >
                                               <button style={{background:"transparent", color:"gray", position:"relative", right:"170px", top:"-10px"}} onClick={() => setQuoteVisible(false)} >X</button>
-                                              <h3 style={{fontSize:"20px", fontFamily:"poppins", color:"#126a10", marginTop:"-40px"}}  >Your vanIT Estimate!</h3>
+                                              <h3 style={{fontSize:"20px", fontFamily:"poppins", color:"#126a10", marginTop:"-40px"}}  >Your VANit Estimate!</h3>
                                               <img src={smile} className="emoji" />
                                               <p>{quote}</p>
                                               <a href="/about-us"></a>

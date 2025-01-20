@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import "./dash.css";
 import "../script2.js"
 import cus from "../assets/male.png"
@@ -8,13 +8,53 @@ import { Link } from "react-router-dom";
 
 
 const DriversDashboard = () => {
+
+
+
+
+
+
+  const [driverName, setDriverName] = useState(''); // State to hold the driver's name
+
+  useEffect(() => {
+    // Simulating an API call to fetch driver information
+    const fetchDriverInfo = async () => {
+      try {
+        const response = await fetch('https://vanish-backend.onrender.com/api/v1/users/driverSignup'); // Replace with your API endpoint
+        if (!response.ok) {
+          throw new Error('Failed to fetch driver info');
+        }
+        const data = await response.json();
+        setDriverName(data.name); // Assuming the API returns an object with a "name" property
+      } catch (error) {
+        console.error('Error fetching driver info:', error);
+        setDriverName('Unknown Driver'); // Fallback if the API call fails
+      }
+    };
+
+    fetchDriverInfo();
+  }, []); // Empty dependency array ensures this runs only once
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div>
       <input type="checkbox" id="menu-toggle" />
       <div className="sidebar">
         <div className="side-header">
           <h3>
-            <sp>VANit</sp>
+            <sp>VN</sp>
           </h3>
         </div>
 
@@ -24,7 +64,7 @@ const DriversDashboard = () => {
               
              
             ><img src={dee}  className="profile-img bg-img"/></div>
-            <h4>Ahmed Davis</h4>
+            <h4>{driverName}</h4>
             <small>VANit Driver</small>
           </div>
 
