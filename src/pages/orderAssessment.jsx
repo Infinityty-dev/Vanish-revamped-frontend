@@ -136,6 +136,7 @@ console.log('from get access',getAssess)
         </Link>
       </Footer>
     </Container>
+    
   );
 };
 
