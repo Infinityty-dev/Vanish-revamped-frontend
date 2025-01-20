@@ -12,8 +12,9 @@ const Team = () => {
         <div className="text">
             <h2>Our <span>Team</span></h2>
             <p>
-                Our app gives you unparalleled visibility into your entire logistic network. Whether you are managing a
-                <br />single delivery or overseeing thousands,you can track the exact location in real time
+                Meet the fantastic team behind the app, starting from the scratch to bring this real-life solution to us.
+                <br />Every seconds spent was to make sure you got every satisafction, and we have all brought our A game to make this brand <br/>
+                a very user-friendly one for all.
             </p>
         </div>
 
@@ -50,10 +51,10 @@ const Team = () => {
 <TeamCard image='/FatimahB.png' 
         name='Fatimah Adeniyi' 
         jobDescription='FullStack Developer'
-         about1='A goal-oriented and passionate developer proficient in the MERN stack' 
-         about2='Dedicated to building web solutions.' 
-         about3="I am passionate about leveraging technology to optimize processes," 
-         about4=" deliver impactful business results, and incorporate a customer-focused approach."
+         about1='A developer proficient in the MERN stack' 
+         about2='Dedicated to building web solutions. Passionate' 
+         about3=" about leveraging technology to optimize ," 
+         about4=" processes deliver impactful business results."
          insta='https://www.instagram.com/techsupportwithteemah/profilecard/?igsh=MWd6Znhtam00bnc1Zg=='
          x='https://x.com/techteemah?s=21&t=SPbPMgEPNU1NC-8P9LusQg'
          www='www.linkedin.com/in/fatimahadeniyi'
@@ -81,17 +82,17 @@ const Team = () => {
 
 
 
-<TeamCard image='/headshotAvatar.jpeg' 
-        name='Ezinne' 
-        jobDescription='FullStack Developer'
-         about1='An objective driven passionate developer ' 
+<TeamCard image='/Zinnybliss.jpeg' 
+        name='Ezinne Chiwueze' 
+        jobDescription='Full-stack Developer'
+         about1='An enthusiastic and passion-driven developer ' 
          about2=' with proficiency in the MERN stack' 
          about3='' 
          about4=''
-         insta='https://google.com'
-         x='https://google.com'
+         insta='https://www.instagram.com/zinnybliss/?hl=en'
+         x='https://x.com/Misszinnybliss'
          www='https://google.com'
-         git='https://google.com'/>
+         git='https://github.com/Zinnybliss'/>
 
 
 

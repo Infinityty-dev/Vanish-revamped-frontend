@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Button from '../Component/Button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {TiArrowBack} from "react-icons/ti";
 import { IoMdArrowRoundBack} from 'react-icons/io';
 import { TiArrowForward } from "react-icons/ti";
+
 
 
 
@@ -46,6 +47,9 @@ const OrderAssessment = () => {
         <ArrowLeft>
           <TiArrowBack size={25} color="white" onClick={handlePreviousVan} />
         </ArrowLeft>
+
+
+        
         <ArrowRight>
           <TiArrowForward size={25} color="white" onClick={handleNextVan} />
         </ArrowRight>
@@ -216,7 +220,7 @@ const ArrowLeft = styled.div`
 
 const ArrowRight = styled.div`
   position: absolute;
-  right: 1180px;
+  right: 540px;
   background-color: #126a10;
   border-radius: 45%;
   width: 40px;

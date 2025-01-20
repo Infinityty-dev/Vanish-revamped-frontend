@@ -61,6 +61,7 @@ const Title = styled.h3`
   margin: 0 0 5px;
   font-size: 14px; /* Default font size */
   color: #333;
+  font-weight: bold;
 
   @media (max-width: 768px) {
     font-size: 12px; /* Smaller font for mobile */

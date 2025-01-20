@@ -12,8 +12,9 @@ import Button from '../../Component/Button.jsx';
 // import Driver from '../../Component/Driver.jsx';
 import {Link} from "react-router-dom"
 import smile from '../../assets/Quote.png'
+import { Autocomplete } from '@react-google-maps/api'
 import emailjs from 'emailjs-com';
-
+import axios from 'axios'
 import Driver from '../../Component/Driver.jsx';
 
 
@@ -24,9 +25,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import Congratulatons from '../../Component/Congratulatons.jsx';
 gsap.registerPlugin(ScrollTrigger);
 
-const serviceID = "service_6yh7mpo"; // Replace with your EmailJS service ID
-const templateID = "template_xr3634e"; // Replace with your EmailJS template ID
-const userID = "your_user_id"; // Replace with your EmailJS user ID
 
 
 
@@ -278,7 +276,84 @@ const Home = ()=>{
   };
 
 
-// *********************
+
+//*********************************************************************************************************************************
+
+
+
+
+//autocomplete logic
+
+
+
+
+const [origin, setOrigin] = useState('');
+const [destination, setDestination] = useState('');
+const [originAutocomplete, setOriginAutocomplete] = useState(null);
+const [destinationAutocomplete, setDestinationAutocomplete] = useState(null);
+const [distance, setDistance] = useState('');
+const [cost, setCost] = useState('');
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState('');
+
+const API_KEY ='AIzaSyBBhijfr7zpw3AG27yONYmX8t5P2VlNUNo' ;
+const MULTIPLIER = 1213;
+
+const onPlaceChanged = (type) => {
+  const place = type === 'origin' ? originAutocomplete.getPlace() : destinationAutocomplete.getPlace();
+  if (place && place.formatted_address) {
+    type === 'origin' ? setOrigin(place.formatted_address) : setDestination(place.formatted_address);
+  }
+};
+const calculateDistance = async () => {
+      if (!origin || !destination) {
+        setError('Please enter both origin and destination addresses.');
+        return;
+      }
+  
+      setLoading(true);
+      setError('');
+      setDistance('');
+      setCost('');
+  
+      try {
+        const response = await axios.get(`https://thingproxy.freeboard.io/fetch/https://maps.googleapis.com/maps/api/distancematrix/json`, {
+          params: {
+            origins: origin,
+            destinations: destination,
+            key:API_KEY,
+            units: 'metric',
+            
+          },
+        });
+      
+  
+        const result = response.data;
+  
+        if (result.rows[0].elements[0].status === 'OK') {
+          const distanceInKm = result.rows[0].elements[0].distance.value / 1000;
+          const calculatedCost = distanceInKm * MULTIPLIER;
+  
+          setDistance(`${distanceInKm.toFixed(2)} km`);
+          setCost(`₦${calculatedCost.toFixed(2)}`);
+        } else {
+          setError('Could not find a route between the provided addresses.');
+        }
+      } catch (err) {
+        console.error(err);
+        setError('An error occurred while fetching distance data.');
+      } finally {
+        setLoading(false);
+      } 
+    };
+
+
+
+
+
+
+
+//*************************************************************************************************************** */
 
 
 
@@ -300,22 +375,25 @@ const Home = ()=>{
                  <h2>Move from A to Z</h2>
                  <p>Track your van every step of the way</p>
                  <hr/>
-                 {/* *****************FORM******** */}
+
                  <form className='hq' onSubmit={handleSubmit}style={{position:"relative"}} >
                          <label className='off'>Pick Up Location</label> <br/>
                          <div className='input1 dropdown-container'>
                            <div>
                            <FaLocationDot size={25} /> 
                            </div>
-                           <input    id='input1'className='input' type='text' value={startLocation} list='locations' onChange={handleStartChange} placeholder='pick up location'/>
+                           
 
-                           <datalist  id="locations">
+                           <Autocomplete onLoad={setOriginAutocomplete} onPlaceChanged={() => onPlaceChanged('origin')}>
+                           <input    id='input1'className='input' type='text' value={origin} list='locations' onChange={(e) => setOrigin(e.target.value)} placeholder='pick up location'/>
+                           </Autocomplete>
+
+                           {/* <datalist  id="locations">
                               {filteredLocations.map((location) => (
                                 <option key={location.id} value={location.name} />
                               ))}
-                            </datalist>
+                            </datalist> */}
 
-                          
                            
                           </div>
                          
@@ -326,17 +404,21 @@ const Home = ()=>{
                            <div>
                            <FaLocationDot size={25} /> 
                            </div>
-                           <input id='input2' className='in' type='text' value={endLocation} onChange={handleEndChange} list="locations" placeholder='drop off location'/>
+
+
+                           <Autocomplete onLoad={setDestinationAutocomplete} onPlaceChanged={() => onPlaceChanged('destination')}>
+                           <input id='input2' className='in' type='text' value={destination} onChange={(e) => setDestination(e.target.value)} list="locations" placeholder='drop off location'/>
+                           </Autocomplete>
                           
 
-                           <datalist id="locations">
+                           {/* <datalist id="locations">
                               {filteredLocations.map((location) => (
                                 <option key={location.id} value={location.name} />
                               ))}
-                            </datalist>
+                            </datalist> */}
                                 
                          </div>
-                       {/* ******* */}
+
                        <div className='form-cards'>
                              <div>
                              <IoIosSpeedometer size={25} color='#126A10 '/>
@@ -348,7 +430,7 @@ const Home = ()=>{
                              </div>
                             
                          </div>
-                         {/* ******** */}
+
 
                          <label for='services'>Services</label> <br/>
                          <div className='input1'>
@@ -359,6 +441,35 @@ const Home = ()=>{
                          </select>
                          </div>
                         <div id='output'></div>
+
+
+
+                        <button
+                              onClick={calculateDistance}
+                              style={{
+                                width: "160",
+                                height: "48",
+                                borderRadius: '15px',
+                                backgroundColor: '#126a10',
+                                color: 'white',
+                                border: '2px solid #126A10',
+                                cursor: 'pointer',
+                                marginRight: '20px',
+                                marginTop:"20px",
+                                padding:"10px 25px",
+                                boxShadow:'1px 1px 12px lightgrey '
+                              }}
+                              disabled={loading}
+                            >
+                              {loading ? 'Calculating...' : 'Calculate Distance & Cost'}
+                            </button>
+                          
+
+                            {error && <p style={{ color: 'red' }}>{error}</p>} 
+                            {distance && <p>Distance: {distance}</p>}
+                            {cost && <p>Estimated Cost: {cost}</p>} 
+
+
 
                         {isQuoteVisible && (
                                             <div
@@ -385,14 +496,18 @@ const Home = ()=>{
                                               <button style={{background:"transparent", color:"gray", position:"relative", right:"170px", top:"-10px"}} onClick={() => setQuoteVisible(false)} >X</button>
                                               <h3 style={{fontSize:"20px", fontFamily:"poppins", color:"#126a10", marginTop:"-40px"}}  >Your vanIT Estimate!</h3>
                                               <img src={smile} className="emoji" />
-                                              <p>{quote}</p>
+                                              {error && <p style={{ color: 'red' }}>{error}</p>}
+                                              {distance && <p>Distance: {distance}</p>}
+                                              {cost && <p>Estimated Cost: {cost}</p>}
                                               <a href="/about-us"></a>
                                               <Link to ="/signup"><button style={{height:"40px", borderRadius:"10px"}}>Continue</button></Link> 
                                             </div>
-                                          )}
+                                          )} 
+                                          
+                        
 
                          <div className='form-button'>
-                          <button onClick={calculateQuote}   style={{
+                          <button onClick={calculateDistance}   style={{
                                                                       width: "160",
                                                                       height: "48",
                                                                       borderRadius: '15px',
@@ -407,7 +522,7 @@ const Home = ()=>{
                                                                     }}>
                                                                       Get A Quote
                                                                     </button>
-                          {/* <Button onClick={calculateQuote} name='Get A Quote' width= {160} height={48} bgcolor='#126a10' color='white'/> */}
+                          
                           </div>
                  </form>
 

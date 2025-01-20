@@ -8,7 +8,7 @@ import Pic2 from "../assets/pic2.png"
 import Pic3 from "../assets/pic3.png"
 import Pic4 from "../assets/pic4.png"
 import Pic5 from "../assets/pic5.png"
-import Pic6 from "../assets/pic6.png"
+import Pic7 from "../assets/pic8.png"
 import Icon1 from "../assets/icon1.svg";
 import Icon2 from "../assets/icon2.svg";
 import Icon3 from "../assets/icon3.svg";
@@ -24,14 +24,14 @@ const services = [
     title: "Track Every Van In Real Time",
     description: "Stay updated on your fleet status with real-time location tracking and solutions.",
     icon: Pic2, // Replace with actual image
-    image: Pic6,
+    image: Pic7,
     reverse: false,
    
     
   },
   {
     title: "Items Security",
-    description: "Secure everything in your home with advanced solutions.",
+    description: "Item Security is our top priority",
     image: Pic5,
     icon: Pic1,
     reverse: true,
@@ -89,8 +89,8 @@ function ServicePage() {
   return (
     <div>
         <span style={{background: "white"}}>
-      <h1 style={{ textAlign: "center", marginBottom: "30px", color: "#126A10" }}> <span style={{color: "black"}}>Our</span> Services</h1>
-      <p style={{ textAlign: "center", marginBottom: "30px", height: "100px", width: "100%", display:"flex", alignItems: "center", justifyContent: "center", textWrap: "wrap"}}>Our app gives you unparalled visibility into your entire logistics network. Whether you're managing <br/>a single delivery or overseeing thousands, you can track the exact location of every shipment in real time.</p>
+      <h1 style={{ textAlign: "center", marginBottom: "30px", color: "#126A10", paddingTop: "80px", fontFamily: "Inter", fontWeight:"bolder" }}> <span style={{color: "black"}}>Our</span> Services</h1>
+      <p style={{ textAlign: "center", marginBottom: "30px", height: "100px", width: "100%", display:"flex", alignItems: "center", justifyContent: "center", textWrap: "wrap", fontFamily: "Inter", fontWeight:"bold"}}>Our app gives you unparalled visibility into your entire logistics network. Whether you're managing <br/>a single delivery or overseeing thousands, you can track the exact location of every shipment in real time.</p>
       </span>
       {services.map((service, index) => (
         <ServiceSection
@@ -125,7 +125,7 @@ const CardGrid = styled.div`
   justify-content: space-between; /* Ensures space between cards */
   flex-wrap: wrap;
   gap: 10px; /* Space between cards */
-  padding: 20px;
+  padding: 80px 0 80px 0;
   max-width: 1200px;
   margin: 0 auto;
 
