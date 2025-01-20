@@ -50,10 +50,10 @@ const Team = () => {
 <TeamCard image='/FatimahB.png' 
         name='Fatimah Adeniyi' 
         jobDescription='FullStack Developer'
-         about1='A goal-oriented and passionate developer proficient in the MERN stack' 
-         about2='Dedicated to building web solutions.' 
-         about3="I am passionate about leveraging technology to optimize processes," 
-         about4=" deliver impactful business results, and incorporate a customer-focused approach."
+         about1='A developer proficient in the MERN stack' 
+         about2='Dedicated to building web solutions. Passionate' 
+         about3=" about leveraging technology to optimize ," 
+         about4=" processes deliver impactful business results."
          insta='https://www.instagram.com/techsupportwithteemah/profilecard/?igsh=MWd6Znhtam00bnc1Zg=='
          x='https://x.com/techteemah?s=21&t=SPbPMgEPNU1NC-8P9LusQg'
          www='www.linkedin.com/in/fatimahadeniyi'

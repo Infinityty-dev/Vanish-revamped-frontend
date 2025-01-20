@@ -45,7 +45,7 @@ const Order = () => {
              
             ><img src={dee}  className="profile-img bg-img"/></div>
             <h4>Ahmed Davis</h4>
-            <small>vanISH Driver</small>
+            <small>VANit Driver</small>
           </div>
 
              <div className="side-menu">
@@ -53,7 +53,7 @@ const Order = () => {
                       <li className="wwn">
                       <Link to="/DriversDashboard">
                           <span className="las la-home"></span>
-                          <small>Dashboard</small>
+                          <small>Home</small>
                           </Link>
                       </li>
                       <li>
