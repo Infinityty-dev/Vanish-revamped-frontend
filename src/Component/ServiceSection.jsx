@@ -7,10 +7,10 @@ const Section = styled.div`
   align-items: center;
   justify-content: space-between;
   border: 2px solid #126A10;
-  border-radius: 14px;
+  border-radius: 18px;
   padding: 10px;
   margin: 25px auto;
-  max-width: 900px;
+  max-width: 80%;
   height: 250px;
   background-color: #f9f9f9;
 
@@ -33,6 +33,7 @@ const TextContent = styled.div`
  flex: 1;
   margin-right: ${({ reverse }) => (reverse ? "0" : "15px")};
   margin-left: ${({ reverse }) => (reverse ? "15px" : "0")};
+padding: 60px;
 
   @media (max-width: 768px) {
     margin-right: 0;
@@ -42,11 +43,16 @@ const TextContent = styled.div`
 const Title = styled.h3`
   margin: 0 0 10px;
   color: #126A10;
+  font-family: Inter;
+  font-weight: Bold;
 `;
 
 const Description = styled.p`
   margin: 0;
-  color: #555;
+  color: #000
+  font-family: Inter;
+  font-weight: Bold;
+
 `;
 
 const Icon = styled.img`
@@ -59,8 +65,9 @@ const Icon = styled.img`
 const Image = styled.img`
   width: 450px;
   height: 250px;
+  margin-right: ${({ reverse }) => (reverse ? "0px" : "-10px")};
   border-radius: 10px;
-  margin-right: -10px;
+  ;
 
   @media (max-width: 768px) {
     margin-top: 15px;
