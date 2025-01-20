@@ -16,7 +16,7 @@ import DriversSignUp from './Component/DriversSignUp.jsx';
 import DriverTerms from './Component/DriverTerms.jsx';
 import DriversSignIn from './Component/DriversSignIn.jsx';
 import Movement from './Component/Movement.jsx';
-import Location from './Component/Location.jsx';
+// import Location from './Component/Location.jsx';
 import DriversDashboard from './Component/DriversDashboard.jsx';
 import DriversProfile from './Component/DriversProfile.jsx';
 import MailBox from './Component/MailBox.jsx';
@@ -70,7 +70,7 @@ function App() {
       <Route path="/driverterms" element={<Layout><DriverTerms /></Layout>} />
       <Route path="/driverssignin" element={<Layout><DriversSignIn /></Layout>} />
       <Route path="/movement" element={<Movement />} />
-      <Route path="/location" element={<Layout><Location /></Layout>} />
+      {/* <Route path="/location" element={<Layout><Location /></Layout>} /> */}
       <Route path="/orderassessment" element={<Layout><OrderAssessment /></Layout>} />
       <Route path="/driversdashboard" element={<DriversDashboard />} />
       <Route path="/driversprofile" element={<DriversProfile />} />
