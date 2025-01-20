@@ -47,7 +47,7 @@ const Movement = () => {
                 )
                  setTimeout (() =>{
                     if(response.status == 201){
-                        navigate ("/Location")
+                        navigate ("/Driver")
 
                     }
 
