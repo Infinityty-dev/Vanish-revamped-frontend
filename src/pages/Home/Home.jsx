@@ -22,6 +22,7 @@ import Driver from '../../Component/Driver.jsx';
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import Congratulatons from '../../Component/Congratulatons.jsx';
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -594,7 +595,7 @@ const calculateDistance = async () => {
     
 
     </Container>
-      {/* <Location/>  */}
+      {/* <Congratulatons/>  */}
     {/* <Movement/>  */}
 
     </>

@@ -9,10 +9,24 @@ import hamed from "../assets/svg/Hamedcr.jpg"
 import CardOne from "./Card"
 import bg from "../assets/bg.jpg"
 import { Link } from "react-router-dom"
+import { useEffect } from "react"
+import axios from "axios"
 
 
 
 const Driver = () => {
+
+    useEffect( ()=>{
+        const  response = fetch("https://vanish-backend.onrender.com/api/v1/users/get-all-drivers")
+        .then(data => data.json())
+        .then(data => console.log(data)
+        )
+        
+
+    },[])
+   
+    
+
 
 return(
     <Background>
@@ -24,13 +38,13 @@ return(
    <h4>Drivers Found</h4>
    <p>Waiting for driver to comfirm the order</p>
    <Row>
-   <Link to="/OrderAssessment" style={{ textDecoration: 'none' }}><CardOne className = "card1" img ={kris} alt ="" text = "Kris Daniel" p="100Metres (10mins away)" review= "Toyota Hiace (Large Van)" motor = {car} /> </Link>
+   {/* <Link to="/OrderAssessment" style={{ textDecoration: 'none' }}><CardOne className = "card1" img ={kris} alt ="" text = "Kris Daniel" p="100Metres (10mins away)" review= "Toyota Hiace (Large Van)" motor = {car} /> </Link>
    <Link to="/OrderAssessment" style={{ textDecoration: 'none' }}> <CardOne className = "card1" img ={hamed} alt ="" text = "Hamed Adebayo" p="20Metres (2mins away)" review= "Toyota Hiace (Small Van)" motor = {car} /> </Link>
    </Row>
    <Row>
    <Link to="/OrderAssessment" style={{ textDecoration: 'none' }}><CardOne className = "card1" img ={garba} alt ="" text = "Ahmad Garba" p="50Metres (5mins away)" review= "Hyundai HD 36L(Medium)" motor = {car} /> </Link>
    <Link to="/OrderAssessment" style={{ textDecoration: 'none' }}> <CardOne className = "card1" 
-   img ={ebuka} alt ="" text = "Ebuke Chinedu" p="150Metres (15mins away)" review= "Ford Econoline Cargo Van(Large)" motor = {car} /> </Link>
+   img ={ebuka} alt ="" text = "Ebuke Chinedu" p="150Metres (15mins away)" review= "Ford Econoline Cargo Van(Large)" motor = {car} /> </Link> */}
    </Row>
    <Link to="/OrderAssessment">
             <button>Submit</button> </Link>
