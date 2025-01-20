@@ -32,6 +32,7 @@ import EstimateQoute from './Component/EstimateQoute.jsx';
 import Driver from './Component/Driver.jsx';
 import ProfileSettings from './Component/Profile.jsx';
 import OrderAssessment from './pages/orderAssessment.jsx';
+import Service from './pages/Service.jsx'
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -86,6 +87,7 @@ function App() {
       <Route path="/loginownvan" element={<Layout><LoginOwnVan /></Layout>} />
       <Route path="/loginneedvan" element={<Layout><LoginNeedVan /></Layout>} />
       <Route path="/loginoptionpage" element={<Layout><LoginOptionPage /></Layout>} />
+      <Route path='/service' element={<Layout><Service /></Layout>} />
     </Routes>
   );
 }

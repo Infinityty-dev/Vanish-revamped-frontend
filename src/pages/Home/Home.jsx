@@ -352,9 +352,9 @@ const Home = ()=>{
                          <label for='services'>Services</label> <br/>
                          <div className='input1'>
                          <select name="services" id="services" value={selectedOption} onChange={selectChange}>
-                             <option value='10' >Option 1</option>
-                             <option value="option2">Option 2</option>
-                             <option value="option3">Option 3</option>
+                             <option value='10' >HOME</option>
+                             <option value="option2">OFFICE</option>
+                             <option value="option3">WAREHOUSE</option>
                          </select>
                          </div>
                         <div id='output'></div>

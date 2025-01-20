@@ -8,7 +8,7 @@ const Footer = () => {
         <div className='footer-text'>
             <div>
                 <img src="/smallCar.png" alt="" />
-                <h2>Vanish</h2>
+                <h2>VANit</h2>
                 <p>We are here to support you every <br /> step of the way</p>
             </div>
             <div>
@@ -19,7 +19,7 @@ const Footer = () => {
             </div>
             <div>
                 <h4>Legal</h4>
-               <Link to="/Terms"> <p className='terms'>Terms and Conditions </p> </Link>
+               <Link to="/Terms" style={{ textDecoration: 'none' }}> <p className='terms'>Terms and Conditions </p> </Link>
             </div>
             <div>
                 <h4>Services</h4>

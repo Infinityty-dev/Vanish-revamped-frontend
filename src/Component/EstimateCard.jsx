@@ -4,15 +4,37 @@ import { BsEmojiLaughingFill } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai"; 
 import Button from "./Button"; 
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-
-const EmailModal = ({ isOpen, onClose, onSubmitEmail }) => {
+const EmailModal = ({ isOpen, onClose, onSubmitEmail, estimate }) => {
   const [email, setEmail] = useState("");
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     onSubmitEmail(email);
-    setEmail(""); 
+
+    const payment = async () => {
+      try {
+        const orderId = Math.random().toString(36).substring(2, 15);
+        const response = await axios.post("https://vanish-backend.onrender.com/api/v1/payment/makePayment", {
+          email,
+          amount: 500,
+          orderId: "hjsyduhe6398uv",
+        });
+        
+        console.log("Payment successful", response.data);
+
+        if (response.data.success) {
+          const authorizationUrl = response.data.authorization_url;
+          window.open(authorizationUrl, "_blank");
+        }
+      } catch (error) {
+        console.error("Payment failed", error);
+      }
+    };
+
+    payment();
+    setEmail("");
   };
 
   if (!isOpen) return null;
@@ -32,14 +54,12 @@ const EmailModal = ({ isOpen, onClose, onSubmitEmail }) => {
             placeholder="Your email"
             required
           />
-          <Button  type="submit" bgcolor="#126a10" color="white" width={60} height={48} name = "SUBMIT">
+          <Button type="submit" bgcolor="#126a10" color="white" width={160} height={48} name="Submit">
             Submit
           </Button>
-          <Button  type="submit" bgcolor="red" color="white" width={60} height={48} name = "CANCEL">
-            Submit
+          <Button type="button" bgcolor="red" color="white" width={160} height={48} name="Cancel" clickMe={onClose}>
+            Cancel
           </Button>
-
-          
         </form>
       </ModalContainer>
     </ModalOverlay>
@@ -49,12 +69,10 @@ const EmailModal = ({ isOpen, onClose, onSubmitEmail }) => {
 const EstimateCard = ({ estimate = 0 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenModal = () =>{
-    
-    console.log("CLicked");
+  const handleOpenModal = () => {
+    console.log("Clicked");
     setIsModalOpen(true);
-  
-  }
+  };
   const handleCloseModal = () => setIsModalOpen(false);
   const handleSubmitEmail = (email) => {
     console.log("Email submitted:", email);
@@ -65,13 +83,13 @@ const EstimateCard = ({ estimate = 0 }) => {
     <Container>
       <Cardcontainer>
         <CloseButton onClick={handleCloseModal}>
-          <AiOutlineClose /> 
+          <AiOutlineClose />
         </CloseButton>
-        <h2>Your vanISH estimate!</h2>
+        <h2>Your VANit estimate!</h2>
         <Emoji>
           <BsEmojiLaughingFill />
         </Emoji>
-        <p>Your vanISH estimate is</p>
+        <p>Your VANit estimate is</p>
         <p className="amount">NGN{estimate.toFixed(2)}</p>
         <Button
           name="Pay Now"
@@ -81,18 +99,13 @@ const EstimateCard = ({ estimate = 0 }) => {
           height={48}
           clickMe={handleOpenModal}
         />
-
-        <p className="amount">₦{estimate.toFixed(2)}</p>
-        <Link to="/Payment">
-          <Button name="Pay Now" bgcolor="#126a10" color="white" width={160} height={48} />
-        </Link>
       </Cardcontainer>
 
-      {/* Email Modal */}
       <EmailModal 
         isOpen={isModalOpen} 
         onClose={handleCloseModal} 
         onSubmitEmail={handleSubmitEmail}
+        estimate={estimate} 
       />
     </Container>
   );
@@ -100,7 +113,6 @@ const EstimateCard = ({ estimate = 0 }) => {
 
 export default EstimateCard;
 
-// Styled components for the modal
 const ModalOverlay = styled.div`
   position: fixed;
   top: 0;

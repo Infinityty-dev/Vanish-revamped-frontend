@@ -14,11 +14,11 @@ const EstimateQuote = ({ estimate = 0 }) => {
             <AiOutlineClose />
           </CloseButton>
         </Link>
-        <h2>Your vanISH estimate!</h2>
+        <h2>Your VANit estimate!</h2>
         <Emoji>
           <BsEmojiLaughingFill />
         </Emoji>
-        <p>Your vanISH estimate is</p>
+        <p>Your VANit estimate is</p>
         <p className="amount">₦{estimate.toFixed(2)}</p>
         <Link to="/signup">
           <Button name="Next" bgcolor="#126a10" color="white" width={160} height={48} />
