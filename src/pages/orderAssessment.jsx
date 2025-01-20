@@ -6,16 +6,28 @@ import { useState, useEffect } from 'react';
 import {TiArrowBack} from "react-icons/ti";
 import { IoMdArrowRoundBack} from 'react-icons/io';
 import { TiArrowForward } from "react-icons/ti";
-
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
 
 
 const OrderAssessment = () => {
   const [currentVan, setCurrentVan] = useState(0);
+  const [getAssess, setGetAssess] = useState({})
 
+  const getOrderAccessment = async ()=>{
+    const user = Cookies.get("userId")
+    const userId = user._id
+
+    const res = await axios.get(`https://vanish-backend.onrender.com/api/v1/movements/orderAssessment/${userId}`)
+    setGetAssess(res.data.data)
+  }
+
+console.log('from get access',getAssess)
   const vans = [
-    { name: "Hiace White 2032", image: "https://res.cloudinary.com/dxldk0ytk/image/upload/v1733402497/van-removebg-preview_1_by98oi.png" },
-    { name: "Hiace Van 2050", image: "https://res.cloudinary.com/dxldk0ytk/image/upload/v1736538558/gecwhjs08uvijxqx4n8q.png" },
+    { name: "Small Van", image: "https://res.cloudinary.com/dxldk0ytk/image/upload/v1737384619/smallVan_vuwlk7.png" },
+    { name: "Medium Van", image: "https://res.cloudinary.com/dxldk0ytk/image/upload/v1733402497/van-removebg-preview_1_by98oi.png" },
+    { name: "Large Van", image: "https://res.cloudinary.com/dxldk0ytk/image/upload/v1736538558/gecwhjs08uvijxqx4n8q.png" },
   ];
 
   const handleNextVan = () => {
@@ -25,11 +37,14 @@ const OrderAssessment = () => {
   const handlePreviousVan = () => {
     setCurrentVan((currentVan - 1 + vans.length) % vans.length);
   };
+  useEffect(()=>{
+    getOrderAccessment()
+  },[])
 
   return (
     <Container>
       <BackArrow>
-        <Link to="/" className="back-link">
+        <Link to="/movement" className="back-link">
           <IoMdArrowRoundBack size={26} color="#818181" />
         </Link>
       </BackArrow>
@@ -58,18 +73,18 @@ const OrderAssessment = () => {
             <Title>Travel Summary:</Title>
             <Text>
               <span>Pickup:</span>
-              <span>1 Muba Abiru Street Ikorodu</span>
+              <span> {getAssess.pickUpLocation} </span>
             </Text>
             <Text>
               <span>Drop-Off:</span>
-              <span>388 Herbert Macaulay Wy.</span>
+              <span>{getAssess.dropOffLocation}</span>
             </Text>
             <Title>Price Summary:</Title>
             <Text>
-              <span>Rent Charge:</span>
+              <span>Service Charge:</span>
               <span>N 100,000.00</span>
             </Text>
-            <Text>
+            {/* <Text>
               <span>Required Services:</span>
             </Text>
             <Text>
@@ -80,18 +95,18 @@ const OrderAssessment = () => {
             </Text>
             <Text>
               <span>Offloading:</span>
-            </Text>
-            <Services>
+            </Text> */}
+            {/* <Services>
               <span>Services:</span>
               <span>N 100,000.00</span>
-            </Services>
+            </Services> */}
           </SummarySection>
 
           <SummarySection>
             <Title>Services Summary:</Title>
             <Text>
-              <span>Van/Truck:</span>
-              <span>{vans[currentVan].name}</span>
+              <span>Van Size:</span>
+              <span>{getAssess.typeOfVehicle}</span>
             </Text>
             <Text>
               <span>Distance:</span>
@@ -101,12 +116,12 @@ const OrderAssessment = () => {
             <Title>Order Schedule:</Title>
             <Text>
               <span>Date:</span>
-              <span>21-11-2024</span>
+              <span>{getAssess.pickUpDate}</span>
             </Text>
-            <Text>
+            {/* <Text>
               <span>Time:</span>
               <span>Now</span>
-            </Text>
+            </Text> */}
           </SummarySection>
         </SummaryBox>
       </SummaryContainer>
