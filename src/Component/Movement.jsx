@@ -16,6 +16,7 @@ const Movement = () => {
         const [dropOffLocation, setdropOffLocation] = useState ('')
         const [dropOffZone, setdropOffZone] = useState ('')
         const [typeOfVehicle, settypeOfVehicle] = useState ('')
+
         const [error, setError] = useState ('')
         const handleSubmit = async (e) => {
             e.preventDefault ();
@@ -122,10 +123,10 @@ return(
             <option value = "OFFICE"> OFFICE</option>
             </select> <br /> <br />
             <label className="move-label" htmlFor="">Pick-Up Date</label><br /> <br />
-            <input className="move-input" type="date" placeholder="29/10/2024" value={pickUpDate} onChange={handlepickUpDateChange}/><br /> <br />
+            <input className="move-input" type="date" placeholder="29/10/2024" value={pickUpDate} onChange={handlepickUpDateChange} autoComplete/><br /> <br />
 
             <label className="move-label" htmlFor="">Pick-Up Address</label> <br /> <br />
-            <input className="move-input" type="text" placeholder="1, Muba Abiru street, Ikorodu" value={pickUpLocation} onChange={handlepickUpLocationChange} /> <br /> <br />
+            <input className="move-input" type="text" placeholder="1, Muba Abiru street, Ikorodu" value={pickUpLocation} onChange={handlepickUpLocationChange}autoComplete /> <br /> <br />
 
             <label className="move-label" htmlFor="">Pick-Up Zone</label><br /> <br />
             <input className="move-input" type="text" placeholder="Lagos" value={pickUpZone} onChange={handlepickUpZoneChange}/> <br /> <br />
