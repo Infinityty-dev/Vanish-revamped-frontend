@@ -21,6 +21,7 @@ import Driver from '../../Component/Driver.jsx';
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import Congratulatons from '../../Component/Congratulatons.jsx';
 gsap.registerPlugin(ScrollTrigger);
 
 const serviceID = "service_6yh7mpo"; // Replace with your EmailJS service ID
@@ -479,7 +480,7 @@ const Home = ()=>{
     
 
     </Container>
-      {/* <Location/>  */}
+      {/* <Congratulatons/>  */}
     {/* <Movement/>  */}
 
     </>

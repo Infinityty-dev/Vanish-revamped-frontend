@@ -15,6 +15,7 @@ const Movement = () => {
         const [pickUpZone, setpickUpZone] = useState ('')
         const [dropOffLocation, setdropOffLocation] = useState ('')
         const [dropOffZone, setdropOffZone] = useState ('')
+        const [typeOfVehicle, settypeOfVehicle] = useState ('')
         const [error, setError] = useState ('')
         const handleSubmit = async (e) => {
             e.preventDefault ();
@@ -25,7 +26,8 @@ const Movement = () => {
                 !pickUpLocation ||
                 !pickUpZone ||
                 !dropOffLocation ||
-                !dropOffZone ) {setError ('All input fields are required')
+                !dropOffZone ||
+                ! typeOfVehicle) {setError ('All input fields are required')
                  return;   
                 }
 
@@ -36,6 +38,7 @@ const Movement = () => {
                 pickUpZone,
                 dropOffLocation,
                 dropOffZone,
+                typeOfVehicle,
             }
             console.log(formData);
             console.log(userId);
@@ -47,7 +50,7 @@ const Movement = () => {
                 )
                  setTimeout (() =>{
                     if(response.status == 201){
-                        navigate ("/Driver")
+                        navigate ("/orderassessment")
 
                     }
 
@@ -84,6 +87,10 @@ const Movement = () => {
 
         const handledropOffZoneChange = (e) => {
             setdropOffZone (e.target.value)
+        }
+
+        const handletypeOfVehicle = (e) => {
+            settypeOfVehicle (e.target.value)
         }
         
     
@@ -129,7 +136,12 @@ return(
             <label className="move-label" htmlFor="">Drop-Off Zone</label> <br /> <br />
             <input className="move-input" type="text" placeholder="Lagos" value={dropOffZone} onChange={handledropOffZoneChange} /> <br /> <br />
 
-             
+            <label>Type of Vehicle</label>
+                    <select className="select" name="type of Vehicle" value={typeOfVehicle} onChange={handletypeOfVehicle} >
+                    <option value= "small"> Small Van</option> 
+                    <option value= "Medium">Medium Van</option>
+                    <option value= "Large">Large Van</option>
+                    </select>
             <button onClick={handleSubmit}> Submit </button> 
             </Contain>
         </Form>
@@ -144,7 +156,7 @@ return(
 export default Movement
 
 const Main = styled.div`
-    height: 900px;
+    height: 1000px;
     background-color: #FAFAFA;
     #move{
         text-align:center;
@@ -221,7 +233,7 @@ const Head = styled.div`
 
 const Form = styled.div`
     
-      height: 750px;
+      height: 850px;
       width: 350px;
       /* border: 1px solid; */
       margin: auto;
@@ -357,7 +369,7 @@ button{
       color: white;
       border:none;
       margin-left: 50px;
-      margin-top: 20px;
+      margin-bottom: 20px;
     
       
    }

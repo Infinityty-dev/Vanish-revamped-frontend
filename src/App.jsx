@@ -33,6 +33,7 @@ import Driver from './Component/Driver.jsx';
 import ProfileSettings from './Component/Profile.jsx';
 import OrderAssessment from './pages/orderAssessment.jsx';
 import Service from './pages/Service.jsx'
+import Congratulatons from './Component/Congratulatons.jsx';
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -43,6 +44,7 @@ const Layout = ({ children }) => {
     '/Order',
     '/Chat',
     '/movement',
+    '/congratulation',
   ];
   const shouldHideHeaderFooter = hideHeaderFooterRoutes.includes(location.pathname);
 
@@ -88,6 +90,7 @@ function App() {
       <Route path="/loginneedvan" element={<Layout><LoginNeedVan /></Layout>} />
       <Route path="/loginoptionpage" element={<Layout><LoginOptionPage /></Layout>} />
       <Route path='/service' element={<Layout><Service /></Layout>} />
+      <Route path='/congratulation' element={<Layout><Congratulatons /></Layout>} />
     </Routes>
   );
 }
