@@ -75,6 +75,7 @@ function App() {
       <Route path="/movement" element={<Movement />} />
       {/* <Route path="/location" element={<Layout><Location /></Layout>} /> */}
       <Route path="/orderassessment" element={<Layout><OrderAssessment /></Layout>} />
+      {/* <Route path="/order-assessment/:userId" component={OrderAssessment} /> */}
       <Route path="/driversdashboard" element={<DriversDashboard />} />
       <Route path="/driversprofile" element={<DriversProfile />} />
       <Route path="/mailbox" element={<MailBox />} />
