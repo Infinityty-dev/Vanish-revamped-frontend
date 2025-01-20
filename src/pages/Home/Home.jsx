@@ -22,7 +22,6 @@ import Driver from '../../Component/Driver.jsx';
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import Congratulatons from '../../Component/Congratulatons.jsx';
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -277,7 +276,7 @@ const Home = ()=>{
 
 
 
-//*********************************************************************************************************************************
+//*******************************************
 
 
 
@@ -353,7 +352,7 @@ const calculateDistance = async () => {
 
 
 
-//*************************************************************************************************************** */
+//************************************* */
 
 
 
@@ -457,24 +456,18 @@ const calculateDistance = async () => {
                                 marginRight: '20px',
                                 marginTop:"20px",
                                 padding:"10px 25px",
-                                boxShadow:'1px 1px 12px lightgrey '
+                                boxShadow:'1px 1px 12px lightgrey ',
+                                position:"relative",
+                                left:"50px"
                               }}
                               disabled={loading}
                             >
-                              {loading ? 'Calculating...' : 'Calculate Distance & Cost'}
+                              {loading ? 'Calculating...' : 'Get a Quote'}
                             </button>
-                          
-
-                            {error && <p style={{ color: 'red' }}>{error}</p>} 
-                            {distance && <p>Distance: {distance}</p>}
-                            {cost && <p>Estimated Cost: {cost}</p>} 
 
 
-
-                        {isQuoteVisible && (
-                                            <div
-                                              style={{
-                                                marginTop: "20px",
+                            {distance &&                
+<div style={{      marginTop: "20px",
                                                 margin:"auto",
                                                 alignContent:"center",
                                                 padding: "10px",
@@ -487,41 +480,29 @@ const calculateDistance = async () => {
                                                 boxShadow:" rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px",
                                                 transform: "translate(-30%, -30%)",
                                                 width: "400px",
-                                                height:"200px",
+                                                height:"250px",
                                                 textAlign: "center",
-                                                color:"black",
-                                                
-                                              }}
-                                            >
-                                              <button style={{background:"transparent", color:"gray", position:"relative", right:"170px", top:"-10px"}} onClick={() => setQuoteVisible(false)} >X</button>
-                                              <h3 style={{fontSize:"20px", fontFamily:"poppins", color:"#126a10", marginTop:"-40px"}}  >Your vanIT Estimate!</h3>
+                                                color:"black",}}>
+
+
+<button style={{background:"transparent", color:"gray", position:"relative", right:"170px", top:"-10px"}} onClick={() => setDistance(false)} >X</button>
+                                              <h3 style={{fontSize:"20px", fontFamily:"poppins", color:"#126a10", marginTop:"-40px"}}  >Your VANit Estimate!</h3>
                                               <img src={smile} className="emoji" />
-                                              {error && <p style={{ color: 'red' }}>{error}</p>}
-                                              {distance && <p>Distance: {distance}</p>}
-                                              {cost && <p>Estimated Cost: {cost}</p>}
-                                              <a href="/about-us"></a>
-                                              <Link to ="/signup"><button style={{height:"40px", borderRadius:"10px"}}>Continue</button></Link> 
-                                            </div>
-                                          )} 
-                                          
+
+                            {error && <p style={{ color: 'red' }}>{error}</p>} 
+                            {distance && <p>Distance: {distance}</p>}
+                            {cost && <p>Estimated Cost: {cost}</p>} 
+                            <Link to ="/signup"><button style={{height:"40px", borderRadius:"10px"}}>Continue</button></Link> 
+
+                            </div>
+
+}
+                   
+      
                         
 
                          <div className='form-button'>
-                          <button onClick={calculateDistance}   style={{
-                                                                      width: "160",
-                                                                      height: "48",
-                                                                      borderRadius: '15px',
-                                                                      backgroundColor: '#126a10',
-                                                                      color: 'white',
-                                                                      border: '2px solid #126A10',
-                                                                      cursor: 'pointer',
-                                                                      marginRight: '20px',
-                                                                      marginTop:"20px",
-                                                                      padding:"10px 25px",
-                                                                      boxShadow:'1px 1px 12px lightgrey '
-                                                                    }}>
-                                                                      Get A Quote
-                                                                    </button>
+                         
                           
                           </div>
                  </form>
@@ -595,7 +576,7 @@ const calculateDistance = async () => {
     
 
     </Container>
-      {/* <Congratulatons/>  */}
+      {/* <Location/>  */}
     {/* <Movement/>  */}
 
     </>
