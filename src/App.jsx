@@ -16,7 +16,7 @@ import DriversSignUp from './Component/DriversSignUp.jsx';
 import DriverTerms from './Component/DriverTerms.jsx';
 import DriversSignIn from './Component/DriversSignIn.jsx';
 import Movement from './Component/Movement.jsx';
-import Location from './Component/Location.jsx';
+// import Location from './Component/Location.jsx';
 import DriversDashboard from './Component/DriversDashboard.jsx';
 import DriversProfile from './Component/DriversProfile.jsx';
 import MailBox from './Component/MailBox.jsx';
@@ -32,79 +32,7 @@ import EstimateQoute from './Component/EstimateQoute.jsx';
 import Driver from './Component/Driver.jsx';
 import ProfileSettings from './Component/Profile.jsx';
 import OrderAssessment from './pages/orderAssessment.jsx';
-
-
-import Header from './Component/Header.jsx'
-import Footer from './pages/Footer.jsx'
-import {BrowserRouter, Routes, Route} from "react-router-dom"
-// // import SignUp from './Pages/Signup/Signup'
-import Team from './pages/Team.jsx'
-import Home from './pages/Home/Home.jsx'
-import OwnVan from './pages/OwnVan.jsx'
-import NeedVan from './pages/NeedVan.jsx'
-import OptionPage from './pages/OptionPage.jsx'
-
-// import OrderAssessment from './pages/orderAssessment.jsx'
-
-import SignUp from './Component/SignUp.jsx'
-import SignIn from './Component/SignIn.jsx'
-import DriversSignUp from './Component/DriversSignUp.jsx'
-import DriversSignIn from './Component/DriversSignIn.jsx'
-import Terms from './Component/Terms.jsx'
-import DriverTerms from './Component/DriverTerms.jsx'
-import Movement from "./Component/Movement.jsx";
-import Location from "./Component/Location.jsx"
-import DriversDashboard from './Component/DriversDashboard.jsx'
-import OrderAssessment from './pages/orderAssessment.jsx'
-import EstimateCard from './Component/EstimateCard.jsx'
-import EstimateQoute from './Component/EstimateQoute.jsx'
-import Driver from './Component/Driver.jsx'
-
-import ServicePage from './pages/Service.jsx'
-
-import { LoadScript } from '@react-google-maps/api';
-
-
-
-function App() {
-
-  return (
-    <>
-  
-     <BrowserRouter>
-         <Header/>
-         <Routes>
-          
-            <Route path="/" element={
-              <LoadScript googleMapsApiKey={'AIzaSyBBhijfr7zpw3AG27yONYmX8t5P2VlNUNo'} libraries={['places']}>
-                <Home/>
-                </LoadScript>} />
-            <Route path="/about-us" element={<Team />} />
-
-            <Route path="/Optionpage" element={<OptionPage/>} />
-            <Route path="/Ownvan" element={<OwnVan/>} />
-            <Route path="/Needvan" element={<NeedVan/>} />
-
-            <Route path="/SignUp" element={<SignUp/>} />
-            <Route path='/Terms' element={<Terms/>} />
-            <Route path="/SignIn" element={<SignIn/>} />
-            <Route path="/DriversSignUp" element={<DriversSignUp/>} />
-            <Route path="/DriverTerms" element={<DriverTerms/>} />
-            <Route path="/DriversSignIn" element={<DriversSignIn/>} />
-            <Route path="/Movement" element={<Movement/>} />
-            <Route path="/Location" element={<Location/>} />
-            <Route path="/OrderAssessment" element ={<OrderAssessment/>}/>
-            <Route path="/DriversDashboard" element={<DriversDashboard/>} />
-
-            <Route path="/EstimateCard" element={<EstimateCard/>} />
-            <Route path="/EstimateQuote" element={<EstimateQoute/>} />
-            <Route path ="/Driver" element={<Driver/>}/>
-            <Route path ="/Services" element={<ServicePage/>}/>
-
-
-       </Routes>
-       <Footer/>
-       </BrowserRouter>
+import Service from './pages/Service.jsx'
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -114,6 +42,7 @@ const Layout = ({ children }) => {
     '/MailBox',
     '/Order',
     '/Chat',
+    '/movement',
   ];
   const shouldHideHeaderFooter = hideHeaderFooterRoutes.includes(location.pathname);
 
@@ -122,7 +51,6 @@ const Layout = ({ children }) => {
       {!shouldHideHeaderFooter && <Header />}
       {children}
       {!shouldHideHeaderFooter && <Footer />}
-
     </>
   );
 };
@@ -141,13 +69,14 @@ function App() {
       <Route path="/driverssignup" element={<Layout><DriversSignUp /></Layout>} />
       <Route path="/driverterms" element={<Layout><DriverTerms /></Layout>} />
       <Route path="/driverssignin" element={<Layout><DriversSignIn /></Layout>} />
-      <Route path="/movement" element={<Layout><Movement /></Layout>} />
-      <Route path="/location" element={<Layout><Location /></Layout>} />
+      <Route path="/movement" element={<Movement />} />
+      {/* <Route path="/location" element={<Layout><Location /></Layout>} /> */}
       <Route path="/orderassessment" element={<Layout><OrderAssessment /></Layout>} />
       <Route path="/driversdashboard" element={<DriversDashboard />} />
       <Route path="/driversprofile" element={<DriversProfile />} />
       <Route path="/mailbox" element={<MailBox />} />
       <Route path="/order" element={<Order />} />
+   
       <Route path="/chat" element={<Chat />} />
       <Route path="/blog" element={<Layout><Blog /></Layout>} />
       <Route path="/payment" element={<Layout><PaymentPage /></Layout>} />
@@ -158,6 +87,7 @@ function App() {
       <Route path="/loginownvan" element={<Layout><LoginOwnVan /></Layout>} />
       <Route path="/loginneedvan" element={<Layout><LoginNeedVan /></Layout>} />
       <Route path="/loginoptionpage" element={<Layout><LoginOptionPage /></Layout>} />
+      <Route path='/service' element={<Layout><Service /></Layout>} />
     </Routes>
   );
 }
