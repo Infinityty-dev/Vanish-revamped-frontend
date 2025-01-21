@@ -33,6 +33,7 @@ import Driver from './Component/Driver.jsx';
 import ProfileSettings from './Component/Profile.jsx';
 import OrderAssessment from './pages/orderAssessment.jsx';
 import Service from './pages/Service.jsx'
+import { LoadScript } from '@react-google-maps/api'
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -58,7 +59,7 @@ const Layout = ({ children }) => {
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout><Home /></Layout>} />
+      <Route path="/" element={ <LoadScript googleMapsApiKey={'AIzaSyBBhijfr7zpw3AG27yONYmX8t5P2VlNUNo'} libraries={['places']}><Layout><Home /></Layout></LoadScript>} />
       <Route path="/about-us" element={<Layout><Team /></Layout>} />
       <Route path="/optionpage" element={<Layout><OptionPage /></Layout>} />
       <Route path="/ownvan" element={<Layout><OwnVan /></Layout>} />
