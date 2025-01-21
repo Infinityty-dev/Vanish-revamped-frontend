@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import Cookies from "js-cookie"
 import axios from "axios";
+
 // import { useNavigate } from "react-router-dom";
 
 
@@ -16,7 +17,10 @@ const Movement = () => {
         const [dropOffLocation, setdropOffLocation] = useState ('')
         const [dropOffZone, setdropOffZone] = useState ('')
         const [typeOfVehicle, settypeOfVehicle] = useState ('')
-
+        const [randomNumber, setrandomNumber] = useState ('') 
+        const amount = Math.floor(Math.random () * 300000)+ 100000
+        console.log(amount);
+        Cookies.set("amount", amount) 
         const [error, setError] = useState ('')
         const handleSubmit = async (e) => {
             e.preventDefault ();
@@ -139,9 +143,9 @@ return(
 
             <label>Type of Vehicle</label>
                     <select className="select" name="type of Vehicle" value={typeOfVehicle} onChange={handletypeOfVehicle} >
-                    <option value= "small"> Small Van</option> 
-                    <option value= "Medium">Medium Van</option>
-                    <option value= "Large">Large Van</option>
+                    <option value= "Small Vam"> Small Van</option> 
+                    <option value= "Medium Van">Medium Van</option>
+                    <option value= "Large Van">Large Van</option>
                     </select>
             <button onClick={handleSubmit}> Submit </button> 
             </Contain>

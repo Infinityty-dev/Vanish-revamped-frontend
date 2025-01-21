@@ -15,10 +15,18 @@ import Cookies from 'js-cookie';
 const OrderAssessment = () => {
   const [currentVan, setCurrentVan] = useState(0);
   const [getAssess, setGetAssess] = useState({})
+  const [randomNumber, setrandomNumber] = useState ('') 
+  
 
   const getOrderAccessment = async ()=>{
-    const user = Cookies.get("userId")
-    const userId = user._id
+    // const user = Cookies.get("userId")
+    const userId =  Cookies.get("userId")
+
+    const amount = Cookies.get("amount")
+    setrandomNumber(amount)
+
+    console.log(randomNumber);
+    
 
     const res = await axios.get(`https://vanish-backend.onrender.com/api/v1/movements/orderAssessment/${userId}`)
     setGetAssess(res.data.data)
@@ -86,7 +94,7 @@ console.log('from get access',getAssess)
             <Title>Price Summary:</Title>
             <Text>
               <span>Service Charge:</span>
-              <span>N 100,000.00</span>
+              <span>{randomNumber}</span>
             </Text>
             {/* <Text>
               <span>Required Services:</span>
