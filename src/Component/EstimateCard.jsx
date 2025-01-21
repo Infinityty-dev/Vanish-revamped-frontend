@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { BsEmojiLaughingFill } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai"; 
 import Button from "./Button"; 
-import { Link } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
-const EmailModal = ({ isOpen, onClose, onSubmitEmail, estimate }) => {
+const EmailModal = ({ isOpen, onClose, onSubmitEmail, randomNumber }) => {
   const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    // Side-effect if needed in the future
+  }, []);
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
@@ -18,10 +22,10 @@ const EmailModal = ({ isOpen, onClose, onSubmitEmail, estimate }) => {
         const orderId = Math.random().toString(36).substring(2, 15);
         const response = await axios.post("https://vanish-backend.onrender.com/api/v1/payment/makePayment", {
           email,
-          amount: 500,
+          amount: randomNumber,
           orderId: "hjsyduhe6398uv",
         });
-        
+
         console.log("Payment successful", response.data);
 
         if (response.data.success) {
@@ -34,7 +38,7 @@ const EmailModal = ({ isOpen, onClose, onSubmitEmail, estimate }) => {
     };
 
     payment();
-    setEmail("");
+    setEmail(""); // Reset the email input field
   };
 
   if (!isOpen) return null;
@@ -68,12 +72,21 @@ const EmailModal = ({ isOpen, onClose, onSubmitEmail, estimate }) => {
 
 const EstimateCard = ({ estimate = 0 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [randomNumber, setRandomNumber] = useState('');
+
+  useEffect(() => {
+    const amount = Cookies.get("amount");
+    if (amount) {
+      setRandomNumber(amount);
+    }
+  }, []);
 
   const handleOpenModal = () => {
-    console.log("Clicked");
     setIsModalOpen(true);
   };
+
   const handleCloseModal = () => setIsModalOpen(false);
+
   const handleSubmitEmail = (email) => {
     console.log("Email submitted:", email);
     handleCloseModal();
@@ -90,7 +103,7 @@ const EstimateCard = ({ estimate = 0 }) => {
           <BsEmojiLaughingFill />
         </Emoji>
         <p>Your VANit estimate is</p>
-        <p className="amount">NGN{estimate.toFixed(2)}</p>
+        <p className="amount">NGN{randomNumber}</p>
         <Button
           name="Pay Now"
           bgcolor="#126a10"
@@ -105,7 +118,7 @@ const EstimateCard = ({ estimate = 0 }) => {
         isOpen={isModalOpen} 
         onClose={handleCloseModal} 
         onSubmitEmail={handleSubmitEmail}
-        estimate={estimate} 
+        randomNumber={randomNumber} // Pass randomNumber prop here
       />
     </Container>
   );
@@ -113,6 +126,7 @@ const EstimateCard = ({ estimate = 0 }) => {
 
 export default EstimateCard;
 
+// Styled Components
 const ModalOverlay = styled.div`
   position: fixed;
   top: 0;

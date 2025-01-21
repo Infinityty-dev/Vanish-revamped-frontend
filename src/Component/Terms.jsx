@@ -1,5 +1,6 @@
 
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 const Terms = () => {
 
     return(
@@ -134,7 +135,7 @@ By requesting our Services, customers acknowledge that they have read, understoo
 
 <p>By requesting the Services, the Customer acknowledges that they have read, understood, and agreed to be bound by these Terms and Conditions. </p>
                <button className="btn">Cancel</button>
-               <button id="btn2">Agree</button>
+              <Link to="/SignUp"> <button id="btn2">Agree</button> </Link>
 
 
                 </Content>
