@@ -59,7 +59,7 @@ const Layout = ({ children }) => {
 function App() {
   return (
     <Routes>
-      <Route path="/" element={ <LoadScript googleMapsApiKey={process.env.GOOGLE_API} libraries={['places']}><Layout><Home /></Layout></LoadScript>} />
+      <Route path="/" element={ <LoadScript googleMapsApiKey={'AIzaSyBBhijfr7zpw3AG27yONYmX8t5P2VlNUNo'} libraries={['places']}><Layout><Home /></Layout></LoadScript>} />
       <Route path="/about-us" element={<Layout><Team /></Layout>} />
       <Route path="/optionpage" element={<Layout><OptionPage /></Layout>} />
       <Route path="/ownvan" element={<Layout><OwnVan /></Layout>} />

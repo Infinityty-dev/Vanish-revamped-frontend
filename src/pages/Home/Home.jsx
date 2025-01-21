@@ -295,7 +295,7 @@ const [cost, setCost] = useState('');
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState('');
 
-const API_KEY =process.env.GOOGLE_API ;
+const API_KEY ='AIzaSyBBhijfr7zpw3AG27yONYmX8t5P2VlNUNo' ;
 const MULTIPLIER = 1213;
 
 const onPlaceChanged = (type) => {
@@ -493,7 +493,7 @@ const calculateDistance = async () => {
                                               }}
                                             >
                                               <button style={{background:"transparent", color:"gray", position:"relative", right:"170px", top:"-10px"}} onClick={() => setQuoteVisible(false)} >X</button>
-                                              <h3 style={{fontSize:"20px", fontFamily:"poppins", color:"#126a10", marginTop:"-40px"}}  >Your VANit Estimate!</h3>
+                                              <h3 style={{fontSize:"20px", fontFamily:"poppins", color:"#126a10", marginTop:"-40px"}}  >Your vanIT Estimate!</h3>
                                               <img src={smile} className="emoji" />
                                               {error && <p style={{ color: 'red' }}>{error}</p>}
                                               {distance && <p>Distance: {distance}</p>}
